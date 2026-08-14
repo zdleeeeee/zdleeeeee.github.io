@@ -40,3 +40,8 @@ if (a == 8) {
 
 
 $\frac{e^{x_j}}{\sum^k_{i=0}{e^{x_i}}}$
+
+
+$$
+\frac{e^{x_j}}{\sum^k_{i=0}{e^{x_i}}}
+$$

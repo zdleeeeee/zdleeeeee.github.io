@@ -5,6 +5,13 @@ theme = 'PaperMod'
 [outputs]
   home = ["HTML", "RSS", "JSON"]
 
+# Let math delimiters pass through Goldmark untouched; KaTeX renders them client-side.
+[markup.goldmark.extensions.passthrough]
+  enable = true
+  [markup.goldmark.extensions.passthrough.delimiters]
+    block = [['\[', '\]'], ['$$', '$$']]
+    inline = [['\(', '\)'], ['$', '$']]
+
 [params]
   mainSections = ["posts"]
   
@@ -19,9 +26,9 @@ theme = 'PaperMod'
 
 [menu]
   [[menu.main]]
-    identifier = "home"
-    name = "home"
-    url = "/"
+    identifier = "posts"
+    name = "posts"
+    url = "/posts"
     weight = 1
     
   [[menu.main]]

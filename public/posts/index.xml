@@ -13,7 +13,9 @@
       <link>http://localhost:1313/posts/test1/</link>
       <pubDate>Fri, 14 Aug 2026 17:21:45 +0800</pubDate>
       <guid>http://localhost:1313/posts/test1/</guid>
-      <description></description>
+      <description>&lt;p&gt;dslkafjalksdj&lt;/p&gt;
+&lt;p&gt;asldkjalksjd&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;alkdsjflaj&lt;/code&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Hello World</title>
@@ -39,7 +41,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
-&lt;p&gt;$\frac{e^{x_j}}{\sum^k_{i=0}{e^{x_i}}}$&lt;/p&gt;</description>
+&lt;p&gt;\(\frac{e^{x_j}}{\sum^k_{i=0}{e^{x_i}}}\)&lt;/p&gt;
+\[
+\frac{e^{x_j}}{\sum^k_{i=0}{e^{x_i}}}
+\]</description>
     </item>
   </channel>
 </rss>

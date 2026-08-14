@@ -1,0 +1,5 @@
+/* KaTeX math: allow horizontal scrolling for long display formulas */
+.katex-display {
+    overflow-x: auto;
+    overflow-y: hidden;
+}
