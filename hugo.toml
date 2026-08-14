@@ -1,4 +1,55 @@
 baseURL = 'https://example.org/'
 locale = 'en-us'
-title = 'My New Hugo Project'
+title = 'Zed Lee'
 theme = 'PaperMod'
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+[params]
+  mainSections = ["posts"]
+  
+  fuseOpts = {
+    isCaseSensitive = false,
+    shouldSort = true,
+    minMatchCharLength = 2,
+    keys = ["title", "permalink", "summary", "content"]
+  }
+  
+  ShowAllPagesInArchive = true
+
+[menu]
+  [[menu.main]]
+    identifier = "home"
+    name = "home"
+    url = "/"
+    weight = 1
+    
+  [[menu.main]]
+    identifier = "archives"
+    name = "archives"
+    url = "/archives/"
+    weight = 2
+    
+   [[menu.main]]
+    identifier = "categories"
+    name = "categories"
+    url = "/categories/"
+    weight = 3
+    
+  [[menu.main]]
+    identifier = "tags"
+    name = "tags"
+    url = "/tags/"
+    weight = 4
+    
+  [[menu.main]]
+    identifier = "search"
+    name = "search"
+    url = "/search/"
+    weight = 5
+    
+  [[menu.main]]
+    identifier = "about"
+    name = "about"
+    url = "/about/"
+    weight = 6
