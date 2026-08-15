@@ -10,7 +10,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <link rel="canonical" href="http://localhost:1313/tags/test/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.e0c0185d55943a2a49ebfa49820f6a70b833568a40707e2d37775fe6d1118ef1.css" integrity="sha256-4MAYXVWUOipJ6/pJgg9qcLgzVopAcH4tN3df5tERjvE=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.09705845d4c7e79ff4239f56d8e135089c27cb9f44ce9138c59913f679a20327.css" integrity="sha256-CXBYRdTH55/0I59W2OE1CJwny59EzpE4xZkT9nmiAyc=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://localhost:1313/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
@@ -27,6 +27,17 @@
             display: none;
         }
 
+         
+        @media screen and (max-width: 768px) {
+            #menu-trigger {
+                display: none;
+            }
+
+            #menu.menu {
+                display: flex;
+                position: static;
+            }
+        }
     </style>
     <style>
         @media (prefers-color-scheme: dark) {
@@ -95,6 +106,15 @@
                 </button>
             </div>
         </div>
+        <button id="menu-trigger" class="menu-trigger" aria-haspopup="true" aria-expanded="false"
+            aria-controls="menu" aria-label="Menu">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path class="line top" d="M3 6h18"></path>
+                <path class="line middle" d="M3 12h18"></path>
+                <path class="line bottom" d="M3 18h18"></path>
+            </svg>
+        </button>
         <ul id="menu" class="menu">
             <li>
                 <a href="http://localhost:1313/" title="home">
@@ -114,6 +134,43 @@
         </ul>
     </nav>
 </header>
+<script>
+    
+    (function () {
+        var trigger = document.getElementById("menu-trigger");
+        var menu = document.getElementById("menu");
+        if (!trigger || !menu) return;
+
+        function setOpen(open) {
+            menu.classList.toggle("menu-open", open);
+            trigger.classList.toggle("menu-open", open);
+            trigger.setAttribute("aria-expanded", String(open));
+        }
+
+        trigger.addEventListener("click", function (event) {
+            event.stopPropagation();
+            setOpen(!menu.classList.contains("menu-open"));
+        });
+
+        
+        document.addEventListener("click", function (event) {
+            if (!menu.contains(event.target)) setOpen(false);
+        });
+        document.addEventListener("keydown", function (event) {
+            if (event.key === "Escape") setOpen(false);
+        });
+
+        
+        menu.addEventListener("click", function (event) {
+            if (event.target.closest("a")) setOpen(false);
+        });
+
+        
+        window.addEventListener("resize", function () {
+            if (window.innerWidth > 768) setOpen(false);
+        });
+    })();
+</script>
 <main class="main"> 
 <header class="page-header">
     <h1>
@@ -124,17 +181,8 @@
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
     <h2 class="entry-hint-parent">Test1
-      <span class="entry-hint" title="Draft">
-        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" fill="currentColor">
-          <path
-            d="M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z" />
-        </svg>
-      </span>
     </h2>
   </header>
-  <ul class="post-tags">
-    <li><a href="http://localhost:1313/tags/test/">Test</a></li>
-  </ul>
   <div class="entry-content">
     <p>dslkafjalksdj
 asldkjalksjd
@@ -143,7 +191,9 @@ alkdsjflaj
   </div>
   <footer class="entry-footer">
 
-<span title='2026-08-14 17:21:45 +0800 CST'>August 14, 2026</span></footer>
+<span title='2026-08-14 17:21:45 +0800 CST'>August 14, 2026</span>
+      <a href="http://localhost:1313/tags/test/" class="post-tag">Test</a>
+  </footer>
   <a class="entry-link" aria-label="post link to Test1" href="http://localhost:1313/posts/test1/"></a>
 </article>
 
@@ -152,9 +202,6 @@ alkdsjflaj
     <h2 class="entry-hint-parent">Hello World
     </h2>
   </header>
-  <ul class="post-tags">
-    <li><a href="http://localhost:1313/tags/test/">Test</a></li>
-  </ul>
   <div class="entry-content">
     <p>This is my first blog. Welcome!
 h1 h2 h3 h4 h5 h6 [!WARNING]
@@ -164,7 +211,9 @@ int a; a = 1; if (a == 8) { return -1; } \(\frac{e^{x_j}}{\sum^k_{i=0}{e^{x_i}}}
   </div>
   <footer class="entry-footer">
 
-<span title='2026-08-05 20:37:00 +0800 CST'>August 5, 2026</span>&nbsp;·&nbsp;<span>1 min</span></footer>
+<span title='2026-08-05 20:37:00 +0800 CST'>August 5, 2026</span>&nbsp;·&nbsp;<span>1 min</span>
+      <a href="http://localhost:1313/tags/test/" class="post-tag">Test</a>
+  </footer>
   <a class="entry-link" aria-label="post link to Hello World" href="http://localhost:1313/posts/hello-world/"></a>
 </article>
     </main>

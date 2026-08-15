@@ -33,6 +33,16 @@
     background: #ffffff00;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
+    transition: all 0.2s ease;
+}
+
+.menu a {
+    transition: all 0.2s ease;
+}
+
+.logo:active,
+.menu a:active {
+    transform: scale(0.9);
 }
 
 .logo {

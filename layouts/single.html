@@ -26,14 +26,12 @@
       {{- partial "translation_list.html" . -}}
       {{- partial "edit_post.html" . -}}
       {{- partial "post_canonical.html" . -}}
+
+      {{- range ($.GetTerms (.Language.Params.Taxonomies.tag | default "tags")) }}
+      <a href="{{ .Permalink }}" class="post-tag">{{ .LinkTitle }}</a>
+      {{- end }}
     </div>
     {{- end }}
-    {{- $tags := .Language.Params.Taxonomies.tag | default "tags" }}
-    <ul class="post-tags">
-      {{- range ($.GetTerms $tags) }}
-      <li><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
-      {{- end }}
-    </ul>
   </header>
   {{- $isHidden := (.Param "cover.hiddenInSingle") | default (.Param "cover.hidden") | default false }}
   {{- partial "cover.html" (dict "cxt" . "IsSingle" true "isHidden" $isHidden) }}

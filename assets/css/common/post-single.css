@@ -134,66 +134,37 @@ details li ul {
     gap: 10px;
 }
 
-.post-tags li {
+a.post-tag {
+    margin: 0px 5px;
     padding: 0 10px;
     background: var(--code-bg);
     border-radius: var(--radius);
     line-height: 1.2;
     display: inline-block;
-}
-
-.share-buttons,
-.paginav {
-    border-radius: var(--radius);
-    background: var(--code-bg);
-    border: 1px solid var(--border);
-}
-
-.post-tags a {
-    display: block;
-    padding: 0;
     color: var(--secondary);
     font-size: 14px;
     line-height: 28px;
     transition: all 0.2s ease;
+    text-decoration: none;
 }
 
-.post-tags a:hover {
+.post-tag:hover {
     font-weight: bold;
+    background: var(--border);
     letter-spacing: 0.5px;
 }
 
-.paginav a:hover {
-    background: var(--border);
-}
-
-.share-buttons {
-    padding: 10px;
-    display: flex;
-    justify-content: center;
-    overflow-x: auto;
-    gap: 10px;
-}
-
-.share-buttons li,
-.share-buttons a {
-    display: inline-flex;
-}
-
-.share-buttons a:not(:last-of-type) {
-    margin-inline-end: 12px;
+.post-tag:active {
+    transform: scale(0.9);
 }
 
 .paginav {
+    border-radius: var(--radius);
+    background: var(--code-bg);
+    border: 1px solid var(--border);
+    transition: all 0.2s ease;
     display: flex;
     line-height: 1.2;
-}
-
-.paginav .title {
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    font-size: 0.8rem;
-    color: var(--secondary);
 }
 
 .paginav a {
@@ -205,7 +176,80 @@ details li ul {
     border-radius: var(--radius);
 }
 
-.paginav span:hover:not(.title) {
+.paginav .prev,
+.paginav .next {
+    transition: all 0.2s ease;
+}
+
+.paginav .prev {
+    border-radius: var(--radius) 0 0 var(--radius);
+}
+
+.paginav .next {
+    border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+.paginav .prev:hover {
+    background: linear-gradient(to right, var(--tertiary) 30%, transparent 100%);
+    letter-spacing: 1px;
+}
+
+.paginav:has(.prev:hover) {
+    transform: translateX(-8px);
+}
+
+.paginav .next:hover {
+    background: linear-gradient(to left, var(--tertiary) 30%, transparent);
+    letter-spacing: 1px;
+}
+
+.paginav:has(.next:hover) {
+    transform: translateX(8px);
+}
+
+.share-buttons {
+    font-size: 0.8rem;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    overflow-x: auto;
+    gap: 10px;
+    background: none;
+    border: none;
+}
+
+.share-buttons li,
+.share-buttons a {
+    display: inline-flex;
+    color: var(--tertiary);
+    transition: all 0.2s ease;
+    border-radius: 5px;
+}
+
+.share-buttons a:hover {
+    color: var(--primary);
+    transform: scale(1.1);
+    box-shadow: 1px 1px 8px var(--tertiary);
+}
+
+.paginav:has(.next:active),
+.paginav:has(.prev:active),
+.share-buttons a:active {
+  transform: scale(0.9);
+}
+
+.share-buttons a:not(:last-of-type) {
+    margin-inline-end: 12px;
+}
+
+.paginav .title {
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    color: var(--secondary);
+}
+
+.paginav a:hover>span:not(.title) {
     text-underline-offset: 0.2rem;
     text-decoration: underline;
 }

@@ -10,7 +10,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <link rel="canonical" href="http://localhost:1313/tags/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.e0c0185d55943a2a49ebfa49820f6a70b833568a40707e2d37775fe6d1118ef1.css" integrity="sha256-4MAYXVWUOipJ6/pJgg9qcLgzVopAcH4tN3df5tERjvE=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.4f8b86bf91fa99536f1ff12233da5dd0a73bbdc0ecd7ebebb1f4c0c4af1c8653.css" integrity="sha256-T4uGv5H6mVNvH/EiM9pd0Kc7vcDs1&#43;vrsfTAxK8chlM=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://localhost:1313/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
@@ -27,6 +27,17 @@
             display: none;
         }
 
+         
+        @media screen and (max-width: 768px) {
+            #menu-trigger {
+                display: none;
+            }
+
+            #menu.menu {
+                display: flex;
+                position: static;
+            }
+        }
     </style>
     <style>
         @media (prefers-color-scheme: dark) {
@@ -95,6 +106,15 @@
                 </button>
             </div>
         </div>
+        <button id="menu-trigger" class="menu-trigger" aria-haspopup="true" aria-expanded="false"
+            aria-controls="menu" aria-label="Menu">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path class="line top" d="M3 6h18"></path>
+                <path class="line middle" d="M3 12h18"></path>
+                <path class="line bottom" d="M3 18h18"></path>
+            </svg>
+        </button>
         <ul id="menu" class="menu">
             <li>
                 <a href="http://localhost:1313/" title="home">
@@ -114,6 +134,43 @@
         </ul>
     </nav>
 </header>
+<script>
+    
+    (function () {
+        var trigger = document.getElementById("menu-trigger");
+        var menu = document.getElementById("menu");
+        if (!trigger || !menu) return;
+
+        function setOpen(open) {
+            menu.classList.toggle("menu-open", open);
+            trigger.classList.toggle("menu-open", open);
+            trigger.setAttribute("aria-expanded", String(open));
+        }
+
+        trigger.addEventListener("click", function (event) {
+            event.stopPropagation();
+            setOpen(!menu.classList.contains("menu-open"));
+        });
+
+        
+        document.addEventListener("click", function (event) {
+            if (!menu.contains(event.target)) setOpen(false);
+        });
+        document.addEventListener("keydown", function (event) {
+            if (event.key === "Escape") setOpen(false);
+        });
+
+        
+        menu.addEventListener("click", function (event) {
+            if (event.target.closest("a")) setOpen(false);
+        });
+
+        
+        window.addEventListener("resize", function () {
+            if (window.innerWidth > 768) setOpen(false);
+        });
+    })();
+</script>
 <main class="main">
 <header class="page-header">
     <h1>Tags</h1>

@@ -17,6 +17,20 @@ theme = 'PaperMod'
     inline = [['\(', '\)'], ['$', '$']]
 
 [params]
+  mainSections = ["posts"]
+  ShowAllPagesInArchive = true
+  ShowPostNavLinks = true
+  goBackButton = false
+  ShowShareButtons = true
+  ShowNavbar = true
+
+  fuseOpts = {
+    isCaseSensitive = false,
+    shouldSort = true,
+    minMatchCharLength = 2,
+    keys = ["title", "permalink", "summary", "content"]
+  }
+
   [params.profileMode]
     enabled = true
     title = "Zed Lee"
@@ -25,17 +39,6 @@ theme = 'PaperMod'
     imageTitle = ""
     imageWidth = 150
     imageHeight = 150
-  
-  fuseOpts = {
-    isCaseSensitive = false,
-    shouldSort = true,
-    minMatchCharLength = 2,
-    keys = ["title", "permalink", "summary", "content"]
-  }
-  
-  ShowAllPagesInArchive = true
-
-  goBackButton = false
 
 [menu]
   [[menu.main]]

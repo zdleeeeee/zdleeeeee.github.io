@@ -84,6 +84,17 @@
             </div>
             {{- end }}
         </div>
+        {{- if site.Menus.main }}
+        <button id="menu-trigger" class="menu-trigger" aria-haspopup="true" aria-expanded="false"
+            aria-controls="menu" aria-label="Menu">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path class="line top" d="M3 6h18"></path>
+                <path class="line middle" d="M3 12h18"></path>
+                <path class="line bottom" d="M3 18h18"></path>
+            </svg>
+        </button>
+        {{- end }}
         {{- $currentPage := . }}
         <ul id="menu" class="menu">
             {{- range site.Menus.main }}
@@ -112,3 +123,40 @@
         </ul>
     </nav>
 </header>
+<script>
+    // Mobile menu: toggle the dropdown panel (#menu.menu-open) via the hamburger button.
+    (function () {
+        var trigger = document.getElementById("menu-trigger");
+        var menu = document.getElementById("menu");
+        if (!trigger || !menu) return;
+
+        function setOpen(open) {
+            menu.classList.toggle("menu-open", open);
+            trigger.classList.toggle("menu-open", open);
+            trigger.setAttribute("aria-expanded", String(open));
+        }
+
+        trigger.addEventListener("click", function (event) {
+            event.stopPropagation();
+            setOpen(!menu.classList.contains("menu-open"));
+        });
+
+        // Close when clicking outside the panel or pressing Escape.
+        document.addEventListener("click", function (event) {
+            if (!menu.contains(event.target)) setOpen(false);
+        });
+        document.addEventListener("keydown", function (event) {
+            if (event.key === "Escape") setOpen(false);
+        });
+
+        // Close after activating a menu link.
+        menu.addEventListener("click", function (event) {
+            if (event.target.closest("a")) setOpen(false);
+        });
+
+        // Reset state when leaving the mobile breakpoint.
+        window.addEventListener("resize", function () {
+            if (window.innerWidth > 768) setOpen(false);
+        });
+    })();
+</script>

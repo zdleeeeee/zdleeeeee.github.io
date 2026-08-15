@@ -108,6 +108,18 @@
             display: none;
         }
 
+        /* Without JS the hamburger cannot toggle the panel, so keep the
+           inline menu visible on small screens instead. */
+        @media screen and (max-width: 768px) {
+            #menu-trigger {
+                display: none;
+            }
+
+            #menu.menu {
+                display: flex;
+                position: static;
+            }
+        }
     </style>
     {{- if (and (ne site.Params.defaultTheme "light") (ne site.Params.defaultTheme "dark")) }}
     <style>

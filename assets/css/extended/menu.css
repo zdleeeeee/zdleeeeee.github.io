@@ -1,0 +1,91 @@
+/*
+Collapsible header menu: hamburger button on small screens,
+clicking it opens a dropdown panel below the header with the full menu.
+*/
+
+/* Hamburger hidden on desktop; only shown inside the media query below. */
+#menu-trigger {
+    display: none;
+}
+
+/* Hamburger -> X animation (paths inside the svg). */
+#menu-trigger .line {
+    transition: transform 0.25s ease, opacity 0.25s ease;
+    transform-box: fill-box;
+    transform-origin: center;
+}
+
+#menu-trigger.menu-open .top {
+    transform: translateY(6px) rotate(45deg);
+}
+
+#menu-trigger.menu-open .middle {
+    opacity: 0;
+}
+
+#menu-trigger.menu-open .bottom {
+    transform: translateY(-6px) rotate(-45deg);
+}
+
+@media screen and (max-width: 768px) {
+    .header {
+        position: fixed;
+    }
+
+    #menu-trigger {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        align-self: center;
+        margin-left: auto;
+        padding: 0.4rem;
+        border: none;
+        background: none;
+        color: var(--primary);
+        cursor: pointer;
+    }
+
+    /* Collapse the inline menu; show it as a full-width dropdown panel. */
+    #menu.menu {
+        transform: translateY(-200%);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        row-gap: 0.25rem;
+        padding: var(--gap);
+        background: #ffffff00;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--border);
+        box-shadow: 0 12px 24px var(--tertiary);
+        z-index: 0;
+        white-space: normal;
+        overflow: visible;
+        transition: all 0.2s ease;
+    }
+
+    #menu.menu.menu-open {
+        transform: translateY(0%);
+        display: flex;
+    }
+
+    #menu.menu li {
+        align-items: center;
+        justify-content: center;
+    }
+
+    #menu.menu li a {
+        align-items: center;
+        text-align: center;
+        display: block;
+        padding: 0.55rem 0;
+        font-size: 1.05rem;
+    }
+
+    #menu.menu:active {
+        transform: scale(0.9);
+    }
+}

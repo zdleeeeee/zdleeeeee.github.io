@@ -5,6 +5,7 @@ title = 'Hello World'
 ShowToc = true
 tags = ['test']
 showReadingTime = true
+ShowPostNavLinks = true
 +++
 
 This is my first blog. Welcome!
