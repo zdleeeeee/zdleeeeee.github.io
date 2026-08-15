@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Test on Zed Lee</title>
+    <link>http://localhost:1313/tags/test/</link>
+    <description>Recent content in Test on Zed Lee</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 14 Aug 2026 17:21:45 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/test/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Test1</title>
+      <link>http://localhost:1313/posts/test1/</link>
+      <pubDate>Fri, 14 Aug 2026 17:21:45 +0800</pubDate>
+      <guid>http://localhost:1313/posts/test1/</guid>
+      <description>&lt;p&gt;dslkafjalksdj&lt;/p&gt;
+&lt;p&gt;asldkjalksjd&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;alkdsjflaj&lt;/code&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Hello World</title>
+      <link>http://localhost:1313/posts/hello-world/</link>
+      <pubDate>Wed, 05 Aug 2026 20:37:00 +0800</pubDate>
+      <guid>http://localhost:1313/posts/hello-world/</guid>
+      <description>&lt;p&gt;This is my first blog. Welcome!&lt;/p&gt;
+&lt;h1 id=&#34;h1&#34;&gt;h1&lt;/h1&gt;
+&lt;h2 id=&#34;h2&#34;&gt;h2&lt;/h2&gt;
+&lt;h3 id=&#34;h3&#34;&gt;h3&lt;/h3&gt;
+&lt;h4 id=&#34;h4&#34;&gt;h4&lt;/h4&gt;
+&lt;h5 id=&#34;h5&#34;&gt;h5&lt;/h5&gt;
+&lt;h6 id=&#34;h6&#34;&gt;h6&lt;/h6&gt;
+&lt;blockquote&gt;
+&lt;p&gt;[!WARNING]&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;aldsjflj&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; a;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;a &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (a &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;8&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;p&gt;\(\frac{e^{x_j}}{\sum^k_{i=0}{e^{x_i}}}\)&lt;/p&gt;
+\[
+\frac{e^{x_j}}{\sum^k_{i=0}{e^{x_i}}}
+\]</description>
+    </item>
+  </channel>
+</rss>

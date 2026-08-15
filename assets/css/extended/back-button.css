@@ -1,0 +1,19 @@
+.back-button-container {
+  margin: var(--content-gap) 0;
+}
+
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.3rem 1rem;
+  border-radius: 20px;
+  background: var(--tertiary);
+  color: var(--primary);
+  text-decoration: none;
+  font-size: 16px;
+  transition: all 0.2s;
+}
+
+.back-button:hover {
+  opacity: 0.8;
+}

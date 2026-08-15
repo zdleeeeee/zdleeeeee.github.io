@@ -4,6 +4,10 @@ title = 'Zed Lee'
 theme = 'PaperMod'
 [outputs]
   home = ["HTML", "RSS", "JSON"]
+  page = ["HTML"]
+  section = ["HTML", "RSS"]
+  taxonomy = ["HTML", "RSS"]
+  term = ["HTML", "RSS"]
 
 # Let math delimiters pass through Goldmark untouched; KaTeX renders them client-side.
 [markup.goldmark.extensions.passthrough]
@@ -13,7 +17,14 @@ theme = 'PaperMod'
     inline = [['\(', '\)'], ['$', '$']]
 
 [params]
-  mainSections = ["posts"]
+  [params.profileMode]
+    enabled = true
+    title = "Zed Lee"
+    subtitle = ""
+    imageUrl = "../assets/images/profile.jpg"
+    imageTitle = ""
+    imageWidth = 150
+    imageHeight = 150
   
   fuseOpts = {
     isCaseSensitive = false,
@@ -24,39 +35,23 @@ theme = 'PaperMod'
   
   ShowAllPagesInArchive = true
 
+  goBackButton = false
+
 [menu]
   [[menu.main]]
     identifier = "posts"
     name = "posts"
-    url = "/posts"
-    weight = 1
-    
-  [[menu.main]]
-    identifier = "archives"
-    name = "archives"
-    url = "/archives/"
+    url = "/posts/"
     weight = 2
-    
-   [[menu.main]]
-    identifier = "categories"
-    name = "categories"
-    url = "/categories/"
-    weight = 3
-    
-  [[menu.main]]
-    identifier = "tags"
-    name = "tags"
-    url = "/tags/"
-    weight = 4
     
   [[menu.main]]
     identifier = "search"
     name = "search"
     url = "/search/"
-    weight = 5
+    weight = 3
     
   [[menu.main]]
-    identifier = "about"
-    name = "about"
-    url = "/about/"
-    weight = 6
+    identifier = "home"
+    name = "home"
+    url = "/"
+    weight = 1

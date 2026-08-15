@@ -9,6 +9,7 @@
 
 .post-description {
     margin-top: 10px;
+    color: var(--secondary);
 }
 
 .post-meta {
@@ -127,16 +128,20 @@ details li ul {
 }
 
 .post-tags {
+    margin-top: var(--content-gap);
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
 }
 
 .post-tags li {
+    padding: 0 10px;
+    background: var(--code-bg);
+    border-radius: var(--radius);
+    line-height: 1.2;
     display: inline-block;
 }
 
-.post-tags a,
 .share-buttons,
 .paginav {
     border-radius: var(--radius);
@@ -146,14 +151,18 @@ details li ul {
 
 .post-tags a {
     display: block;
-    padding: 0 14px;
+    padding: 0;
     color: var(--secondary);
     font-size: 14px;
-    line-height: 34px;
-    background: var(--code-bg);
+    line-height: 28px;
+    transition: all 0.2s ease;
 }
 
-.post-tags a:hover,
+.post-tags a:hover {
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
 .paginav a:hover {
     background: var(--border);
 }

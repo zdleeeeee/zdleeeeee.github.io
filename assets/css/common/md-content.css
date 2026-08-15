@@ -24,11 +24,12 @@
 }
 
 .md-content h5 {
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .md-content h6 {
     font-size: 18px;
+    color: var(--secondary);
 }
 
 .md-content a:not(.anchor) {

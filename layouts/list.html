@@ -6,8 +6,9 @@
 
 {{- if not .IsHome | and .Title }}
 <header class="page-header">
+  {{- partial "back-button.html" . }}
   {{- partial "breadcrumbs.html" . }}
-  <h1>
+    <h1>
     {{ .Title }}
     {{- if and (or (eq .Kind `term`) (eq .Kind `section`)) (.Param "ShowRssButtonInSectionTermList") }}
     {{- with .OutputFormats.Get "rss" }}
@@ -28,6 +29,21 @@
   </div>
   {{- end }}
 </header>
+{{- end }}
+
+{{- if .Params.showTags }}
+<div class = 'list-nav'>
+  <div class="category-nav">
+    {{- range $name, $taxonomy := site.Taxonomies.tags }}
+      <a href="{{ printf "/tags/%s/" $name | relURL }}" class="category-btn">
+        {{ $name }} <sup>{{ $taxonomy.Count }}</sup>
+      </a>
+    {{- end }}
+  </div>
+  <a href="{{ "/archives/" | relURL }}" class="archives-btn">
+      View all posts by years
+  </a>
+</div>
 {{- end }}
 
 {{- if .Content }}
@@ -79,6 +95,13 @@
       {{- end }}
     </h2>
   </header>
+  {{- with (.GetTerms "tags") }}
+  <ul class="post-tags">
+    {{- range . }}
+    <li><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
+    {{- end }}
+  </ul>
+  {{- end }}
   {{- if (ne (.Param "hideSummary") true) }}
   <div class="entry-content">
     <p>{{ .Summary | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}</p>

@@ -69,8 +69,18 @@
     line-height: 1.3;
 }
 
+.post-entry .post-tags {
+    margin-top: 5px;
+}
+
+.post-entry .post-tags li {
+    position: relative;
+    z-index: 1;
+    margin: 0;
+}
+
 .entry-content {
-    margin: 8px 0;
+    margin: 5px 0;
     color: var(--secondary);
     font-size: 14px;
     line-height: 1.6;
