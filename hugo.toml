@@ -23,6 +23,7 @@ theme = 'PaperMod'
   goBackButton = false
   ShowShareButtons = true
   ShowNavbar = true
+  ShowReadTime = true
 
   fuseOpts = {
     isCaseSensitive = false,
