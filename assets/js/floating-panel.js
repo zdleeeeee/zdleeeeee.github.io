@@ -50,6 +50,7 @@
             dialog.showModal();
             trigger.setAttribute('aria-expanded', 'true');
             document.documentElement.classList.add('floating-panel-modal-open');
+            panel.dispatchEvent(new CustomEvent('floating-panel:open'));
         });
         closeButton.addEventListener('click', () => closeDialog());
         dialog.addEventListener('animationend', (event) => {

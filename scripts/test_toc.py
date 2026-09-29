@@ -126,6 +126,19 @@ function findStyleRules(ruleList, selector) {
     const linkRect = tocLink.getBoundingClientRect();
     const rowEdgeTarget = doc.elementFromPoint(linkRect.right - 2, linkRect.top + linkRect.height / 2);
     check(rowEdgeTarget?.closest('a') === tocLink, 'TOC row edge is not clickable');
+    const dialogLinks = Array.from(tocInner.querySelectorAll('a[href^="#"]'));
+    const dialogSegments = Array.from(tocInner.querySelectorAll('.toc-section-progress'));
+    const activeDialogLinks = dialogLinks.filter(link => link.classList.contains('is-active'));
+    check(activeDialogLinks.length > 0, 'Dialog TOC has no active headings');
+    const firstActiveIndex = dialogLinks.indexOf(activeDialogLinks[0]);
+    const activeLinkRect = activeDialogLinks[0].getBoundingClientRect();
+    const activeSegmentRect = dialogSegments[firstActiveIndex].getBoundingClientRect();
+    check(Math.abs(activeSegmentRect.top - activeLinkRect.top - 2) < 1 && Math.abs(activeSegmentRect.height - Math.max(3, activeLinkRect.height - 4)) < 1, `Dialog TOC progress segment is not aligned with its heading: segment=${activeSegmentRect.top}/${activeSegmentRect.height}, link=${activeLinkRect.top}/${activeLinkRect.height}`);
+    check(dialogSegments[firstActiveIndex].querySelector('.toc-section-progress-fill').getBoundingClientRect().height > 0, 'Dialog TOC active progress fill is empty');
+    const dialogActiveFrame = tocInner.querySelector('.toc-active-frame');
+    const dialogLastActiveRect = activeDialogLinks.at(-1).getBoundingClientRect();
+    const dialogFrameRect = dialogActiveFrame.getBoundingClientRect();
+    check(win.getComputedStyle(dialogActiveFrame).opacity === '1' && Math.abs(dialogFrameRect.top - activeLinkRect.top) < 1 && Math.abs(dialogFrameRect.height - (dialogLastActiveRect.bottom - activeLinkRect.top)) < 1, 'Dialog TOC active frame does not cover the active headings');
     const extra = doc.createElement('div');
     extra.textContent = 'Long heading '.repeat(600);
     dialogBody.append(extra);
@@ -256,7 +269,7 @@ function findStyleRules(ruleList, selector) {
       check(listDoc.documentElement.scrollWidth <= listWin.innerWidth, 'Posts overflow at width ' + width);
       check(listWin.getComputedStyle(tagsTrigger).display !== 'none' && !tagsTrigger.hidden, 'Tags trigger hidden at width ' + width);
       check(listWin.getComputedStyle(tagsSidebar).display === 'none', 'Tags sidebar visible at width ' + width);
-      check(tagsTrigger.getBoundingClientRect().bottom < listDoc.getElementById('top-link').getBoundingClientRect().top, 'Tags trigger is not above the top-link position at width ' + width);
+      check(Math.abs(listWin.innerHeight - tagsTrigger.getBoundingClientRect().bottom - 110) < 1, 'Tags trigger is too high at width ' + width);
     }
     tagsTrigger.click();
     check(tagsDialog.open && tagsHost.parentElement === tagsDialog.querySelector('.floating-panel-dialog-body'), 'Tags dialog did not open with the original content host');

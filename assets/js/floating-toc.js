@@ -27,6 +27,20 @@
     tocInner.prepend(segmentFragment);
     let updatePending = false;
 
+    function getLocalMetrics(element) {
+        let top = 0;
+        let node = element;
+        while (node && node !== tocInner) {
+            top += node.offsetTop;
+            node = node.offsetParent;
+        }
+        if (node === tocInner) return { top, height: element.offsetHeight };
+
+        const elementRect = element.getBoundingClientRect();
+        const innerRect = tocInner.getBoundingClientRect();
+        return { top: elementRect.top - innerRect.top, height: elementRect.height };
+    }
+
     function updateTocState() {
         updatePending = false;
         if (!sections.length) return;
@@ -35,7 +49,6 @@
         const viewportTop = scrollY + parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header-height') || 0);
         const viewportBottom = scrollY + window.innerHeight;
         const articleBottom = article.getBoundingClientRect().bottom + scrollY;
-        const innerRect = tocInner.getBoundingClientRect();
 
         sections.forEach((section, index) => {
             const sectionTop = section.heading.getBoundingClientRect().top + scrollY;
@@ -48,22 +61,22 @@
             const progress = sectionLength > 0
                 ? Math.min(1, Math.max(0, (viewportBottom - sectionTop) / sectionLength))
                 : Number(viewportBottom >= sectionBottom);
-            const linkRect = section.link.getBoundingClientRect();
+            const linkMetrics = getLocalMetrics(section.link);
             section.link.classList.toggle('is-active', isActive);
             section.segment.classList.toggle('is-active', isActive);
             section.segment.classList.toggle('is-read', !isActive && progress >= 1);
-            section.segment.style.top = `${linkRect.top - innerRect.top + 2}px`;
-            section.segment.style.height = `${Math.max(3, linkRect.height - 4)}px`;
+            section.segment.style.top = `${linkMetrics.top + 2}px`;
+            section.segment.style.height = `${Math.max(3, linkMetrics.height - 4)}px`;
             section.fill.style.setProperty('--toc-section-progress', `${progress * 100}%`);
         });
 
         const activeLinks = tocLinks.filter(link => link.classList.contains('is-active'));
         tocInner.classList.toggle('has-active', activeLinks.length > 0);
         if (!activeLinks.length) return;
-        const firstRect = activeLinks[0].getBoundingClientRect();
-        const lastRect = activeLinks[activeLinks.length - 1].getBoundingClientRect();
-        tocInner.style.setProperty('--toc-active-top', `${firstRect.top - innerRect.top}px`);
-        tocInner.style.setProperty('--toc-active-height', `${lastRect.bottom - firstRect.top}px`);
+        const firstMetrics = getLocalMetrics(activeLinks[0]);
+        const lastMetrics = getLocalMetrics(activeLinks[activeLinks.length - 1]);
+        tocInner.style.setProperty('--toc-active-top', `${firstMetrics.top}px`);
+        tocInner.style.setProperty('--toc-active-height', `${lastMetrics.top + lastMetrics.height - firstMetrics.top}px`);
     }
 
     function scheduleTocUpdate() {
@@ -74,5 +87,6 @@
 
     window.addEventListener('scroll', scheduleTocUpdate, { passive: true });
     window.addEventListener('resize', scheduleTocUpdate);
+    panel.addEventListener('floating-panel:open', scheduleTocUpdate);
     scheduleTocUpdate();
 })();
