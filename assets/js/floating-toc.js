@@ -1,23 +1,17 @@
 (() => {
-    const sidebar = document.getElementById('toc-sidebar');
-    const dialog = document.getElementById('toc-dialog');
-    const trigger = document.getElementById('toc-trigger');
-    const toc = sidebar?.querySelector('.toc');
-    if (!toc || !toc.querySelector('a[href^="#"]') || !dialog || !trigger) return;
-
-    const desktop = window.matchMedia('(min-width: 1001px)');
-    const dialogBody = dialog.querySelector('.toc-dialog-body');
-    const tocInner = toc.querySelector('.inner');
-    const tocLinks = Array.from(toc.querySelectorAll('a[href^="#"]'));
+    const panel = document.querySelector('.floating-panel[data-panel-id="toc"]');
+    const toc = panel?.querySelector('.toc');
+    const tocInner = toc?.querySelector('.inner');
     const article = document.querySelector('.post-content');
+    if (!toc || !tocInner || !article) return;
+
+    const tocLinks = Array.from(toc.querySelectorAll('a[href^="#"]'));
+    if (!tocLinks.length) return;
     const segmentFragment = document.createDocumentFragment();
     const sections = tocLinks.map((link) => {
         let id;
-        try {
-            id = decodeURIComponent(link.hash.slice(1));
-        } catch {
-            id = link.hash.slice(1);
-        }
+        try { id = decodeURIComponent(link.hash.slice(1)); }
+        catch { id = link.hash.slice(1); }
         const heading = document.getElementById(id);
         if (!heading) return null;
         const segment = document.createElement('span');
@@ -31,39 +25,16 @@
         return { link, heading, segment, fill };
     }).filter(Boolean);
     tocInner.prepend(segmentFragment);
-    let restoreTriggerFocus = true;
     let updatePending = false;
-    let closeTimer;
-    let afterClose;
-    trigger.hidden = false;
-
-    function finishDialogClose() {
-        clearTimeout(closeTimer);
-        closeTimer = undefined;
-        dialog.classList.remove('is-closing');
-        if (dialog.open) dialog.close();
-        const callback = afterClose;
-        afterClose = undefined;
-        callback?.();
-    }
-
-    function closeDialog(callback) {
-        if (!dialog.open) return;
-        if (callback) afterClose = callback;
-        if (dialog.classList.contains('is-closing')) return;
-        dialog.classList.add('is-closing');
-        closeTimer = setTimeout(finishDialogClose, 250);
-    }
 
     function updateTocState() {
         updatePending = false;
-        if (!article || !tocInner || !sections.length) return;
+        if (!sections.length) return;
 
         const scrollY = window.scrollY;
         const viewportTop = scrollY + parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header-height') || 0);
         const viewportBottom = scrollY + window.innerHeight;
-        const articleRect = article.getBoundingClientRect();
-        const articleBottom = articleRect.bottom + scrollY;
+        const articleBottom = article.getBoundingClientRect().bottom + scrollY;
         const innerRect = tocInner.getBoundingClientRect();
 
         sections.forEach((section, index) => {
@@ -101,63 +72,7 @@
         requestAnimationFrame(updateTocState);
     }
 
-    function syncLayout() {
-        restoreTriggerFocus = false;
-        if (dialog.open) {
-            afterClose = undefined;
-            finishDialogClose();
-        }
-        (desktop.matches ? sidebar : dialogBody).append(toc);
-        scheduleTocUpdate();
-    }
-
-    trigger.addEventListener('click', () => {
-        if (desktop.matches) return;
-        restoreTriggerFocus = true;
-        trigger.focus({ preventScroll: true });
-        dialog.showModal();
-        trigger.setAttribute('aria-expanded', 'true');
-        document.documentElement.classList.add('toc-modal-open');
-        scheduleTocUpdate();
-    });
-    dialog.querySelector('.toc-close').addEventListener('click', () => closeDialog());
-    dialog.addEventListener('animationend', (event) => {
-        if (event.animationName === 'toc-dialog-out') finishDialogClose();
-    });
-    dialog.addEventListener('cancel', (event) => {
-        event.preventDefault();
-        closeDialog();
-    });
-    dialog.addEventListener('close', () => {
-        clearTimeout(closeTimer);
-        closeTimer = undefined;
-        dialog.classList.remove('is-closing');
-        trigger.setAttribute('aria-expanded', 'false');
-        document.documentElement.classList.remove('toc-modal-open');
-        if (restoreTriggerFocus && !desktop.matches) trigger.focus({ preventScroll: true });
-    });
-    dialog.addEventListener('click', (event) => {
-        if (event.target !== dialog) return;
-        const rect = dialog.getBoundingClientRect();
-        if (event.clientX < rect.left || event.clientX > rect.right ||
-            event.clientY < rect.top || event.clientY > rect.bottom) closeDialog();
-    });
-    // Close before the theme's anchor handler scrolls to the heading.
-    dialog.addEventListener('click', (event) => {
-        const link = event.target.closest('a[href^="#"]');
-        if (!link) return;
-        restoreTriggerFocus = false;
-        const heading = document.getElementById(decodeURIComponent(link.hash.slice(1)));
-        closeDialog(() => {
-            if (!heading) return;
-            const hadTabindex = heading.hasAttribute('tabindex');
-            if (!hadTabindex) heading.setAttribute('tabindex', '-1');
-            heading.focus({ preventScroll: true });
-            if (!hadTabindex) heading.addEventListener('blur', () => heading.removeAttribute('tabindex'), { once: true });
-        });
-    }, true);
     window.addEventListener('scroll', scheduleTocUpdate, { passive: true });
     window.addEventListener('resize', scheduleTocUpdate);
-    desktop.addEventListener('change', syncLayout);
-    syncLayout();
+    scheduleTocUpdate();
 })();

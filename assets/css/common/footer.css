@@ -71,12 +71,22 @@ body:has(.post-single) :is(.reading-progress, .progress-arrow) {
     transition: opacity 200ms ease;
 }
 
-body:has(.post-single) .top-link:is(:hover, :focus-visible) .reading-progress {
+body:has(.post-single) .top-link:focus-visible .reading-progress {
     opacity: 0;
 }
 
-body:has(.post-single) .top-link:is(:hover, :focus-visible) .progress-arrow {
+body:has(.post-single) .top-link:focus-visible .progress-arrow {
     opacity: 1;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    body:has(.post-single) .top-link:hover .reading-progress {
+        opacity: 0;
+    }
+
+    body:has(.post-single) .top-link:hover .progress-arrow {
+        opacity: 1;
+    }
 }
 
 .hidden {
@@ -90,8 +100,7 @@ body:has(.post-single) .top-link:is(:hover, :focus-visible) .progress-arrow {
 }
 
 .footer a:hover,
-.top-link:hover,
-#toc-trigger:hover {
+.top-link:hover {
     color: var(--primary);
 }
 

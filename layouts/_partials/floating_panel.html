@@ -1,0 +1,28 @@
+{{- $id := .ID -}}
+{{- $sidebarID := printf "%s-sidebar" $id -}}
+{{- $triggerID := printf "%s-trigger" $id -}}
+{{- $dialogID := printf "%s-dialog" $id -}}
+{{- $dialogTitleID := printf "%s-dialog-title" $id -}}
+<div class="floating-panel {{ .Class }}" data-panel-id="{{ $id }}">
+    <button id="{{ $triggerID }}" class="floating-panel-trigger" type="button" hidden
+        aria-haspopup="dialog" aria-expanded="false" aria-controls="{{ $dialogID }}" aria-label="{{ .Label }}">
+        {{- .TriggerIcon | safeHTML -}}
+    </button>
+    <aside id="{{ $sidebarID }}" class="floating-panel-sidebar" aria-label="{{ .Label }}">
+        <div class="floating-panel-title">{{ .Title }}</div>
+        <div class="floating-panel-content">
+            {{- .Content -}}
+        </div>
+    </aside>
+    <dialog id="{{ $dialogID }}" class="floating-panel-dialog" aria-labelledby="{{ $dialogTitleID }}">
+        <div class="floating-panel-dialog-header">
+            <h2 id="{{ $dialogTitleID }}">{{ .Title }}</h2>
+            <button type="button" class="floating-panel-close" aria-label="{{ i18n "close" | default "Close" }}" autofocus>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="m6 6 12 12M18 6 6 18" />
+                </svg>
+            </button>
+        </div>
+        <div class="floating-panel-dialog-body"></div>
+    </dialog>
+</div>

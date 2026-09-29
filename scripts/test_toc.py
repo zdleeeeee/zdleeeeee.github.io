@@ -10,6 +10,17 @@ import threading
 ROOT = Path(__file__).resolve().parents[1]
 BROWSER = Path(os.environ.get("PROGRAMFILES", "C:/Program Files")) / "Google/Chrome/Application/chrome.exe"
 
+header_source = (ROOT / "layouts/_partials/header.html").read_text(encoding="utf-8")
+panel_css_source = (ROOT / "assets/css/extended/floating-panel.css").read_text(encoding="utf-8")
+toc_css_source = (ROOT / "assets/css/extended/toc.css").read_text(encoding="utf-8")
+panel_js_source = (ROOT / "assets/js/floating-panel.js").read_text(encoding="utf-8")
+toc_js_source = (ROOT / "assets/js/floating-toc.js").read_text(encoding="utf-8")
+assert 'id="toc-trigger"' not in header_source, "TOC trigger remains in header.html"
+assert "@media (min-width: 1001px)" in panel_css_source and "width: 240px" in panel_css_source, "Shared panel CSS does not own the responsive sidebar"
+assert "floating-panel-dialog" not in toc_css_source, "TOC CSS still owns shared dialog styling"
+assert "showModal" in panel_js_source and "matchMedia" in panel_js_source, "Shared panel controller does not own dialog/responsive behavior"
+assert all(token not in toc_js_source for token in ("showModal", "matchMedia", ".close()")), "TOC controller still owns shared panel behavior"
+
 CHECKS = r'''<!doctype html><html><body><img src="/hold" hidden><iframe id="page" style="width:390px;height:844px;border:0"></iframe>
 <script>
 const frame = document.getElementById('page');
@@ -24,22 +35,54 @@ function resolveColor(doc, win, value) {
   sample.remove();
   return color;
 }
+function findStyleRules(ruleList, selector) {
+  const matches = [];
+  for (const rule of ruleList) {
+    if (rule.selectorText?.includes(selector)) matches.push(rule);
+    if (rule.cssRules) matches.push(...findStyleRules(rule.cssRules, selector));
+  }
+  return matches;
+}
 (async () => {
   try {
     await load('/posts/20260805hello-world/');
     const doc = frame.contentDocument, win = frame.contentWindow;
-    const trigger = doc.getElementById('toc-trigger');
-    const dialog = doc.getElementById('toc-dialog');
+    const panel = doc.querySelector('.floating-panel[data-panel-id="toc"]');
+    check(panel, 'TOC is not rendered through the shared floating panel');
+    const trigger = panel.querySelector('#toc-trigger');
+    const dialog = panel.querySelector('#toc-dialog');
+    const sidebar = panel.querySelector('#toc-sidebar');
+    const contentHost = panel.querySelector('.floating-panel-content');
     const topLink = doc.getElementById('top-link');
     const progress = topLink?.querySelector('.reading-progress');
     const progressArrow = topLink?.querySelector('.progress-arrow');
-    check(trigger && dialog, 'Missing TOC button/dialog');
+    const inlineCode = doc.querySelector('.post-content p code');
+    const codeBlock = doc.querySelector('.post-content pre > code');
+    const copyButton = doc.querySelector('.post-content .copy-code');
+    check(trigger && dialog && sidebar && contentHost, 'Shared TOC panel structure is incomplete');
+    check(!doc.querySelector('.header #toc-trigger'), 'TOC trigger remains coupled to the site header');
+    check(new Set([trigger.id, dialog.id, sidebar.id]).size === 3, 'Floating panel IDs are not unique');
     check(topLink && progress, 'Missing reading progress control');
     check(progressArrow, 'Missing rounded progress arrow');
+    check(inlineCode && codeBlock, 'Missing code samples');
+    const isMonospaceFamily = value => /consolas|monospace/i.test(value);
+    check(isMonospaceFamily(win.getComputedStyle(inlineCode).fontFamily) && isMonospaceFamily(win.getComputedStyle(codeBlock).fontFamily), 'Code does not use a monospace font family');
+    const codeFontRules = Array.from(doc.styleSheets).flatMap(sheet => {
+      try { return findStyleRules(sheet.cssRules, 'code').filter(rule => isMonospaceFamily(rule.style.fontFamily)); }
+      catch { return []; }
+    });
+    check(codeFontRules.some(rule => rule.selectorText.split(',').some(selector => selector.trim() === 'code')) && codeFontRules.some(rule => rule.selectorText.split(',').some(selector => selector.trim() === 'pre')), 'Code font family is not explicitly set to a monospace family');
+    check(copyButton, 'Missing code copy button');
+    check(win.getComputedStyle(copyButton).display !== 'none' && win.getComputedStyle(copyButton).visibility === 'visible', 'Code copy button is hidden without hover');
     check(win.getComputedStyle(topLink).visibility === 'visible', 'Post progress control is not always visible');
     check(progress.textContent === '0%', 'Reading progress does not start at 0%');
     check(win.getComputedStyle(progress).opacity === '1' && win.getComputedStyle(progressArrow).opacity === '0', 'Progress and arrow initial visibility is wrong');
     check(win.getComputedStyle(progress).transitionDuration === '0.2s', 'Progress fade duration is not 200ms');
+    const hoverProgressRules = Array.from(doc.styleSheets).flatMap(sheet => {
+      try { return findStyleRules(sheet.cssRules, '.top-link:hover .reading-progress'); }
+      catch { return []; }
+    });
+    check(hoverProgressRules.length > 0 && hoverProgressRules.every(rule => rule.parentRule?.conditionText?.includes('hover: hover')), 'Touch devices can retain the progress button hover state');
     check(progressArrow.querySelector('path').getAttribute('stroke-linecap') === 'round' && progressArrow.querySelector('path').getAttribute('stroke-linejoin') === 'round', 'Progress arrow is not rounded');
     topLink.focus();
     await pause(250);
@@ -62,16 +105,16 @@ function resolveColor(doc, win, value) {
     trigger.click();
     check(dialog.open, 'Button did not open dialog');
     const openingStyle = win.getComputedStyle(dialog);
-    check(openingStyle.animationName === 'toc-dialog-in' && openingStyle.animationDuration === '0.2s', 'Dialog does not use the 200ms opening animation');
+    check(openingStyle.animationName === 'floating-panel-dialog-in' && openingStyle.animationDuration === '0.2s', 'Dialog does not use the shared 200ms opening animation');
     check(dialog.contains(doc.activeElement), 'Focus did not enter dialog');
     check(!dialog.querySelector('details, summary'), 'TOC remains collapsible');
-    const tocTitle = dialog.querySelector('.toc-title');
-    check(tocTitle && win.getComputedStyle(tocTitle).display === 'none', 'Dialog repeats the desktop TOC title');
+    check(!dialog.querySelector('.toc-title'), 'Dialog content retains a TOC-specific panel title');
     await pause(250);
     const rect = dialog.getBoundingClientRect();
     check(Math.abs(rect.left + rect.width / 2 - win.innerWidth / 2) < 2, 'Dialog not horizontally centered');
     check(Math.abs(rect.top + rect.height / 2 - win.innerHeight / 2) < 2, 'Dialog not vertically centered');
-    const dialogBody = dialog.querySelector('.toc-dialog-body');
+    const dialogBody = dialog.querySelector('.floating-panel-dialog-body');
+    check(contentHost.parentElement === dialogBody, 'Mobile layout did not move the original content host into the dialog');
     const tocInner = dialog.querySelector('.toc .inner');
     const tocLink = tocInner.querySelector('a[href^="#"]');
     const innerStyle = win.getComputedStyle(tocInner);
@@ -97,7 +140,7 @@ function resolveColor(doc, win, value) {
     check(!dialog.open && win.location.hash, 'Heading link did not close dialog and navigate');
     trigger.click();
     await pause(250);
-    dialog.querySelector('.toc-close').click();
+    dialog.querySelector('.floating-panel-close').click();
     check(dialog.open && dialog.classList.contains('is-closing'), 'Close button skipped the closing animation');
     await pause(250);
     check(!dialog.open && doc.activeElement === trigger, 'Close did not restore focus: ' + doc.activeElement.outerHTML.slice(0, 220) + ', open=' + dialog.open);
@@ -111,14 +154,14 @@ function resolveColor(doc, win, value) {
     frame.style.width = '1600px';
     await pause();
     check(!dialog.open, 'Resize left dialog open');
-    const sidebar = doc.getElementById('toc-sidebar');
     check(sidebar.querySelector('.toc'), 'Desktop TOC not restored');
+    check(contentHost.parentElement === sidebar, 'Desktop layout did not restore the original content host to the sidebar');
     check(win.getComputedStyle(sidebar).position === 'fixed', 'Desktop TOC not floating');
     check(win.getComputedStyle(trigger).display === 'none', 'Desktop button visible');
     const sideRect = sidebar.getBoundingClientRect();
     const bodyRect = doc.querySelector('.post-content').getBoundingClientRect();
     check(sideRect.left >= bodyRect.right - 1 && sideRect.right <= win.innerWidth, 'Sidebar is not to the right of the body');
-    check(win.getComputedStyle(sidebar.querySelector('.toc-title')).display !== 'none', 'Desktop TOC title is hidden');
+    check(win.getComputedStyle(sidebar.querySelector('.floating-panel-title')).display !== 'none', 'Desktop panel title is hidden');
     const activeFrame = sidebar.querySelector('.toc-active-frame');
     const tocLinks = Array.from(sidebar.querySelectorAll('.toc a[href^="#"]'));
     const progressSegments = Array.from(sidebar.querySelectorAll('.toc-section-progress'));

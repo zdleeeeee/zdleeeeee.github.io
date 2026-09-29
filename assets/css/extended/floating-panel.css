@@ -1,0 +1,192 @@
+.floating-panel {
+    display: contents;
+}
+
+.floating-panel-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 110px;
+    right: 30px;
+    z-index: 99;
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+    border-radius: 64px;
+    background: var(--code-bg);
+    color: var(--secondary);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.floating-panel-trigger[hidden] {
+    display: none;
+}
+
+.floating-panel-trigger:hover {
+    color: var(--primary);
+}
+
+.floating-panel-sidebar {
+    display: none;
+}
+
+.floating-panel-title {
+    padding: 5px 10px;
+    font-weight: 500;
+}
+
+.floating-panel-dialog {
+    position: fixed;
+    inset: 0;
+    width: min(480px, calc(100% - 32px));
+    max-height: calc(100dvh - 48px);
+    margin: auto;
+    padding: 0;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--theme);
+    color: var(--primary);
+    box-shadow: 0 16px 60px #0004;
+    overflow: hidden;
+}
+
+.floating-panel-dialog[open] {
+    display: flex;
+    flex-direction: column;
+    animation: floating-panel-dialog-in 0.2s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.floating-panel-dialog[open].is-closing {
+    animation: floating-panel-dialog-out 0.2s ease-in both;
+}
+
+.floating-panel-dialog::backdrop {
+    background: #0006;
+    backdrop-filter: blur(4px);
+}
+
+.floating-panel-dialog[open]::backdrop {
+    animation: floating-panel-backdrop-in 0.2s ease-out both;
+}
+
+.floating-panel-dialog[open].is-closing::backdrop {
+    animation: floating-panel-backdrop-out 0.2s ease-in both;
+}
+
+@keyframes floating-panel-dialog-in {
+    from {
+        opacity: 0;
+        transform: translateY(12px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes floating-panel-dialog-out {
+    from {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(8px) scale(0.98);
+    }
+}
+
+@keyframes floating-panel-backdrop-in {
+    from {
+        background: transparent;
+        backdrop-filter: blur(0);
+    }
+
+    to {
+        background: #0006;
+        backdrop-filter: blur(4px);
+    }
+}
+
+@keyframes floating-panel-backdrop-out {
+    from {
+        background: #0006;
+        backdrop-filter: blur(4px);
+    }
+
+    to {
+        background: transparent;
+        backdrop-filter: blur(0);
+    }
+}
+
+.floating-panel-dialog-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
+}
+
+.floating-panel-dialog-header h2 {
+    font-size: 18px;
+}
+
+.floating-panel-close {
+    display: inline-flex;
+    padding: 8px;
+    border-radius: var(--radius);
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.floating-panel-close:hover {
+    background: var(--code-bg);
+}
+
+.floating-panel-dialog-body {
+    min-height: 0;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+}
+
+.floating-panel-modal-open {
+    overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .floating-panel-dialog[open],
+    .floating-panel-dialog[open]::backdrop {
+        animation-duration: 1ms;
+    }
+}
+
+@media (min-width: 1001px) {
+    .floating-panel-trigger {
+        display: none;
+    }
+
+    .main:has(.floating-panel-sidebar .floating-panel-content > *) {
+        max-width: calc(var(--main-width) + var(--gap) * 2 + 240px);
+        padding-right: calc(var(--gap) * 2 + 240px);
+        left: 0;
+    }
+
+    .floating-panel-sidebar:has(.floating-panel-content > *) {
+        display: block;
+        position: fixed;
+        top: calc(var(--header-height) + 40px);
+        right: max(var(--gap), calc(50% - (var(--main-width) + 240px) / 2));
+        left: auto;
+        width: 240px;
+        max-height: calc(100dvh - var(--header-height) - 64px);
+        overflow-y: auto;
+        overscroll-behavior: contain;
+    }
+}
