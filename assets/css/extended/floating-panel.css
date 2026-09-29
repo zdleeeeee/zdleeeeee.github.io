@@ -7,12 +7,12 @@
     align-items: center;
     justify-content: center;
     position: fixed;
-    bottom: 110px;
-    right: 30px;
+    bottom: 80px;
+    right: 15px;
     z-index: 99;
-    width: 50px;
-    height: 50px;
-    padding: 10px;
+    width: 40px;
+    height: 40px;
+    padding: 5px;
     border-radius: 64px;
     background: var(--code-bg);
     color: var(--secondary);

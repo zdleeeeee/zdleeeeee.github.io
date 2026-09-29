@@ -62,6 +62,8 @@ function findStyleRules(ruleList, selector) {
     const inlineCode = doc.querySelector('.post-content p code');
     const codeBlock = doc.querySelector('.post-content pre > code');
     const copyButton = doc.querySelector('.post-content .copy-code');
+    const unorderedListItem = doc.querySelector('.post-content ul > li');
+    const orderedListItem = doc.querySelector('.post-content ol > li');
     const singleCover = doc.querySelector('.post-header > .entry-cover-single');
     const singleCoverLink = singleCover?.querySelector('.entry-cover-link');
     const postTitle = doc.querySelector('.post-header .post-title');
@@ -71,6 +73,11 @@ function findStyleRules(ruleList, selector) {
     check(topLink && progress, 'Missing reading progress control');
     check(progressArrow, 'Missing rounded progress arrow');
     check(inlineCode && codeBlock, 'Missing code samples');
+    check(unorderedListItem && orderedListItem, 'Missing ordered or unordered list samples');
+    const secondaryColor = resolveColor(doc, win, 'var(--secondary)');
+    check(win.getComputedStyle(unorderedListItem, '::marker').color === secondaryColor, 'Unordered-list marker does not use secondary');
+    check(win.getComputedStyle(orderedListItem, '::marker').color === secondaryColor, 'Ordered-list marker does not use secondary');
+    check(win.getComputedStyle(unorderedListItem).color !== secondaryColor && win.getComputedStyle(orderedListItem).color !== secondaryColor, 'List marker color leaked into list text');
     check(singleCover?.querySelector('img') && singleCoverLink && postTitle, 'Post single cover structure is incomplete');
     check(Boolean(singleCover.compareDocumentPosition(postTitle) & win.Node.DOCUMENT_POSITION_FOLLOWING), 'Post single cover is not above the title');
     check(singleCoverLink.href === 'https://images.example.test/manhattan' && singleCoverLink.target === '_blank' && singleCoverLink.rel.includes('noopener'), 'Post single cover does not link safely to its source');

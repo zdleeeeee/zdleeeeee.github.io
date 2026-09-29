@@ -29,8 +29,8 @@
 
 .top-link {
     position: fixed;
-    bottom: 40px;
-    right: 30px;
+    bottom: 30px;
+    right: 20px;
     z-index: 99;
     background: var(--code-bg);
     width: 50px;
@@ -107,5 +107,18 @@ body:has(.post-single) .top-link:focus-visible .progress-arrow {
 @media (prefers-reduced-motion: reduce) {
     body:has(.post-single) :is(.reading-progress, .progress-arrow) {
         transition-duration: 0s;
+    }
+}
+
+@media (max-width: 1000px) {
+    .top-link {
+        bottom: 90px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        padding: 5px;
+
+        bottom: 20px;
+        right: 15px;
     }
 }

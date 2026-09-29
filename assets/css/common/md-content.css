@@ -54,6 +54,10 @@
     padding-inline-start: 1.25rem;
 }
 
+.md-content :is(ul, ol) > li::marker {
+    color: var(--secondary);
+}
+
 .md-content li {
     margin-top: 0.3rem;
 }
