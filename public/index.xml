@@ -1,48 +1,26 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
-  <channel>
-    <title>Zed Lee</title>
-    <link>http://localhost:1313/</link>
-    <description>Recent content on Zed Lee</description>
-    <generator>Hugo</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sat, 26 Sep 2026 17:21:45 +0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Some Notes</title>
-      <link>http://localhost:1313/posts/20260928some-notes/</link>
-      <pubDate>Sat, 26 Sep 2026 17:21:45 +0800</pubDate>
-      <guid>http://localhost:1313/posts/20260928some-notes/</guid>
-      <description>&lt;h2 id=&#34;一亩三分地&#34;&gt;一亩三分地&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.1point3acres.com/bbs/thread-620389-1-1.html&#34;&gt;www.1point3acres.com/bbs/thread-620389-1-1.html&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;blogs&#34;&gt;Blogs&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://denghilbert.github.io/blog/PhD%E7%94%B3%E8%AF%B7%E5%9B%9E%E5%BF%86.html&#34;&gt;denghilbert.github.io/blog/PhD%E7%94%B3%E8%AF%B7%E5%9B%9E%E5%BF%86.html&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://trinkle23897.github.io/posts/application&#34; title=&#34;n+e&#39;s blog 申请回忆录&#34;&gt;n+e&amp;rsquo;s blog 申请回忆录&lt;/a&gt;&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Hello World</title>
-      <link>http://localhost:1313/posts/20260805hello-world/</link>
-      <pubDate>Wed, 05 Aug 2026 20:37:00 +0800</pubDate>
-      <guid>http://localhost:1313/posts/20260805hello-world/</guid>
-      <description>&lt;p&gt;This is my first blog. Welcome! &lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Zed Lee</title><link>https://zdleeeeee.github.io/</link><description>Recent content on Zed Lee</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sat, 26 Sep 2026 17:21:45 +0800</lastBuildDate><atom:link href="https://zdleeeeee.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Some Notes</title><link>https://zdleeeeee.github.io/posts/20260928some-notes/</link><pubDate>Sat, 26 Sep 2026 17:21:45 +0800</pubDate><guid>https://zdleeeeee.github.io/posts/20260928some-notes/</guid><description>&lt;h2 id="一亩三分地"&gt;一亩三分地&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://www.1point3acres.com/bbs/thread-620389-1-1.html"&gt;www.1point3acres.com/bbs/thread-620389-1-1.html&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="blogs"&gt;Blogs&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://denghilbert.github.io/blog/PhD%E7%94%B3%E8%AF%B7%E5%9B%9E%E5%BF%86.html"&gt;denghilbert.github.io/blog/PhD%E7%94%B3%E8%AF%B7%E5%9B%9E%E5%BF%86.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://trinkle23897.github.io/posts/application" title="n+e's blog 申请回忆录"&gt;n+e&amp;rsquo;s blog 申请回忆录&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Hello World</title><link>https://zdleeeeee.github.io/posts/20260805hello-world/</link><pubDate>Wed, 05 Aug 2026 20:37:00 +0800</pubDate><guid>https://zdleeeeee.github.io/posts/20260805hello-world/</guid><description>&lt;p&gt;This is my first blog. Welcome! &lt;sup id="fnref:1"&gt;&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref"&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;inline code&lt;/code&gt; aaa&lt;/p&gt;
-&lt;h2 id=&#34;h2&#34;&gt;h2&lt;/h2&gt;
-&lt;h3 id=&#34;h3&#34;&gt;h3&lt;/h3&gt;
-&lt;h4 id=&#34;h4&#34;&gt;h4&lt;/h4&gt;
-&lt;h5 id=&#34;h5&#34;&gt;h5&lt;/h5&gt;
-&lt;h2 id=&#34;h2-1&#34;&gt;h2&lt;/h2&gt;
-&lt;h3 id=&#34;h3-1&#34;&gt;h3&lt;/h3&gt;
+&lt;h2 id="h2"&gt;h2&lt;/h2&gt;
+&lt;h3 id="h3"&gt;h3&lt;/h3&gt;
+&lt;h4 id="h4"&gt;h4&lt;/h4&gt;
+&lt;h5 id="h5"&gt;h5&lt;/h5&gt;
+&lt;h2 id="h2-1"&gt;h2&lt;/h2&gt;
+&lt;h3 id="h3-1"&gt;h3&lt;/h3&gt;
 &lt;blockquote&gt;
 &lt;p&gt;[!WARNING]&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;aldsjflj&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;/blockquote&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; a;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;a &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (a &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;8&lt;/span&gt;) {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-cpp" data-lang="cpp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;int&lt;/span&gt; a;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;a &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; (a &lt;span style="color:#f92672"&gt;==&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;8&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; &lt;span style="color:#f92672"&gt;-&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol&gt;
 &lt;li&gt;aaa&lt;/li&gt;
 &lt;li&gt;bbb&lt;/li&gt;
@@ -58,38 +36,35 @@
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;table&gt;
-	&lt;thead&gt;
-			&lt;tr&gt;
-					&lt;th style=&#34;text-align: left&#34;&gt;th&lt;/th&gt;
-					&lt;th style=&#34;text-align: center&#34;&gt;th1&lt;/th&gt;
-					&lt;th style=&#34;text-align: right&#34;&gt;th2&lt;/th&gt;
-			&lt;/tr&gt;
-	&lt;/thead&gt;
-	&lt;tbody&gt;
-			&lt;tr&gt;
-					&lt;td style=&#34;text-align: left&#34;&gt;tr1&lt;/td&gt;
-					&lt;td style=&#34;text-align: center&#34;&gt;11&lt;/td&gt;
-					&lt;td style=&#34;text-align: right&#34;&gt;12&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-					&lt;td style=&#34;text-align: left&#34;&gt;tr2&lt;/td&gt;
-					&lt;td style=&#34;text-align: center&#34;&gt;21&lt;/td&gt;
-					&lt;td style=&#34;text-align: right&#34;&gt;22&lt;/td&gt;
-			&lt;/tr&gt;
-	&lt;/tbody&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style="text-align: left"&gt;th&lt;/th&gt;
+&lt;th style="text-align: center"&gt;th1&lt;/th&gt;
+&lt;th style="text-align: right"&gt;th2&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style="text-align: left"&gt;tr1&lt;/td&gt;
+&lt;td style="text-align: center"&gt;11&lt;/td&gt;
+&lt;td style="text-align: right"&gt;12&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: left"&gt;tr2&lt;/td&gt;
+&lt;td style="text-align: center"&gt;21&lt;/td&gt;
+&lt;td style="text-align: right"&gt;22&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
 &lt;/table&gt;
 &lt;hr&gt;
 &lt;p&gt;\(\frac{e^{x_j}}{\sum^k_{i=0}{e^{x_i}}}\)&lt;/p&gt;
 \[
 \frac{e^{x_j}}{\sum^k_{i=0}{e^{x_i}}}
-\]&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+\]&lt;div class="footnotes" role="doc-endnotes"&gt;
 &lt;hr&gt;
 &lt;ol&gt;
-&lt;li id=&#34;fn:1&#34;&gt;
-&lt;p&gt;&lt;a href=&#34;https://zdleeeeee.github.io&#34;&gt;https://zdleeeeee.github.io&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;li id="fn:1"&gt;
+&lt;p&gt;&lt;a href="https://zdleeeeee.github.io"&gt;https://zdleeeeee.github.io&lt;/a&gt;&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink"&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;/div&gt;</description>
-    </item>
-  </channel>
-</rss>
+&lt;/div&gt;</description></item></channel></rss>
