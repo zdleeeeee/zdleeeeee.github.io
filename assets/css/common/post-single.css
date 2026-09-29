@@ -170,12 +170,52 @@ a.post-tag {
 }
 
 .paginav a {
+    position: relative;
     width: 50%;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
     padding: 0.8rem;
     border-radius: var(--radius);
+    overflow: hidden;
+}
+
+.paginav-label {
+    display: block;
+    transition: transform 0.2s ease;
+}
+
+.paginav-arrow {
+    position: absolute;
+    top: 50%;
+    width: 22px;
+    height: 22px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.paginav .prev .paginav-arrow {
+    left: 0.8rem;
+    transform: translate(-8px, -50%);
+}
+
+.paginav .next .paginav-arrow {
+    right: 0.8rem;
+    transform: translate(8px, -50%);
+}
+
+.paginav a:is(:hover, :focus) .paginav-arrow {
+    opacity: 1;
+    transform: translate(0, -50%);
+}
+
+.paginav .prev:is(:hover, :focus) .paginav-label {
+    transform: translateX(24px);
+}
+
+.paginav .next:is(:hover, :focus) .paginav-label {
+    transform: translateX(-24px);
 }
 
 .paginav .prev,

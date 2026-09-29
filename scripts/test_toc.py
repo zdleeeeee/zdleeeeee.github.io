@@ -243,6 +243,22 @@ function findStyleRules(ruleList, selector) {
         check(responsiveSideRect.left >= responsiveBodyRect.right - 1 && responsiveSideRect.right <= win.innerWidth, 'Sidebar overlaps the responsive body at width ' + width);
       }
     }
+    async function checkPostNav(path, direction) {
+      await load(path);
+      const navDoc = frame.contentDocument, navWin = frame.contentWindow;
+      const link = navDoc.querySelector(`.paginav .${direction}`);
+      const arrow = link?.querySelector('.paginav-arrow');
+      const label = link?.querySelector('.paginav-label');
+      check(link && arrow && label && arrow.matches('svg[aria-hidden="true"]'), `Missing ${direction} navigation arrow structure`);
+      check(parseFloat(navWin.getComputedStyle(arrow).opacity) === 0, `${direction} navigation arrow is visible before interaction`);
+      link.focus();
+      await pause(250);
+      const labelShift = new navWin.DOMMatrix(navWin.getComputedStyle(label).transform).m41;
+      check(parseFloat(navWin.getComputedStyle(arrow).opacity) > 0.9, `${direction} navigation arrow does not appear on focus`);
+      check(direction === 'prev' ? labelShift > 0 : labelShift < 0, `${direction} article title does not move inward for the arrow`);
+    }
+    await checkPostNav('/posts/20260805hello-world/', 'prev');
+    await checkPostNav('/posts/20260928some-notes/', 'next');
     await load('/posts/');
     const listDoc = frame.contentDocument, listWin = frame.contentWindow;
     const tagsPanel = listDoc.querySelector('.floating-panel[data-panel-id="tags"]');
