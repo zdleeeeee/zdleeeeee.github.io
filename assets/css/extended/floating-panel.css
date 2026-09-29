@@ -167,6 +167,12 @@
     }
 }
 
+@media screen and (max-width: 900px) {
+    .list .floating-panel-trigger {
+        bottom: calc(110px + 5rem);
+    }
+}
+
 @media (min-width: 1001px) {
     .floating-panel-trigger {
         display: none;

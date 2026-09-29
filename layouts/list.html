@@ -37,13 +37,7 @@
 {{- end }}
 
 {{- if .Params.showTags }}
-<div class="category-nav">
-  {{- range $name, $taxonomy := site.Taxonomies.tags }}
-    <a href="{{ printf "/tags/%s/" $name | relURL }}" class="category-btn">
-      {{ $name }} <sup>{{ $taxonomy.Count }}</sup>
-    </a>
-  {{- end }}
-</div>
+{{- partial "tags_panel.html" . }}
 {{- end }}
 
 {{- if .Content }}

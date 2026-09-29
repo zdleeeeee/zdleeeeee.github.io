@@ -229,8 +229,55 @@ function findStyleRules(ruleList, selector) {
       }
     }
     await load('/posts/');
-    check(!frame.contentDocument.getElementById('toc-trigger') || frame.contentDocument.getElementById('toc-trigger').hidden, 'TOC button on list page');
-    check(frame.contentDocument.getElementById('top-link').classList.contains('hidden'), 'List-page top link behavior changed');
+    const listDoc = frame.contentDocument, listWin = frame.contentWindow;
+    const tagsPanel = listDoc.querySelector('.floating-panel[data-panel-id="tags"]');
+    check(tagsPanel, 'Posts tags are not rendered through the shared floating panel');
+    const tagsSidebar = tagsPanel.querySelector('#tags-sidebar');
+    const tagsTrigger = tagsPanel.querySelector('#tags-trigger');
+    const tagsDialog = tagsPanel.querySelector('#tags-dialog');
+    const tagsHost = tagsPanel.querySelector('.floating-panel-content');
+    const tagNav = tagsPanel.querySelector('.category-nav');
+    const tagButtons = Array.from(tagsPanel.querySelectorAll('.category-btn'));
+    check(tagsSidebar && tagsTrigger && tagsDialog && tagsHost && tagNav, 'Tags panel structure is incomplete');
+    check(!listDoc.querySelector('.main > .category-nav'), 'Old inline tags navigation remains in the left column');
+    check(tagButtons.length >= 3 && tagButtons.every(link => link.pathname.startsWith('/tags/') && link.querySelector('sup')?.textContent.trim()), 'Tag links or counts changed');
+    check(listWin.getComputedStyle(tagNav).flexWrap === 'wrap', 'Tags do not wrap');
+    check(parseFloat(listWin.getComputedStyle(tagButtons[0]).borderRadius) > 0, 'Tag buttons lost their rounded style');
+    check(listWin.getComputedStyle(tagsSidebar).position === 'fixed', 'Desktop tags sidebar is not fixed');
+    const tagsSideRect = tagsSidebar.getBoundingClientRect();
+    const firstEntryRect = listDoc.querySelector('.post-entry').getBoundingClientRect();
+    check(tagsSideRect.left >= firstEntryRect.right - 1 && tagsSideRect.right <= listWin.innerWidth, 'Tags sidebar overlaps post entries');
+    check(listWin.getComputedStyle(tagsTrigger).display === 'none', 'Desktop tags trigger is visible');
+    for (const width of [320, 390, 768, 900, 1000]) {
+      frame.style.width = width + 'px';
+      await pause();
+      check(listDoc.documentElement.scrollWidth <= listWin.innerWidth, 'Posts overflow at width ' + width);
+      check(listWin.getComputedStyle(tagsTrigger).display !== 'none' && !tagsTrigger.hidden, 'Tags trigger hidden at width ' + width);
+      check(listWin.getComputedStyle(tagsSidebar).display === 'none', 'Tags sidebar visible at width ' + width);
+      check(tagsTrigger.getBoundingClientRect().bottom < listDoc.getElementById('top-link').getBoundingClientRect().top, 'Tags trigger is not above the top-link position at width ' + width);
+    }
+    tagsTrigger.click();
+    check(tagsDialog.open && tagsHost.parentElement === tagsDialog.querySelector('.floating-panel-dialog-body'), 'Tags dialog did not open with the original content host');
+    check(listWin.getComputedStyle(tagsDialog).animationName === 'floating-panel-dialog-in', 'Tags dialog does not use the shared animation');
+    await pause(250);
+    const tagsDialogRect = tagsDialog.getBoundingClientRect();
+    check(Math.abs(tagsDialogRect.left + tagsDialogRect.width / 2 - listWin.innerWidth / 2) < 2, 'Tags dialog is not horizontally centered');
+    check(Math.abs(tagsDialogRect.top + tagsDialogRect.height / 2 - listWin.innerHeight / 2) < 2, 'Tags dialog is not vertically centered');
+    const extraTags = listDoc.createElement('div');
+    extraTags.textContent = 'tag '.repeat(1500);
+    tagsHost.append(extraTags);
+    const tagsDialogBody = tagsDialog.querySelector('.floating-panel-dialog-body');
+    check(tagsDialogBody.scrollHeight > tagsDialogBody.clientHeight, 'Long tags dialog cannot scroll');
+    extraTags.remove();
+    tagsDialog.querySelector('.floating-panel-close').click();
+    await pause(250);
+    check(!tagsDialog.open && listDoc.activeElement === tagsTrigger, 'Tags dialog close did not restore focus');
+    frame.style.width = '1440px';
+    await pause(300);
+    check(tagsHost.parentElement === tagsSidebar && listWin.getComputedStyle(tagsSidebar).position === 'fixed', 'Tags content was not restored to the desktop sidebar: media=' + listWin.matchMedia('(min-width: 1001px)').matches + ', parent=' + tagsHost.parentElement?.className);
+    check(listDoc.getElementById('top-link').classList.contains('hidden'), 'List-page top link behavior changed');
+    await load('/tags/test/');
+    check(!frame.contentDocument.querySelector('.floating-panel[data-panel-id="tags"]'), 'Tags panel rendered on a list page without showTags');
     document.body.setAttribute('data-result', 'PASS');
   } catch (error) {
     document.body.setAttribute('data-result', 'FAIL: ' + error.message);
