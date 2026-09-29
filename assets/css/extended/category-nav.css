@@ -1,6 +1,7 @@
 .category-nav {
     padding: var(--gap) 0;
     display: flex;
+    flex-wrap: wrap;
     gap: 10px;
 }
 
@@ -39,7 +40,10 @@
     text-decoration: underline;
 }
 
-.category-btn:active,
-.archives-btn:active {
+.category-btn:active {
     transform: scale(0.9);
+}
+
+.archives-btn:active {
+    transform: translate3d(50px, 0, 50px);
 }

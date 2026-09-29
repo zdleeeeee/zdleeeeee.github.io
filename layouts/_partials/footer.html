@@ -31,10 +31,10 @@
 
 {{- if (not site.Params.disableScrollToTop) }}
 <a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
-        <polyline points="17 11 12 6 7 11"></polyline>
-        <polyline points="17 18 12 13 7 18"></polyline>
+    <span class="reading-progress" aria-hidden="true">0%</span>
+    <svg class="progress-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path d="M12 19V5M6 11l6-6 6 6" stroke-linecap="round" stroke-linejoin="round" />
     </svg>
 </a>
 {{- end }}
@@ -79,14 +79,31 @@
 {{- if (not site.Params.disableScrollToTop) }}
 <script>
     var toplink = document.getElementById("top-link");
-    window.onscroll = function () {
+    var readingProgress = toplink.querySelector(".reading-progress");
+    var isPost = document.querySelector(".post-single");
+
+    function updateTopLink() {
+        if (isPost) {
+            const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+            const percent = maxScroll > 0 ? Math.round((scrollTop / maxScroll) * 100) : 100;
+            readingProgress.textContent = `${Math.min(100, Math.max(0, percent))}%`;
+            toplink.setAttribute("aria-label", `Go to top, reading progress ${readingProgress.textContent}`);
+            toplink.classList.remove("hidden");
+            return;
+        }
+
         const scrollThreshold = window.innerHeight;
         if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
             toplink.classList.remove("hidden");
         } else {
             toplink.classList.add("hidden");
         }
-    };
+    }
+
+    window.addEventListener("scroll", updateTopLink, { passive: true });
+    window.addEventListener("resize", updateTopLink);
+    updateTopLink();
 
 </script>
 {{- end }}

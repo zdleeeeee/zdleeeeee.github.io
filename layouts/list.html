@@ -30,7 +30,7 @@
   {{- end }}
   {{- if .Params.showTags }}
     <a href="{{ "/archives/" | relURL }}" class="archives-btn">
-          View all posts by years »
+          View all posts by years →
     </a>
   {{- end }}
 </header>
@@ -104,11 +104,7 @@
   {{- if not (.Param "hideMeta") }}
   <footer class="entry-footer">
     {{- partial "post_meta.html" . -}}
-    {{- with (.GetTerms "tags") }}
-    {{- range . }}
-      <a href="{{ .Permalink }}" class="post-tag">{{ .LinkTitle }}</a>
-    {{- end }}
-    {{- end }}
+    {{- partial "post_tags.html" (.GetTerms "tags") }}
   </footer>
   {{- end }}
   <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>

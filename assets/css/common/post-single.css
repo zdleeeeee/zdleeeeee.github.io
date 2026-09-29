@@ -48,7 +48,6 @@
 
 .post-meta a,
 .toc a:hover {
-    text-underline-offset: 0.3rem;
     text-decoration: underline;
 }
 
@@ -134,24 +133,28 @@ details li ul {
     gap: 10px;
 }
 
+.post-tag-item {
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.post-tag-separator {
+    color: var(--secondary);
+}
+
 a.post-tag {
-    margin: 0px 5px;
-    padding: 0 10px;
-    background: var(--code-bg);
+    background: none;
     border-radius: var(--radius);
-    line-height: 1.2;
     display: inline-block;
     color: var(--secondary);
-    font-size: 14px;
-    line-height: 28px;
     transition: all 0.2s ease;
     text-decoration: none;
 }
 
 .post-tag:hover {
-    font-weight: bold;
-    background: var(--border);
-    letter-spacing: 0.5px;
+    color: var(--primary);
+    text-decoration: underline;
+    transition: all 0.2s ease;
 }
 
 .post-tag:active {
@@ -161,7 +164,6 @@ a.post-tag {
 .paginav {
     border-radius: var(--radius);
     background: var(--code-bg);
-    border: 1px solid var(--border);
     transition: all 0.2s ease;
     display: flex;
     line-height: 1.2;
@@ -221,7 +223,7 @@ a.post-tag {
 .share-buttons li,
 .share-buttons a {
     display: inline-flex;
-    color: var(--tertiary);
+    color: var(--code-bg);
     transition: all 0.2s ease;
     border-radius: 5px;
 }
@@ -232,8 +234,6 @@ a.post-tag {
     box-shadow: 1px 1px 8px var(--tertiary);
 }
 
-.paginav:has(.next:active),
-.paginav:has(.prev:active),
 .share-buttons a:active {
   transform: scale(0.9);
 }

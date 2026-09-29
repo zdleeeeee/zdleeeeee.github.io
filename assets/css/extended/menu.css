@@ -13,6 +13,7 @@ clicking it opens a dropdown panel below the header with the full menu.
     transition: transform 0.25s ease, opacity 0.25s ease;
     transform-box: fill-box;
     transform-origin: center;
+    opacity: 1;
 }
 
 #menu-trigger.menu-open .top {
@@ -38,7 +39,8 @@ clicking it opens a dropdown panel below the header with the full menu.
         justify-content: center;
         align-self: center;
         margin-left: auto;
-        padding: 0.4rem;
+        margin-right: 10px;
+        padding: 10px;
         border: none;
         background: none;
         color: var(--primary);

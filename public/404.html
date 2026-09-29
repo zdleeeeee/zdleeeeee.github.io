@@ -10,7 +10,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <link rel="canonical" href="http://localhost:1313/404.html">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.09705845d4c7e79ff4239f56d8e135089c27cb9f44ce9138c59913f679a20327.css" integrity="sha256-CXBYRdTH55/0I59W2OE1CJwny59EzpE4xZkT9nmiAyc=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.950a6ac1bc5f0dfb846cb8b130802e9f24bc53ee2113614c795169662680c35a.css" integrity="sha256-lQpqwbxfDfuEbLixMIAunyS8U&#43;4hE2FMeVFpZiaAw1o=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://localhost:1313/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
@@ -55,10 +55,6 @@
 
             .list {
                 background: var(--theme);
-            }
-
-            .toc {
-                background: var(--entry);
             }
         }
 
@@ -105,6 +101,12 @@
                 </button>
             </div>
         </div>
+        <button id="toc-trigger" type="button" hidden aria-haspopup="dialog" aria-expanded="false"
+            aria-controls="toc-dialog" aria-label="Table of Contents">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                <path d="M9 5h12M9 12h12M9 19h12M3 5h1M3 12h1M3 19h1" />
+            </svg>
+        </button>
         <button id="menu-trigger" class="menu-trigger" aria-haspopup="true" aria-expanded="false"
             aria-controls="menu" aria-label="Menu">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -186,12 +188,14 @@
     </span>
 </footer>
 <a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
-        <polyline points="17 11 12 6 7 11"></polyline>
-        <polyline points="17 18 12 13 7 18"></polyline>
+    <span class="reading-progress" aria-hidden="true">0%</span>
+    <svg class="progress-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path d="M12 19V5M6 11l6-6 6 6" stroke-linecap="round" stroke-linejoin="round" />
     </svg>
 </a>
+<script src="/js/floating-toc.min.3ca2aee8f71378069d561dac188583478bfb0b5f4ebda52c658a785a664197f6.js" defer></script>
+
 
 <script>
     let menu = document.getElementById('menu');
@@ -229,14 +233,31 @@
 </script>
 <script>
     var toplink = document.getElementById("top-link");
-    window.onscroll = function () {
+    var readingProgress = toplink.querySelector(".reading-progress");
+    var isPost = document.querySelector(".post-single");
+
+    function updateTopLink() {
+        if (isPost) {
+            const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+            const percent = maxScroll > 0 ? Math.round((scrollTop / maxScroll) * 100) : 100;
+            readingProgress.textContent = `${Math.min(100, Math.max(0, percent))}%`;
+            toplink.setAttribute("aria-label", `Go to top, reading progress ${readingProgress.textContent}`);
+            toplink.classList.remove("hidden");
+            return;
+        }
+
         const scrollThreshold = window.innerHeight;
         if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
             toplink.classList.remove("hidden");
         } else {
             toplink.classList.add("hidden");
         }
-    };
+    }
+
+    window.addEventListener("scroll", updateTopLink, { passive: true });
+    window.addEventListener("resize", updateTopLink);
+    updateTopLink();
 
 </script>
 <script>

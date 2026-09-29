@@ -65,7 +65,8 @@ pre {
 }
 
 div.highlight:hover .copy-code,
-pre:hover .copy-code {
+pre:hover .copy-code,
+code:hover .copy-code {
     display: block;
 }
 

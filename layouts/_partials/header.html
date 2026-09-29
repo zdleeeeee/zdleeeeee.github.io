@@ -84,6 +84,12 @@
             </div>
             {{- end }}
         </div>
+        <button id="toc-trigger" type="button" hidden aria-haspopup="dialog" aria-expanded="false"
+            aria-controls="toc-dialog" aria-label="{{ i18n "toc" | default "Table of Contents" }}">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                <path d="M9 5h12M9 12h12M9 19h12M3 5h1M3 12h1M3 19h1" />
+            </svg>
+        </button>
         {{- if site.Menus.main }}
         <button id="menu-trigger" class="menu-trigger" aria-haspopup="true" aria-expanded="false"
             aria-controls="menu" aria-label="Menu">

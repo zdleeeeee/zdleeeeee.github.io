@@ -6,29 +6,29 @@
 }
 
 .md-content h1 {
-    margin: 36px auto 28px;
-    font-size: 36px;
+    margin: 36px auto 32px;
+    font-size: 40px;
 }
 
 .md-content h2 {
-    margin: 30px auto 24px;
-    font-size: 30px;
+    margin: 32px auto 24px;
+    font-size: 32px;
 }
 
 .md-content h3 {
-    font-size: 26px;
+    font-size: 28px;
 }
 
 .md-content h4 {
-    font-size: 22px;
+    font-size: 24px;
 }
 
 .md-content h5 {
-    font-size: 18px;
+    font-size: 20px;
 }
 
 .md-content h6 {
-    font-size: 18px;
+    font-size: 20px;
     color: var(--secondary);
 }
 
@@ -125,6 +125,7 @@
 
 .md-content .highlight pre {
     margin: 0;
+    background-color: transparent !important;
 }
 
 .md-content .highlighttable {
@@ -166,7 +167,8 @@
 .md-content blockquote {
     margin: 1rem 0;
     padding-inline-start: 1rem;
-    border-inline-start: 0.3rem solid var(--content);
+    border-inline-start: 0.3rem solid var(--tertiary);
+    color: var(--secondary);
 }
 
 .md-content hr {
@@ -226,6 +228,22 @@
 .md-content img.in-text {
     display: inline;
     margin: auto;
+}
+
+.md-content .footnote-ref {
+    background: var(--code-bg);
+    color: var(--secondary);
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: var(--radius);
+    text-decoration: none !important;
+    transition: all 0.2s ease;
+}
+
+.md-content .footnote-ref:hover {
+    color: var(--content);
+    background: var(--tertiary);
+    transition: all 0.2s ease;
 }
 
 mark {

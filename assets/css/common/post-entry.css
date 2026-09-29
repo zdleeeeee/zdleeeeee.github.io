@@ -60,10 +60,6 @@
     border-color: var(--tertiary);
 }
 
-.post-entry:active {
-    transform: scale(0.9);
-}
-
 .tag-entry .entry-cover {
     display: none;
 }

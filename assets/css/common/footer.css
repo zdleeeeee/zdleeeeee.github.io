@@ -29,15 +29,54 @@
 
 .top-link {
     position: fixed;
-    bottom: 4rem;
-    right: 2rem;
+    bottom: 40px;
+    right: 30px;
     z-index: 99;
-    background: var(--tertiary);
-    width: 2.5rem;
-    height: 2.5rem;
+    background: var(--code-bg);
+    width: 50px;
+    height: 50px;
     padding: 10px;
     border-radius: 64px;
     transition: visibility .3s, opacity .3s cubic-bezier(0.4, 0, 1, 1);
+}
+
+body:has(.post-single) .top-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: visible;
+    opacity: 1;
+    padding: 0;
+}
+
+.reading-progress {
+    display: none;
+}
+
+body:has(.post-single) .reading-progress {
+    display: block;
+    font-variant-numeric: tabular-nums;
+    opacity: 1;
+}
+
+body:has(.post-single) .top-link svg {
+    display: block;
+    width: 20px;
+    height: 20px;
+    opacity: 0;
+}
+
+body:has(.post-single) :is(.reading-progress, .progress-arrow) {
+    position: absolute;
+    transition: opacity 200ms ease;
+}
+
+body:has(.post-single) .top-link:is(:hover, :focus-visible) .reading-progress {
+    opacity: 0;
+}
+
+body:has(.post-single) .top-link:is(:hover, :focus-visible) .progress-arrow {
+    opacity: 1;
 }
 
 .hidden {
@@ -51,6 +90,13 @@
 }
 
 .footer a:hover,
-.top-link:hover {
+.top-link:hover,
+#toc-trigger:hover {
     color: var(--primary);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body:has(.post-single) :is(.reading-progress, .progress-arrow) {
+        transition-duration: 0s;
+    }
 }

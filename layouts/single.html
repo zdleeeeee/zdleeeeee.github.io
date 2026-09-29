@@ -27,9 +27,7 @@
       {{- partial "edit_post.html" . -}}
       {{- partial "post_canonical.html" . -}}
 
-      {{- range ($.GetTerms (.Language.Params.Taxonomies.tag | default "tags")) }}
-      <a href="{{ .Permalink }}" class="post-tag">{{ .LinkTitle }}</a>
-      {{- end }}
+      {{- partial "post_tags.html" ($.GetTerms (.Language.Params.Taxonomies.tag | default "tags")) }}
     </div>
     {{- end }}
   </header>

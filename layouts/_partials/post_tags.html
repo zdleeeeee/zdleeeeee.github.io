@@ -1,0 +1,3 @@
+{{- range $index, $tag := . }}
+<span class="post-tag-item"><span class="post-tag-separator" aria-hidden="true">{{ if eq $index 0 }}·{{ else }}/{{ end }}</span> <a href="{{ .Permalink }}" class="post-tag">{{ .LinkTitle }}</a></span>
+{{- end -}}

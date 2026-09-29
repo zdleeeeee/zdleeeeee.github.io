@@ -1,12 +1,12 @@
 {{- $headers := findRE "<h[1-6].*?>(.|\n])+?</h[1-6]>" .Content -}}
 {{- $has_headers := ge (len $headers) 1 -}}
 {{- if $has_headers -}}
-<details class="toc" {{if (.Param "TocOpen") }} open{{ end }}>
-    <summary accesskey="c" title="(Alt + C)">
-        <span class="title">{{- i18n "toc" | default "Table of Contents" }}</span>
-    </summary>
+<aside id="toc-sidebar" aria-label="{{ i18n "toc" | default "Table of Contents" }}">
+<nav class="toc">
+    <div class="toc-title">{{- i18n "toc" | default "Table of Contents" }}</div>
 
     <div class="inner">
+        <span class="toc-active-frame" aria-hidden="true"></span>
         {{- if (.Param "UseHugoToc") }}
         {{- .TableOfContents -}}
         {{- else }}
@@ -91,5 +91,15 @@
         </ul>
         {{- end }}
     </div>
-</details>
+</nav>
+</aside>
+<dialog id="toc-dialog" aria-labelledby="toc-dialog-title">
+    <div class="toc-dialog-header">
+        <h2 id="toc-dialog-title">{{ i18n "toc" | default "Table of Contents" }}</h2>
+        <button type="button" class="toc-close" aria-label="{{ i18n "close" | default "Close" }}" autofocus>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" /></svg>
+        </button>
+    </div>
+    <div class="toc-dialog-body"></div>
+</dialog>
 {{- end }}
