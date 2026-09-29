@@ -1,0 +1,3 @@
+[submodule "themes/ZedPaper"]
+	path = themes/ZedPaper
+	url = https://github.com/zdleeeeee/hugo-ZedPaper.git
