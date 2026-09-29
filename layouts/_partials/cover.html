@@ -1,8 +1,8 @@
 {{- with .cxt}} {{/* Apply proper context from dict */}}
 {{- if (and .Params.cover.image (not $.isHidden)) }}
-<figure class="entry-cover">
+{{- $coverClass := cond $.IsSingle "entry-cover entry-cover-single" "entry-cover entry-cover-list" -}}
+<figure class="{{ $coverClass }}">
     {{- $loading := cond $.IsSingle "eager" "lazy" }}
-    {{- $addLink := (and site.Params.cover.linkFullImages $.IsSingle) }}
     {{- $prod := (hugo.IsProduction | or (eq site.Params.env "production")) }}
     {{- $alt := (.Params.cover.alt | default .Params.cover.caption | plainify) }}
     {{- $responsiveImages := (.Params.cover.responsiveImages | default site.Params.cover.responsiveImages) | default true }}
@@ -24,8 +24,16 @@
         {{- $imgdl = $cover.Permalink }}
     {{- end -}}
 
-    {{- if $addLink }}
-        <a href="{{ $imgdl }}" target="_blank" rel="noopener noreferrer">
+    {{- $coverLink := "" -}}
+    {{- if $.IsSingle -}}
+        {{- $coverLink = .Params.cover.source | default "" -}}
+        {{- if and (not $coverLink) site.Params.cover.linkFullImages -}}
+            {{- $coverLink = $imgdl -}}
+        {{- end -}}
+    {{- end -}}
+
+    {{- if $coverLink }}
+        <a class="entry-cover-link" href="{{ $coverLink }}" target="_blank" rel="noopener noreferrer">
     {{- end }}
 
     {{- if $cover -}}
@@ -50,7 +58,7 @@
         <img loading="{{ $loading }}" src="{{ $imgdl }}" alt="{{ $alt }}">
     {{- end }}
 
-    {{- if $addLink }}
+    {{- if $coverLink }}
         </a>
     {{- end -}}
 

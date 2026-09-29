@@ -3,6 +3,7 @@ import functools
 import http.server
 import os
 from pathlib import Path
+import re
 import shutil
 import subprocess
 import tempfile
@@ -61,12 +62,18 @@ function findStyleRules(ruleList, selector) {
     const inlineCode = doc.querySelector('.post-content p code');
     const codeBlock = doc.querySelector('.post-content pre > code');
     const copyButton = doc.querySelector('.post-content .copy-code');
+    const singleCover = doc.querySelector('.post-header > .entry-cover-single');
+    const singleCoverLink = singleCover?.querySelector('.entry-cover-link');
+    const postTitle = doc.querySelector('.post-header .post-title');
     check(trigger && dialog && sidebar && contentHost, 'Shared TOC panel structure is incomplete');
     check(!doc.querySelector('.header #toc-trigger'), 'TOC trigger remains coupled to the site header');
     check(new Set([trigger.id, dialog.id, sidebar.id]).size === 3, 'Floating panel IDs are not unique');
     check(topLink && progress, 'Missing reading progress control');
     check(progressArrow, 'Missing rounded progress arrow');
     check(inlineCode && codeBlock, 'Missing code samples');
+    check(singleCover?.querySelector('img') && singleCoverLink && postTitle, 'Post single cover structure is incomplete');
+    check(Boolean(singleCover.compareDocumentPosition(postTitle) & win.Node.DOCUMENT_POSITION_FOLLOWING), 'Post single cover is not above the title');
+    check(singleCoverLink.href === 'https://images.example.test/manhattan' && singleCoverLink.target === '_blank' && singleCoverLink.rel.includes('noopener'), 'Post single cover does not link safely to its source');
     const isMonospaceFamily = value => /consolas|monospace/i.test(value);
     check(isMonospaceFamily(win.getComputedStyle(inlineCode).fontFamily) && isMonospaceFamily(win.getComputedStyle(codeBlock).fontFamily), 'Code does not use a monospace font family');
     const codeFontRules = Array.from(doc.styleSheets).flatMap(sheet => {
@@ -173,6 +180,11 @@ function findStyleRules(ruleList, selector) {
     check(contentHost.parentElement === sidebar, 'Desktop layout did not restore the original content host to the sidebar');
     check(win.getComputedStyle(sidebar).position === 'fixed', 'Desktop TOC not floating');
     check(win.getComputedStyle(trigger).display === 'none', 'Desktop button visible');
+    const anchorTarget = doc.getElementById('h4');
+    sidebar.querySelector('a[href="#h4"]').click();
+    await pause(800);
+    const headerHeight = parseFloat(win.getComputedStyle(doc.documentElement).getPropertyValue('--header-height'));
+    check(Math.abs(anchorTarget.getBoundingClientRect().top - headerHeight) <= 2, `TOC anchor is vertically offset: headingTop=${anchorTarget.getBoundingClientRect().top}, headerHeight=${headerHeight}`);
     const sideRect = sidebar.getBoundingClientRect();
     const bodyRect = doc.querySelector('.post-content').getBoundingClientRect();
     check(sideRect.left >= bodyRect.right - 1 && sideRect.right <= win.innerWidth, 'Sidebar is not to the right of the body');
@@ -269,7 +281,22 @@ function findStyleRules(ruleList, selector) {
     const tagsHost = tagsPanel.querySelector('.floating-panel-content');
     const tagNav = tagsPanel.querySelector('.category-nav');
     const tagButtons = Array.from(tagsPanel.querySelectorAll('.category-btn'));
+    const helloEntry = Array.from(listDoc.querySelectorAll('.post-entry')).find(entry => entry.querySelector('.entry-link')?.pathname === '/posts/20260805hello-world/');
+    const listCover = helloEntry?.querySelector('.entry-cover-list');
+    const listCoverImage = listCover?.querySelector('img');
     check(tagsSidebar && tagsTrigger && tagsDialog && tagsHost && tagNav, 'Tags panel structure is incomplete');
+    check(helloEntry && listCover && listCoverImage, 'Post entry cover structure is incomplete');
+    const listCoverStyle = listWin.getComputedStyle(listCover);
+    const helloEntryRect = helloEntry.getBoundingClientRect();
+    const listCoverRect = listCover.getBoundingClientRect();
+    check(listCoverStyle.position === 'absolute' && Math.abs(listCoverRect.right - helloEntryRect.right) <= 1, `Post entry cover is not fixed to the right side: position=${listCoverStyle.position}, coverRight=${listCoverRect.right}, entryRight=${helloEntryRect.right}`);
+    check(parseFloat(listCoverStyle.opacity) < 1 && (listCoverStyle.maskImage !== 'none' || listCoverStyle.webkitMaskImage !== 'none'), 'Post entry cover does not fade toward the left');
+    check(listWin.getComputedStyle(listCoverImage).objectFit === 'cover' && !listCover.querySelector('a'), 'Post entry cover is not a non-clickable background image');
+    const helloEntryLink = helloEntry.querySelector('.entry-link');
+    check(helloEntryLink?.pathname === '/posts/20260805hello-world/', 'Post entry no longer links to the article');
+    const helloTitleRect = helloEntry.querySelector('.entry-header').getBoundingClientRect();
+    const helloTitleHit = listDoc.elementFromPoint(helloTitleRect.left + 8, helloTitleRect.top + helloTitleRect.height / 2);
+    check(helloTitleHit?.closest('.entry-link') === helloEntryLink, `Post entry title area is not clickable: hit=${helloTitleHit?.className || helloTitleHit?.tagName}`);
     check(!listDoc.querySelector('.main > .category-nav'), 'Old inline tags navigation remains in the left column');
     check(tagButtons.length >= 3 && tagButtons.every(link => link.pathname.startsWith('/tags/') && link.querySelector('sup')?.textContent.trim()), 'Tag links or counts changed');
     check(listWin.getComputedStyle(tagNav).flexWrap === 'wrap', 'Tags do not wrap');
@@ -365,7 +392,19 @@ class QuietHandler(http.server.SimpleHTTPRequestHandler):
 
 with tempfile.TemporaryDirectory(prefix="hugo-toc-test-") as directory:
     build = Path(directory) / "site"
-    subprocess.run(["hugo", "--destination", str(build), "--noBuildLock"], cwd=ROOT, check=True)
+    fixture_content = Path(directory) / "content"
+    shutil.copytree(ROOT / "content", fixture_content)
+    fixture_post = fixture_content / "posts/20260805hello-world/index.md"
+    fixture_text = fixture_post.read_text(encoding="utf-8")
+    if re.search(r"(?m)^source\s*=", fixture_text):
+        fixture_text = re.sub(r"(?m)^source\s*=.*$", "source = 'https://images.example.test/manhattan'", fixture_text, count=1)
+    elif "[cover]" in fixture_text:
+        fixture_text = fixture_text.replace("[cover]", "[cover]\nsource = 'https://images.example.test/manhattan'", 1)
+    else:
+        frontmatter_end = fixture_text.find("+++", 3)
+        fixture_text = fixture_text[:frontmatter_end] + "[cover]\nimage = '曼哈顿-宇宙无敌汪师傅.png'\nalt = '曼哈顿城市景观'\nsource = 'https://images.example.test/manhattan'\n" + fixture_text[frontmatter_end:]
+    fixture_post.write_text(fixture_text, encoding="utf-8")
+    subprocess.run(["hugo", "--contentDir", str(fixture_content), "--destination", str(build), "--noBuildLock"], cwd=ROOT, check=True)
     (build / "toc-test.html").write_text(CHECKS, encoding="utf-8")
     shutil.copyfile(ROOT / "assets/js/floating-panel.js", build / "floating-panel-test.js")
     server = http.server.ThreadingHTTPServer(("127.0.0.1", 0), functools.partial(QuietHandler, directory=str(build)))
@@ -378,7 +417,6 @@ with tempfile.TemporaryDirectory(prefix="hugo-toc-test-") as directory:
             "--disable-background-timer-throttling", "--dump-dom",
             f"http://127.0.0.1:{server.server_port}/toc-test.html",
         ], capture_output=True, text=True, encoding="utf-8", timeout=45)
-        import re
         status = re.search(r'data-result="([^"]*)"', result.stdout)
         print(status.group(1) if status else result.stderr[-2000:])
         if not status or status.group(1) != "PASS":

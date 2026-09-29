@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Tags on Zed Lee</title>
-    <link>https://example.org/tags/</link>
+    <link>http://localhost:1313/tags/</link>
     <description>Recent content in Tags on Zed Lee</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 26 Sep 2026 17:21:45 +0800</lastBuildDate>
-    <atom:link href="https://example.org/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Note</title>
-      <link>https://example.org/tags/note/</link>
+      <link>http://localhost:1313/tags/note/</link>
       <pubDate>Sat, 26 Sep 2026 17:21:45 +0800</pubDate>
-      <guid>https://example.org/tags/note/</guid>
+      <guid>http://localhost:1313/tags/note/</guid>
       <description></description>
     </item>
     <item>
       <title>Phd</title>
-      <link>https://example.org/tags/phd/</link>
+      <link>http://localhost:1313/tags/phd/</link>
       <pubDate>Sat, 26 Sep 2026 17:21:45 +0800</pubDate>
-      <guid>https://example.org/tags/phd/</guid>
+      <guid>http://localhost:1313/tags/phd/</guid>
       <description></description>
     </item>
     <item>
       <title>Test</title>
-      <link>https://example.org/tags/test/</link>
+      <link>http://localhost:1313/tags/test/</link>
       <pubDate>Wed, 05 Aug 2026 20:37:00 +0800</pubDate>
-      <guid>https://example.org/tags/test/</guid>
+      <guid>http://localhost:1313/tags/test/</guid>
       <description></description>
     </item>
   </channel>

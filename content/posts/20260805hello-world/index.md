@@ -5,6 +5,10 @@ title = 'Hello World'
 ShowToc = true
 tags = ['test']
 author = 'Zed Lee'
+[cover]
+image = '曼哈顿-宇宙无敌汪师傅.png'
+alt = '曼哈顿-宇宙无敌汪师傅'
+source = 'https://space.bilibili.com/364444803'
 +++
 
 This is my first blog. Welcome! [^1] 
@@ -60,5 +64,4 @@ $$
 
 
 [^1]: https://zdleeeeee.github.io 
-
 

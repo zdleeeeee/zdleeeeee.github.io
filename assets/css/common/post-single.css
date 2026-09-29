@@ -56,6 +56,14 @@
     text-decoration-style: dotted;
 }
 
+.post-header .entry-cover-single {
+    margin: 16px 0 var(--content-gap);
+}
+
+.entry-cover-single .entry-cover-link {
+    display: block;
+}
+
 details.toc {
     margin-bottom: var(--content-gap);
     background: var(--code-bg);
@@ -197,17 +205,16 @@ a.post-tag {
 
 .paginav .prev .paginav-arrow {
     left: 0.8rem;
-    transform: translate(-8px, -50%);
+    transform: translate(-4px, -50%);
 }
 
 .paginav .next .paginav-arrow {
     right: 0.8rem;
-    transform: translate(8px, -50%);
+    transform: translate(4px, -50%);
 }
 
 .paginav a:is(:hover, :focus) .paginav-arrow {
     opacity: 1;
-    transform: translate(0, -50%);
 }
 
 .paginav .prev:is(:hover, :focus) .paginav-label {
@@ -221,6 +228,7 @@ a.post-tag {
 .paginav .prev,
 .paginav .next {
     transition: all 0.2s ease;
+    color: var(--secondary);
 }
 
 .paginav .prev {
@@ -231,18 +239,15 @@ a.post-tag {
     border-radius: 0 var(--radius) var(--radius) 0;
 }
 
-.paginav .prev:hover {
-    background: linear-gradient(to right, var(--tertiary) 30%, transparent 100%);
+.paginav .prev:hover,
+.paginav .next:hover {
+    background: var(--tertiary);
+    color: var(--primary);
     letter-spacing: 1px;
 }
 
 .paginav:has(.prev:hover) {
     transform: translateX(-8px);
-}
-
-.paginav .next:hover {
-    background: linear-gradient(to left, var(--tertiary) 30%, transparent);
-    letter-spacing: 1px;
 }
 
 .paginav:has(.next:hover) {
