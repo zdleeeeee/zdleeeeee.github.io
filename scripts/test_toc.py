@@ -3,6 +3,7 @@ import functools
 import http.server
 import os
 from pathlib import Path
+import shutil
 import subprocess
 import tempfile
 import threading
@@ -27,6 +28,7 @@ const frame = document.getElementById('page');
 const pause = (milliseconds = 150) => new Promise(resolve => setTimeout(resolve, milliseconds));
 function check(value, message) { if (!value) throw new Error(message); }
 function load(path) { return new Promise(resolve => { frame.onload = resolve; frame.src = path; }); }
+function loadScript(path) { return new Promise((resolve, reject) => { const script = document.createElement('script'); script.src = path; script.onload = resolve; script.onerror = reject; document.head.append(script); }); }
 function resolveColor(doc, win, value) {
   const sample = doc.createElement('span');
   sample.style.color = value;
@@ -278,6 +280,33 @@ function findStyleRules(ruleList, selector) {
     check(listDoc.getElementById('top-link').classList.contains('hidden'), 'List-page top link behavior changed');
     await load('/tags/test/');
     check(!frame.contentDocument.querySelector('.floating-panel[data-panel-id="tags"]'), 'Tags panel rendered on a list page without showTags');
+    const fixtures = document.createElement('div');
+    fixtures.innerHTML = `
+      <div class="floating-panel" data-panel-id="incomplete"><button class="floating-panel-trigger" hidden></button></div>
+      <div class="floating-panel" data-panel-id="one">
+        <button class="floating-panel-trigger" hidden></button><aside class="floating-panel-sidebar"><div class="floating-panel-content"><svg aria-label="element content"></svg></div></aside>
+        <dialog class="floating-panel-dialog"><button class="floating-panel-close"></button><div class="floating-panel-dialog-body"></div></dialog>
+      </div>
+      <div class="floating-panel" data-panel-id="two">
+        <button class="floating-panel-trigger" hidden></button><aside class="floating-panel-sidebar"><div class="floating-panel-content">second panel</div></aside>
+        <dialog class="floating-panel-dialog"><button class="floating-panel-close"></button><div class="floating-panel-dialog-body"></div></dialog>
+      </div>`;
+    document.body.append(fixtures);
+    await loadScript('/floating-panel-test.js');
+    const firstFixture = fixtures.querySelector('[data-panel-id="one"]');
+    const secondFixture = fixtures.querySelector('[data-panel-id="two"]');
+    const firstFixtureTrigger = firstFixture.querySelector('.floating-panel-trigger');
+    const secondFixtureTrigger = secondFixture.querySelector('.floating-panel-trigger');
+    check(!firstFixtureTrigger.hidden && !secondFixtureTrigger.hidden, 'Valid element-only or later panel did not initialize after an incomplete panel');
+    firstFixtureTrigger.click();
+    secondFixtureTrigger.click();
+    check(firstFixture.querySelector('dialog').open && secondFixture.querySelector('dialog').open && document.documentElement.classList.contains('floating-panel-modal-open'), 'Multiple panels did not open independently');
+    firstFixture.querySelector('.floating-panel-close').click();
+    await pause(300);
+    check(secondFixture.querySelector('dialog').open && document.documentElement.classList.contains('floating-panel-modal-open'), 'Closing one panel unlocked the page while another panel remained open');
+    secondFixture.querySelector('.floating-panel-close').click();
+    await pause(300);
+    check(!document.documentElement.classList.contains('floating-panel-modal-open'), 'Closing the last panel left the page locked');
     document.body.setAttribute('data-result', 'PASS');
   } catch (error) {
     document.body.setAttribute('data-result', 'FAIL: ' + error.message);
@@ -309,6 +338,7 @@ with tempfile.TemporaryDirectory(prefix="hugo-toc-test-") as directory:
     build = Path(directory) / "site"
     subprocess.run(["hugo", "--destination", str(build), "--noBuildLock"], cwd=ROOT, check=True)
     (build / "toc-test.html").write_text(CHECKS, encoding="utf-8")
+    shutil.copyfile(ROOT / "assets/js/floating-panel.js", build / "floating-panel-test.js")
     server = http.server.ThreadingHTTPServer(("127.0.0.1", 0), functools.partial(QuietHandler, directory=str(build)))
     threading.Thread(target=server.serve_forever, daemon=True).start()
     try:

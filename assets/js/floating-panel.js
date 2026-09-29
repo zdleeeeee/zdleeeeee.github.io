@@ -8,7 +8,8 @@
         const dialog = panel.querySelector('.floating-panel-dialog');
         const dialogBody = dialog?.querySelector('.floating-panel-dialog-body');
         const closeButton = dialog?.querySelector('.floating-panel-close');
-        if (!trigger || !sidebar || !content || !dialog || !dialogBody || !closeButton || !content.textContent.trim()) return;
+        if (!trigger || !sidebar || !content || !dialog || !dialogBody || !closeButton ||
+            (!content.firstElementChild && !content.textContent.trim())) return;
 
         let restoreTriggerFocus = true;
         let closeTimer;
@@ -63,7 +64,9 @@
             closeTimer = undefined;
             dialog.classList.remove('is-closing');
             trigger.setAttribute('aria-expanded', 'false');
-            document.documentElement.classList.remove('floating-panel-modal-open');
+            if (!document.querySelector('.floating-panel-dialog[open]')) {
+                document.documentElement.classList.remove('floating-panel-modal-open');
+            }
             if (restoreTriggerFocus && !desktop.matches) trigger.focus({ preventScroll: true });
         });
         dialog.addEventListener('click', (event) => {
