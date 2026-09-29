@@ -1,7 +1,7 @@
 baseURL = 'https://example.org/'
 locale = 'en-us'
 title = 'Zed Lee'
-theme = 'PaperMod'
+theme = 'ZedPaper'
 [outputs]
   home = ["HTML", "RSS", "JSON"]
   page = ["HTML"]
@@ -37,7 +37,7 @@ theme = 'PaperMod'
     enabled = true
     title = "Zed Lee"
     subtitle = ""
-    imageUrl = "../assets/images/profile.jpg"
+    imageUrl = "images/profile.jpg"
     imageTitle = ""
     imageWidth = 150
     imageHeight = 150

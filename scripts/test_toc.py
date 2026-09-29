@@ -10,13 +10,14 @@ import tempfile
 import threading
 
 ROOT = Path(__file__).resolve().parents[1]
+THEME = ROOT / "themes/ZedPaper"
 BROWSER = Path(os.environ.get("PROGRAMFILES", "C:/Program Files")) / "Google/Chrome/Application/chrome.exe"
 
-header_source = (ROOT / "layouts/_partials/header.html").read_text(encoding="utf-8")
-panel_css_source = (ROOT / "assets/css/extended/floating-panel.css").read_text(encoding="utf-8")
-toc_css_source = (ROOT / "assets/css/extended/toc.css").read_text(encoding="utf-8")
-panel_js_source = (ROOT / "assets/js/floating-panel.js").read_text(encoding="utf-8")
-toc_js_source = (ROOT / "assets/js/floating-toc.js").read_text(encoding="utf-8")
+header_source = (THEME / "layouts/_partials/header.html").read_text(encoding="utf-8")
+panel_css_source = (THEME / "assets/css/extended/floating-panel.css").read_text(encoding="utf-8")
+toc_css_source = (THEME / "assets/css/extended/toc.css").read_text(encoding="utf-8")
+panel_js_source = (THEME / "assets/js/floating-panel.js").read_text(encoding="utf-8")
+toc_js_source = (THEME / "assets/js/floating-toc.js").read_text(encoding="utf-8")
 assert 'id="toc-trigger"' not in header_source, "TOC trigger remains in header.html"
 assert "@media (min-width: 1001px)" in panel_css_source and "width: 240px" in panel_css_source, "Shared panel CSS does not own the responsive sidebar"
 assert "floating-panel-dialog" not in toc_css_source, "TOC CSS still owns shared dialog styling"
@@ -190,8 +191,8 @@ function findStyleRules(ruleList, selector) {
     const anchorTarget = doc.getElementById('h4');
     sidebar.querySelector('a[href="#h4"]').click();
     await pause(800);
-    const headerHeight = parseFloat(win.getComputedStyle(doc.documentElement).getPropertyValue('--header-height'));
-    check(Math.abs(anchorTarget.getBoundingClientRect().top - headerHeight) <= 2, `TOC anchor is vertically offset: headingTop=${anchorTarget.getBoundingClientRect().top}, headerHeight=${headerHeight}`);
+    const anchorScrollMargin = parseFloat(win.getComputedStyle(anchorTarget).scrollMarginTop);
+    check(Math.abs(anchorTarget.getBoundingClientRect().top - anchorScrollMargin) <= 2, `TOC anchor ignored scroll-margin-top: headingTop=${anchorTarget.getBoundingClientRect().top}, scrollMarginTop=${anchorScrollMargin}`);
     const sideRect = sidebar.getBoundingClientRect();
     const bodyRect = doc.querySelector('.post-content').getBoundingClientRect();
     check(sideRect.left >= bodyRect.right - 1 && sideRect.right <= win.innerWidth, 'Sidebar is not to the right of the body');
@@ -210,6 +211,14 @@ function findStyleRules(ruleList, selector) {
     win.dispatchEvent(new win.Event('resize'));
     const nextHeading = headings.find(heading => heading.id === 'h4');
     const nextHeadingTop = nextHeading.getBoundingClientRect().top + win.scrollY;
+    const readingOffset = parseFloat(win.getComputedStyle(nextHeading).scrollMarginTop);
+    const headerHeight = parseFloat(win.getComputedStyle(doc.documentElement).getPropertyValue('--header-height'));
+    const boundaryPosition = readingOffset + (headerHeight - readingOffset) / 2;
+    win.scrollTo(0, nextHeadingTop - boundaryPosition);
+    win.dispatchEvent(new win.Event('scroll'));
+    await pause(300);
+    const boundaryActiveLinks = Array.from(sidebar.querySelectorAll('.toc a.is-active'));
+    check(['#h3', '#h4'].every(hash => boundaryActiveLinks.some(link => link.hash === hash)), 'TOC reading region ignores the heading scroll-margin-top');
     win.scrollTo(0, nextHeadingTop - win.innerHeight + 140);
     win.dispatchEvent(new win.Event('scroll'));
     await pause(300);
@@ -413,7 +422,7 @@ with tempfile.TemporaryDirectory(prefix="hugo-toc-test-") as directory:
     fixture_post.write_text(fixture_text, encoding="utf-8")
     subprocess.run(["hugo", "--contentDir", str(fixture_content), "--destination", str(build), "--noBuildLock"], cwd=ROOT, check=True)
     (build / "toc-test.html").write_text(CHECKS, encoding="utf-8")
-    shutil.copyfile(ROOT / "assets/js/floating-panel.js", build / "floating-panel-test.js")
+    shutil.copyfile(THEME / "assets/js/floating-panel.js", build / "floating-panel-test.js")
     server = http.server.ThreadingHTTPServer(("127.0.0.1", 0), functools.partial(QuietHandler, directory=str(build)))
     threading.Thread(target=server.serve_forever, daemon=True).start()
     try:
