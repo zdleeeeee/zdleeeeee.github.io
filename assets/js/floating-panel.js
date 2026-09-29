@@ -89,6 +89,7 @@
             });
         }, true);
         desktop.addEventListener('change', syncLayout);
+        window.addEventListener('resize', syncLayout);
         syncLayout();
     });
 })();

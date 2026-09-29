@@ -22,6 +22,7 @@ theme = 'PaperMod'
   ShowPostNavLinks = true
   goBackButton = false
   ShowShareButtons = true
+  ShowCodeCopyButtons = true
   ShowNavbar = true
   ShowReadTime = true
 
@@ -47,13 +48,13 @@ theme = 'PaperMod'
     name = "posts"
     url = "/posts/"
     weight = 2
-    
+
   [[menu.main]]
     identifier = "search"
     name = "search"
     url = "/search/"
     weight = 3
-    
+
   [[menu.main]]
     identifier = "home"
     name = "home"
