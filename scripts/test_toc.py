@@ -209,6 +209,36 @@ function findStyleRules(ruleList, selector) {
       heading.after(spacer);
     });
     win.dispatchEvent(new win.Event('resize'));
+    // Fractional heading positions are normal with text layout and zoom.
+    // Anchor scrolling rounds the scroll position; that must not retain the previous section.
+    const boundarySpacer = doc.createElement('div');
+    anchorTarget.before(boundarySpacer);
+    const absoluteAnchorTop = anchorTarget.getBoundingClientRect().top + win.scrollY;
+    boundarySpacer.style.height = `${Math.ceil(absoluteAnchorTop) + 0.25 - absoluteAnchorTop}px`;
+    for (const width of [1600, 390]) {
+      frame.style.width = width + 'px';
+      await pause(300);
+      win.scrollTo(0, 0);
+      await pause(150);
+      if (width <= 1000) { trigger.click(); await pause(250); }
+      panel.querySelector('.toc a[href="#h4"]').click();
+      await pause(1000);
+      const targetLink = panel.querySelector('.toc a[href="#h4"]');
+      const previousLink = panel.querySelector('.toc a[href="#h3"]');
+      const offset = parseFloat(win.getComputedStyle(anchorTarget).scrollMarginTop);
+      const delta = anchorTarget.getBoundingClientRect().top - offset;
+      check(Math.abs(delta) <= 1, `Anchor did not settle at the reading boundary at width ${width}: delta=${delta}`);
+      check(targetLink.classList.contains('is-active'), `Clicked heading is inactive at width ${width}`);
+      check(!previousLink.classList.contains('is-active'), `Previous heading remains active after anchor navigation at width ${width}: delta=${delta}`);
+      // Keep genuinely visible adjacent sections active beyond the rounding tolerance.
+      win.scrollTo(0, anchorTarget.getBoundingClientRect().top + win.scrollY - offset - 2);
+      win.dispatchEvent(new win.Event('scroll'));
+      await pause(300);
+      check(previousLink.classList.contains('is-active') && targetLink.classList.contains('is-active'), `Visible previous section lost its highlight at width ${width}`);
+    }
+    boundarySpacer.remove();
+    frame.style.width = '1600px';
+    await pause(300);
     const nextHeading = headings.find(heading => heading.id === 'h4');
     const nextHeadingTop = nextHeading.getBoundingClientRect().top + win.scrollY;
     const readingOffset = parseFloat(win.getComputedStyle(nextHeading).scrollMarginTop);
@@ -328,7 +358,7 @@ function findStyleRules(ruleList, selector) {
       check(listDoc.documentElement.scrollWidth <= listWin.innerWidth, 'Posts overflow at width ' + width);
       check(listWin.getComputedStyle(tagsTrigger).display !== 'none' && !tagsTrigger.hidden, 'Tags trigger hidden at width ' + width);
       check(listWin.getComputedStyle(tagsSidebar).display === 'none', 'Tags sidebar visible at width ' + width);
-      check(Math.abs(listWin.innerHeight - tagsTrigger.getBoundingClientRect().bottom - 110) < 1, 'Tags trigger is too high at width ' + width);
+      check(Math.abs(listWin.innerHeight - tagsTrigger.getBoundingClientRect().bottom - 80) < 1, 'Tags trigger does not use the shared floating-control position at width ' + width);
     }
     tagsTrigger.click();
     check(tagsDialog.open && tagsHost.parentElement === tagsDialog.querySelector('.floating-panel-dialog-body'), 'Tags dialog did not open with the original content host');

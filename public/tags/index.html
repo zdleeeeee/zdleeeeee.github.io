@@ -193,7 +193,7 @@
     <span>
         Powered by
         <a href="https://gohugo.io/?utm_source=zedpaper" rel="noopener" target="_blank">Hugo</a> &
-        <a href="https://github.com/zdleeeeee/zdleeeeee.github.io/tree/main/themes/ZedPaper" rel="noopener" target="_blank">ZedPaper</a>
+        <a href="https://github.com/zdleeeeee/hugo-ZedPaper" rel="noopener" target="_blank">ZedPaper</a>
     </span>
 </footer>
 <a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
@@ -204,7 +204,7 @@
     </svg>
 </a>
 <script src="/js/floating-panel.min.4b600244f926fb0151bb2f4e42c94c1cd16b6982bab8e9e5fd4d09b837f08cd8.js" defer></script>
-<script src="/js/floating-toc.min.87aeeeba41969a0105f01ff0de013b512c4b3f5e406fc726337f3959cf32bda6.js" defer></script>
+<script src="/js/floating-toc.min.8ba9c8a1bed19d384123133252387f8a976011fae28044c7741f007208a40170.js" defer></script>
 
 
 <script>
@@ -225,17 +225,27 @@
         anchor.addEventListener("click", function (e) {
             e.preventDefault();
             var id = this.getAttribute("href").substr(1);
-            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
-                    behavior: "smooth"
-                });
+            const navigate = () => {
+                if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                    document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                        behavior: "smooth"
+                    });
+                } else {
+                    document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+                }
+                if (id === "top") {
+                    history.replaceState(null, null, " ");
+                } else {
+                    history.pushState(null, null, `#${id}`);
+                }
+            };
+
+
+            const dialog = this.closest('.floating-panel-dialog[open]');
+            if (dialog) {
+                dialog.addEventListener('close', () => requestAnimationFrame(navigate), { once: true });
             } else {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
-            }
-            if (id === "top") {
-                history.replaceState(null, null, " ");
-            } else {
-                history.pushState(null, null, `#${id}`);
+                navigate();
             }
         });
     });
