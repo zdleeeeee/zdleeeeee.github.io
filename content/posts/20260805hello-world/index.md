@@ -3,7 +3,7 @@ date = '2026-08-05T20:37:00+08:00'
 draft = false
 title = 'Hello World'
 ShowToc = true
-tags = ['test']
+tags = ['Life']
 author = 'Zed Lee'
 [cover]
 image = '曼哈顿-宇宙无敌汪师傅.png'
