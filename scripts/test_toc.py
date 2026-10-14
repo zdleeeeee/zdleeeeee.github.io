@@ -57,9 +57,7 @@ function findStyleRules(ruleList, selector) {
     const dialog = panel.querySelector('#toc-dialog');
     const sidebar = panel.querySelector('#toc-sidebar');
     const contentHost = panel.querySelector('.floating-panel-content');
-    const topLink = doc.getElementById('top-link');
-    const progress = topLink?.querySelector('.reading-progress');
-    const progressArrow = topLink?.querySelector('.progress-arrow');
+    const progress = trigger?.querySelector('.reading-progress');
     const inlineCode = doc.querySelector('.post-content p code');
     const codeBlock = doc.querySelector('.post-content pre > code');
     const copyButton = doc.querySelector('.post-content .copy-code');
@@ -71,8 +69,9 @@ function findStyleRules(ruleList, selector) {
     check(trigger && dialog && sidebar && contentHost, 'Shared TOC panel structure is incomplete');
     check(!doc.querySelector('.header #toc-trigger'), 'TOC trigger remains coupled to the site header');
     check(new Set([trigger.id, dialog.id, sidebar.id]).size === 3, 'Floating panel IDs are not unique');
-    check(topLink && progress, 'Missing reading progress control');
-    check(progressArrow, 'Missing rounded progress arrow');
+    check(!doc.getElementById('top-link') && progress && !trigger.querySelector('svg'), 'TOC trigger should show progress without the old icon or top link');
+    check(sidebar.querySelector('.floating-panel-title a[href="#top"]')?.textContent.trim() === postTitle.textContent.trim(), 'Desktop TOC title should link to the post title');
+    check(dialog.querySelector('.floating-panel-dialog-header h2 a[href="#top"]')?.textContent.trim() === postTitle.textContent.trim(), 'Dialog TOC title should link to the post title');
     check(inlineCode && codeBlock, 'Missing code samples');
     check(unorderedListItem && orderedListItem, 'Missing ordered or unordered list samples');
     const secondaryColor = resolveColor(doc, win, 'var(--secondary)');
@@ -91,33 +90,21 @@ function findStyleRules(ruleList, selector) {
     check(codeFontRules.some(rule => rule.selectorText.split(',').some(selector => selector.trim() === 'code')) && codeFontRules.some(rule => rule.selectorText.split(',').some(selector => selector.trim() === 'pre')), 'Code font family is not explicitly set to a monospace family');
     check(copyButton, 'Missing code copy button');
     check(win.getComputedStyle(copyButton).display !== 'none' && win.getComputedStyle(copyButton).visibility === 'visible', 'Code copy button is hidden without hover');
-    check(win.getComputedStyle(topLink).visibility === 'visible', 'Post progress control is not always visible');
     check(progress.textContent === '0%', 'Reading progress does not start at 0%');
-    check(win.getComputedStyle(progress).opacity === '1' && win.getComputedStyle(progressArrow).opacity === '0', 'Progress and arrow initial visibility is wrong');
-    check(win.getComputedStyle(progress).transitionDuration === '0.2s', 'Progress fade duration is not 200ms');
-    const hoverProgressRules = Array.from(doc.styleSheets).flatMap(sheet => {
-      try { return findStyleRules(sheet.cssRules, '.top-link:hover .reading-progress'); }
-      catch { return []; }
-    });
-    check(hoverProgressRules.length > 0 && hoverProgressRules.every(rule => rule.parentRule?.conditionText?.includes('hover: hover')), 'Touch devices can retain the progress button hover state');
-    check(progressArrow.querySelector('path').getAttribute('stroke-linecap') === 'round' && progressArrow.querySelector('path').getAttribute('stroke-linejoin') === 'round', 'Progress arrow is not rounded');
-    topLink.focus();
-    await pause(250);
-    check(win.getComputedStyle(progress).opacity === '0' && win.getComputedStyle(progressArrow).opacity === '1', 'Focused progress control does not reveal the arrow');
-    topLink.blur();
-    await pause(250);
     const maxScroll = doc.documentElement.scrollHeight - win.innerHeight;
     win.scrollTo(0, maxScroll / 2);
     await pause();
     check(Math.abs(parseInt(progress.textContent, 10) - 50) <= 1, 'Reading progress does not update near 50%');
+    check(trigger.getAttribute('aria-label').includes(progress.textContent), 'TOC button does not announce reading progress');
+    win.scrollTo(0, maxScroll);
+    await pause();
+    check(progress.textContent === '100%', 'Reading progress does not reach 100%');
     win.scrollTo(0, 0);
     await pause();
     check(win.getComputedStyle(trigger).display !== 'none' && !trigger.hidden, 'Mobile button hidden');
     check(win.getComputedStyle(trigger).position === 'fixed', 'Narrow-screen TOC button is not fixed');
     const triggerRect = trigger.getBoundingClientRect();
-    const topLinkRect = topLink.getBoundingClientRect();
-    check(triggerRect.bottom < topLinkRect.top, 'TOC button is not above progress control');
-    check(Math.abs(triggerRect.width - topLinkRect.width) < 1 && Math.abs(triggerRect.height - topLinkRect.height) < 1, 'Floating controls do not share a size');
+    check(Math.abs(win.innerHeight - triggerRect.bottom - 20) < 1, 'TOC button is not at the former back-to-top position');
     check(doc.documentElement.scrollWidth <= win.innerWidth, 'Mobile horizontal overflow');
     trigger.click();
     check(dialog.open, 'Button did not open dialog');
@@ -164,10 +151,15 @@ function findStyleRules(ruleList, selector) {
     doc.documentElement.dataset.theme = 'dark';
     check(win.getComputedStyle(dialog).backgroundColor === 'rgb(29, 30, 32)', 'Dialog does not follow dark theme');
     doc.documentElement.dataset.theme = originalTheme;
-    dialog.querySelector('a[href^="#"]').click();
+    dialog.querySelector('.toc a[href^="#"]').click();
     check(dialog.open && dialog.classList.contains('is-closing'), 'Heading link skipped the closing animation');
     await pause(250);
     check(!dialog.open && win.location.hash, 'Heading link did not close dialog and navigate');
+    trigger.click();
+    await pause(250);
+    dialog.querySelector('.floating-panel-dialog-header h2 a[href="#top"]').click();
+    await pause(1000);
+    check(!dialog.open && win.scrollY < 2 && !win.location.hash, 'Dialog post title did not close and scroll to the page top');
     trigger.click();
     await pause(250);
     dialog.querySelector('.floating-panel-close').click();
@@ -197,6 +189,9 @@ function findStyleRules(ruleList, selector) {
     const bodyRect = doc.querySelector('.post-content').getBoundingClientRect();
     check(sideRect.left >= bodyRect.right - 1 && sideRect.right <= win.innerWidth, 'Sidebar is not to the right of the body');
     check(win.getComputedStyle(sidebar.querySelector('.floating-panel-title')).display !== 'none', 'Desktop panel title is hidden');
+    sidebar.querySelector('.floating-panel-title a[href="#top"]').click();
+    await pause(1000);
+    check(win.scrollY < 2 && !win.location.hash, 'Desktop post title did not scroll to the page top');
     const activeFrame = sidebar.querySelector('.toc-active-frame');
     const tocLinks = Array.from(sidebar.querySelectorAll('.toc a[href^="#"]'));
     const progressSegments = Array.from(sidebar.querySelectorAll('.toc-section-progress'));
@@ -291,9 +286,8 @@ function findStyleRules(ruleList, selector) {
       check(doc.querySelectorAll('.toc').length === 1, 'Duplicate TOC after resize');
       if (width <= 1000) {
         const buttonRect = trigger.getBoundingClientRect();
-        const progressRect = topLink.getBoundingClientRect();
         check(win.getComputedStyle(trigger).display !== 'none', 'Narrow-screen TOC button hidden at width ' + width);
-        check(buttonRect.bottom < progressRect.top, 'TOC button is not above progress at width ' + width);
+        check(Math.abs(win.innerHeight - buttonRect.bottom - 20) < 1, 'TOC button is not at the bottom position at width ' + width);
       } else {
         check(win.getComputedStyle(trigger).display === 'none', 'Wide-screen TOC button visible at width ' + width);
         const responsiveSideRect = sidebar.getBoundingClientRect();
@@ -327,6 +321,8 @@ function findStyleRules(ruleList, selector) {
     const tagsHost = tagsPanel.querySelector('.floating-panel-content');
     const tagNav = tagsPanel.querySelector('.category-nav');
     const tagButtons = Array.from(tagsPanel.querySelectorAll('.category-btn'));
+    const tagLabels = new Map(tagButtons.map(link => [link.pathname, link.childNodes[0].textContent.trim()]));
+    check(tagLabels.get('/tags/phd/') === 'Phd' && tagLabels.get('/tags/note/') === 'Note' && tagLabels.get('/tags/life/') === 'Life' && tagLabels.get('/tags/trpg%E8%B7%91%E5%9B%A2/')?.startsWith('TRPG'), 'Posts tags lost their original capitalization');
     const helloEntry = Array.from(listDoc.querySelectorAll('.post-entry')).find(entry => entry.querySelector('.entry-link')?.pathname === '/posts/20260805hello-world/');
     const listCover = helloEntry?.querySelector('.entry-cover-list');
     const listCoverImage = listCover?.querySelector('img');
@@ -358,7 +354,7 @@ function findStyleRules(ruleList, selector) {
       check(listDoc.documentElement.scrollWidth <= listWin.innerWidth, 'Posts overflow at width ' + width);
       check(listWin.getComputedStyle(tagsTrigger).display !== 'none' && !tagsTrigger.hidden, 'Tags trigger hidden at width ' + width);
       check(listWin.getComputedStyle(tagsSidebar).display === 'none', 'Tags sidebar visible at width ' + width);
-      check(Math.abs(listWin.innerHeight - tagsTrigger.getBoundingClientRect().bottom - 80) < 1, 'Tags trigger does not use the shared floating-control position at width ' + width);
+      check(Math.abs(listWin.innerHeight - tagsTrigger.getBoundingClientRect().bottom - 20) < 1, 'Tags trigger does not use the shared floating-control position at width ' + width);
     }
     tagsTrigger.click();
     check(tagsDialog.open && tagsHost.parentElement === tagsDialog.querySelector('.floating-panel-dialog-body'), 'Tags dialog did not open with the original content host');
@@ -379,7 +375,7 @@ function findStyleRules(ruleList, selector) {
     frame.style.width = '1440px';
     await pause(300);
     check(tagsHost.parentElement === tagsSidebar && listWin.getComputedStyle(tagsSidebar).position === 'fixed', 'Tags content was not restored to the desktop sidebar: media=' + listWin.matchMedia('(min-width: 1001px)').matches + ', parent=' + tagsHost.parentElement?.className);
-    check(listDoc.getElementById('top-link').classList.contains('hidden'), 'List-page top link behavior changed');
+    check(!listDoc.getElementById('top-link'), 'Removed top link remains on list pages');
     await load('/tags/test/');
     check(!frame.contentDocument.querySelector('.floating-panel[data-panel-id="tags"]'), 'Tags panel rendered on a list page without showTags');
     const fixtures = document.createElement('div');

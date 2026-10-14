@@ -75,7 +75,7 @@ https://zdleeeeee.github.io&#160;&#x21a9;&#xfe0e;
 ">
 <meta name="author" content="Zed Lee">
 <link rel="canonical" href="http://localhost:1313/posts/20260805hello-world/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.a95cda8fc116bc2783ad53e871ef7aefed357d52efbff4472746c45c0a7ce320.css" integrity="sha256-qVzaj8EWvCeDrVPoce967&#43;01fVLvv/RHJ0bEXAp84yA=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.c6a3675086b786bcdec1769f403e54fa738f895d6a153c04ec31ef87b1ac806c.css" integrity="sha256-xqNnUIa3hrzewXafQD5U&#43;nOPiV1qFTwE7DHvh7GsgGw=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://localhost:1313/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
@@ -86,8 +86,7 @@ https://zdleeeeee.github.io&#160;&#x21a9;&#xfe0e;
 <link rel="alternate" hreflang="en" href="http://localhost:1313/posts/20260805hello-world/">
 <noscript>
     <style>
-        #theme-toggle,
-        .top-link {
+        #theme-toggle {
             display: none;
         }
 
@@ -268,9 +267,9 @@ https://zdleeeeee.github.io&#160;&#x21a9;&#xfe0e;
     </div>
   </header><div class="floating-panel toc-panel" data-panel-id="toc">
     <button id="toc-trigger" class="floating-panel-trigger" type="button" hidden
-        aria-haspopup="dialog" aria-expanded="false" aria-controls="toc-dialog" aria-label="Table of Contents"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M9 5h12M9 12h12M9 19h12M3 5h1M3 12h1M3 19h1" /></svg></button>
-    <aside id="toc-sidebar" class="floating-panel-sidebar" aria-label="Table of Contents">
-        <div class="floating-panel-title">Table of Contents</div>
+        aria-haspopup="dialog" aria-expanded="false" aria-controls="toc-dialog" aria-label="Table of Contents: Hello World"><span class="reading-progress" aria-hidden="true">0%</span></button>
+    <aside id="toc-sidebar" class="floating-panel-sidebar" aria-label="Table of Contents: Hello World">
+        <div class="floating-panel-title"><a href="#top">Hello World</a></div>
         <div class="floating-panel-content"><nav class="toc">
     <div class="inner">
         <span class="toc-active-frame" aria-hidden="true"></span><ul>
@@ -298,7 +297,7 @@ https://zdleeeeee.github.io&#160;&#x21a9;&#xfe0e;
     </aside>
     <dialog id="toc-dialog" class="floating-panel-dialog" aria-labelledby="toc-dialog-title">
         <div class="floating-panel-dialog-header">
-            <h2 id="toc-dialog-title">Table of Contents</h2>
+            <h2 id="toc-dialog-title"><a href="#top">Hello World</a></h2>
             <button type="button" class="floating-panel-close" aria-label="Close" autofocus>
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                     <path d="m6 6 12 12M18 6 6 18" />
@@ -473,15 +472,8 @@ https://zdleeeeee.github.io&#160;&#x21a9;&#xfe0e;
         <a href="https://github.com/zdleeeeee/hugo-ZedPaper" rel="noopener" target="_blank">ZedPaper</a>
     </span>
 </footer>
-<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
-    <span class="reading-progress" aria-hidden="true">0%</span>
-    <svg class="progress-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-        stroke="currentColor" stroke-width="2" aria-hidden="true">
-        <path d="M12 19V5M6 11l6-6 6 6" stroke-linecap="round" stroke-linejoin="round" />
-    </svg>
-</a>
 <script src="/js/floating-panel.min.4b600244f926fb0151bb2f4e42c94c1cd16b6982bab8e9e5fd4d09b837f08cd8.js" defer></script>
-<script src="/js/floating-toc.min.8ba9c8a1bed19d384123133252387f8a976011fae28044c7741f007208a40170.js" defer></script>
+<script src="/js/floating-toc.min.7b3af0b07e9da925bd7f09259c0e2967bad5c8077e1998b816aa51f13c9c59af.js" defer></script>
 
 
 <script>
@@ -526,35 +518,6 @@ https://zdleeeeee.github.io&#160;&#x21a9;&#xfe0e;
             }
         });
     });
-
-</script>
-<script>
-    var toplink = document.getElementById("top-link");
-    var readingProgress = toplink.querySelector(".reading-progress");
-    var isPost = document.querySelector(".post-single");
-
-    function updateTopLink() {
-        if (isPost) {
-            const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-            const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-            const percent = maxScroll > 0 ? Math.round((scrollTop / maxScroll) * 100) : 100;
-            readingProgress.textContent = `${Math.min(100, Math.max(0, percent))}%`;
-            toplink.setAttribute("aria-label", `Go to top, reading progress ${readingProgress.textContent}`);
-            toplink.classList.remove("hidden");
-            return;
-        }
-
-        const scrollThreshold = window.innerHeight;
-        if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
-            toplink.classList.remove("hidden");
-        } else {
-            toplink.classList.add("hidden");
-        }
-    }
-
-    window.addEventListener("scroll", updateTopLink, { passive: true });
-    window.addEventListener("resize", updateTopLink);
-    updateTopLink();
 
 </script>
 <script>
