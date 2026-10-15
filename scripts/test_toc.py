@@ -66,6 +66,21 @@ function findStyleRules(ruleList, selector) {
     const singleCover = doc.querySelector('.post-header > .entry-cover-single');
     const singleCoverLink = singleCover?.querySelector('.entry-cover-link');
     const postTitle = doc.querySelector('.post-header .post-title');
+    const messages = Array.from(doc.querySelectorAll('.post-content .chat-message')).filter(message => !message.closest('details'));
+    check(messages.length === 2, 'Article message shortcodes did not render');
+    const [defaultMessage, customMessage] = messages;
+    const nestedMessage = doc.querySelector('.post-content details .chat-message');
+    check(nestedMessage?.querySelector('.chat-message-name')?.textContent === 'Nested' && nestedMessage.querySelector('.chat-message-body strong')?.textContent === 'message', 'Message shortcode inside collapse was removed');
+    check(Array.from(nestedMessage.closest('details')?.querySelectorAll('strong') || []).some(node => node.textContent === 'Markdown'), 'Collapse no longer renders Markdown around nested shortcodes');
+    check(defaultMessage.querySelector('.chat-message-avatar img')?.getAttribute('alt') === 'Alice', 'Message avatar or accessible name is missing');
+    check(defaultMessage.querySelector('.chat-message-body strong')?.textContent === 'world', 'Message body did not render Markdown');
+    check(win.getComputedStyle(defaultMessage.querySelector('.chat-message-name')).color === resolveColor(doc, win, 'var(--secondary)'), 'Default message name color is wrong');
+    check(win.getComputedStyle(defaultMessage.querySelector('.chat-message-body')).backgroundColor === resolveColor(doc, win, 'var(--entry)'), 'Default message background is wrong');
+    check(win.getComputedStyle(defaultMessage.querySelector('.chat-message-body')).color === resolveColor(doc, win, 'var(--content)'), 'Default message text color is wrong');
+    check(customMessage.classList.contains('is-right') && win.getComputedStyle(customMessage).flexDirection === 'row-reverse', 'Right-aligned message is not on the right');
+    check(win.getComputedStyle(customMessage.querySelector('.chat-message-name')).color === 'rgb(255, 0, 0)', 'Custom message name color is wrong');
+    check(win.getComputedStyle(customMessage.querySelector('.chat-message-body')).backgroundColor === 'rgb(17, 34, 51)', 'Custom message background is wrong');
+    check(win.getComputedStyle(customMessage.querySelector('.chat-message-body')).color === 'rgb(171, 205, 239)', 'Custom message text color is wrong');
     check(trigger && dialog && sidebar && contentHost, 'Shared TOC panel structure is incomplete');
     check(!doc.querySelector('.header #toc-trigger'), 'TOC trigger remains coupled to the site header');
     check(new Set([trigger.id, dialog.id, sidebar.id]).size === 3, 'Floating panel IDs are not unique');
@@ -445,6 +460,24 @@ with tempfile.TemporaryDirectory(prefix="hugo-toc-test-") as directory:
     else:
         frontmatter_end = fixture_text.find("+++", 3)
         fixture_text = fixture_text[:frontmatter_end] + "[cover]\nimage = '曼哈顿-宇宙无敌汪师傅.png'\nalt = '曼哈顿城市景观'\nsource = 'https://images.example.test/manhattan'\n" + fixture_text[frontmatter_end:]
+    fixture_text += '''
+
+{{< message name="Alice" avatar="/images/profile.jpg" >}}
+Hello, **world**.
+{{< /message >}}
+
+{{< message name="Bob" align="right" nameColor="#ff0000" backgroundColor="#112233" textColor="#abcdef" >}}
+Right-side message.
+{{< /message >}}
+
+{{< collapse summary="Nested message" >}}
+Before **Markdown**.
+
+{{< message name="Nested" >}}
+Nested **message**.
+{{< /message >}}
+{{< /collapse >}}
+'''
     fixture_post.write_text(fixture_text, encoding="utf-8")
     subprocess.run(["hugo", "--contentDir", str(fixture_content), "--destination", str(build), "--noBuildLock"], cwd=ROOT, check=True)
     (build / "toc-test.html").write_text(CHECKS, encoding="utf-8")

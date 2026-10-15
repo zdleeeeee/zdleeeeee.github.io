@@ -6,52 +6,34 @@
     <description>Recent content in (￣▽￣)ノ Welcome to Zed&#39;s Blog on Zed Lee</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 13 Oct 2026 23:43:25 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 15 Oct 2026 17:47:00 +0800</lastBuildDate>
     <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>月星游记 跑团Log</title>
-      <link>http://localhost:1313/posts/20261013%E6%9C%88%E6%98%9F%E6%B8%B8%E8%AE%B0%E8%B7%91%E5%9B%A2log/</link>
-      <pubDate>Tue, 13 Oct 2026 23:43:25 +0800</pubDate>
-      <guid>http://localhost:1313/posts/20261013%E6%9C%88%E6%98%9F%E6%B8%B8%E8%AE%B0%E8%B7%91%E5%9B%A2log/</guid>
-      <description>1870年，随着南北战争的结束，美国费米大炮协会开启了他们疯狂的航空计划——名为探险者号的“炮弹”将搭载甄选出的三名志愿者，完成一场划时代的月球之旅。</description>
-    </item>
-    <item>
-      <title>Some Notes</title>
-      <link>http://localhost:1313/posts/20260928some-notes/</link>
-      <pubDate>Sat, 26 Sep 2026 17:21:45 +0800</pubDate>
-      <guid>http://localhost:1313/posts/20260928some-notes/</guid>
-      <description>&lt;h2 id=&#34;一亩三分地&#34;&gt;一亩三分地&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.1point3acres.com/bbs/thread-620389-1-1.html&#34;&gt;www.1point3acres.com/bbs/thread-620389-1-1.html&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;blogs&#34;&gt;Blogs&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://denghilbert.github.io/blog/PhD%E7%94%B3%E8%AF%B7%E5%9B%9E%E5%BF%86.html&#34;&gt;denghilbert.github.io/blog/PhD%E7%94%B3%E8%AF%B7%E5%9B%9E%E5%BF%86.html&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://trinkle23897.github.io/posts/application&#34; title=&#34;n+e&#39;s blog 申请回忆录&#34;&gt;n+e&amp;rsquo;s blog 申请回忆录&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/eternity4719/HowToLiveBetter&#34;&gt;HowToLiveBetter&lt;/a&gt;&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Hello World</title>
-      <link>http://localhost:1313/posts/20260805hello-world/</link>
-      <pubDate>Wed, 05 Aug 2026 20:37:00 +0800</pubDate>
-      <guid>http://localhost:1313/posts/20260805hello-world/</guid>
-      <description>&lt;p&gt;This is my first blog. Welcome! &lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;inline code&lt;/code&gt; aaa&lt;/p&gt;
-&lt;h2 id=&#34;h2&#34;&gt;h2&lt;/h2&gt;
+      <title>About ZedPaper</title>
+      <link>http://localhost:1313/posts/20260901about-zedpaper/</link>
+      <pubDate>Thu, 15 Oct 2026 17:47:00 +0800</pubDate>
+      <guid>http://localhost:1313/posts/20260901about-zedpaper/</guid>
+      <description>&lt;h2 id=&#34;basic-styles&#34;&gt;Basic Styles&lt;/h2&gt;
+&lt;p&gt;This is footnote-ref. &lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 &lt;h3 id=&#34;h3&#34;&gt;h3&lt;/h3&gt;
+&lt;p&gt;This is &lt;code&gt;inline code&lt;/code&gt;.&lt;/p&gt;
 &lt;h4 id=&#34;h4&#34;&gt;h4&lt;/h4&gt;
-&lt;h5 id=&#34;h5&#34;&gt;h5&lt;/h5&gt;
-&lt;h2 id=&#34;h2-1&#34;&gt;h2&lt;/h2&gt;
-&lt;h3 id=&#34;h3-1&#34;&gt;h3&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;[!WARNING]&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;aldsjflj&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;This is code block:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; a;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;a &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (a &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;8&lt;/span&gt;) {
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h5 id=&#34;h5&#34;&gt;h5&lt;/h5&gt;
+&lt;p&gt;This is link: &lt;a href=&#34;https://zdleeeeee.github.io&#34;&gt;Zed&amp;rsquo;s github&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;h2&#34;&gt;h2&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;This is blockqoute.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;aldsjflj&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;ol&gt;
 &lt;li&gt;aaa&lt;/li&gt;
 &lt;li&gt;bbb&lt;/li&gt;
 &lt;li&gt;ccc&lt;/li&gt;
@@ -90,14 +72,39 @@
 &lt;p&gt;\(\frac{e^{x_j}}{\sum^k_{i=0}{e^{x_i}}}\)&lt;/p&gt;
 \[
 \frac{e^{x_j}}{\sum^k_{i=0}{e^{x_i}}}
-\]&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
-&lt;hr&gt;
-&lt;ol&gt;
-&lt;li id=&#34;fn:1&#34;&gt;
-&lt;p&gt;&lt;a href=&#34;https://zdleeeeee.github.io&#34;&gt;https://zdleeeeee.github.io&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;</description>
+\]&lt;h2 id=&#34;new-components&#34;&gt;New Components&lt;/h2&gt;
+&lt;h3 id=&#34;message&#34;&gt;message&lt;/h3&gt;
+&lt;p&gt;Use &lt;code&gt;message&lt;/code&gt; to show a chat bubble. The content between the shortcodes supports Markdown:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{{&amp;lt; message name=&amp;#34;Alice&amp;#34; avatar=&amp;#34;/images/alice.png&amp;#34; align=&amp;#34;right&amp;#34; nameColor=&amp;#34;#e85d75&amp;#34; backgroundColor=&amp;#34;#fff0f3&amp;#34; textColor=&amp;#34;#333333&amp;#34; &amp;gt;}}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Hello, **world**!
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{{&amp;lt; /message &amp;gt;}}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;All parameters are optional. &lt;code&gt;name&lt;/code&gt; sets the displayed name, &lt;code&gt;avatar&lt;/code&gt; sets the image URL, and &lt;code&gt;align&lt;/code&gt; is &lt;code&gt;left&lt;/code&gt; by default or &lt;code&gt;right&lt;/code&gt;. The color parameters default to &lt;code&gt;var(--secondary)&lt;/code&gt; for &lt;code&gt;nameColor&lt;/code&gt;, &lt;code&gt;var(--entry)&lt;/code&gt; for &lt;code&gt;backgroundColor&lt;/code&gt;, and &lt;code&gt;var(--content)&lt;/code&gt; for &lt;code&gt;textColor&lt;/code&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>月星游记 跑团Log</title>
+      <link>http://localhost:1313/posts/20261013%E6%9C%88%E6%98%9F%E6%B8%B8%E8%AE%B0%E8%B7%91%E5%9B%A2log/</link>
+      <pubDate>Tue, 13 Oct 2026 23:43:25 +0800</pubDate>
+      <guid>http://localhost:1313/posts/20261013%E6%9C%88%E6%98%9F%E6%B8%B8%E8%AE%B0%E8%B7%91%E5%9B%A2log/</guid>
+      <description>1870年，随着南北战争的结束，美国费米大炮协会开启了他们疯狂的航空计划——名为探险者号的“炮弹”将搭载甄选出的三名志愿者，完成一场划时代的月球之旅。</description>
+    </item>
+    <item>
+      <title>Some Notes</title>
+      <link>http://localhost:1313/posts/20260928some-notes/</link>
+      <pubDate>Sat, 26 Sep 2026 17:21:45 +0800</pubDate>
+      <guid>http://localhost:1313/posts/20260928some-notes/</guid>
+      <description>&lt;h2 id=&#34;一亩三分地&#34;&gt;一亩三分地&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.1point3acres.com/bbs/thread-620389-1-1.html&#34;&gt;www.1point3acres.com/bbs/thread-620389-1-1.html&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;blogs&#34;&gt;Blogs&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://denghilbert.github.io/blog/PhD%E7%94%B3%E8%AF%B7%E5%9B%9E%E5%BF%86.html&#34;&gt;denghilbert.github.io/blog/PhD%E7%94%B3%E8%AF%B7%E5%9B%9E%E5%BF%86.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://trinkle23897.github.io/posts/application&#34; title=&#34;n+e&#39;s blog 申请回忆录&#34;&gt;n+e&amp;rsquo;s blog 申请回忆录&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/eternity4719/HowToLiveBetter&#34;&gt;HowToLiveBetter&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Hello World</title>
+      <link>http://localhost:1313/posts/20260805hello-world/</link>
+      <pubDate>Wed, 05 Aug 2026 20:37:00 +0800</pubDate>
+      <guid>http://localhost:1313/posts/20260805hello-world/</guid>
+      <description>This is my first blog. Welcome!</description>
     </item>
   </channel>
 </rss>

@@ -5,63 +5,11 @@ title = 'Hello World'
 ShowToc = true
 tags = ['Life']
 author = 'Zed Lee'
+summary = 'This is my first blog. Welcome!'
 [cover]
 image = '曼哈顿-宇宙无敌汪师傅.png'
 alt = '曼哈顿-宇宙无敌汪师傅'
 source = 'https://space.bilibili.com/364444803'
 +++
 
-This is my first blog. Welcome! [^1] 
-
-`inline code` aaa
-
-## h2
-
-### h3
-
-#### h4
-
-##### h5
-
-## h2
-
-### h3
-
-> [!WARNING]
->> aldsjflj
->>
-
-```cpp
-int a;
-a = 1;
-if (a == 8) {
-    return -1;
-}
-```
-
-1. aaa
-2. bbb
-3. ccc
-
-- aaa
-- bbb
-- ccc
-  - aaa
-
-|th|th1|th2|
-|:---|:---:|---:|
-|tr1|11|12|
-|tr2|21|22|
-
----
-
-$\frac{e^{x_j}}{\sum^k_{i=0}{e^{x_i}}}$
-
-
-$$
-\frac{e^{x_j}}{\sum^k_{i=0}{e^{x_i}}}
-$$
-
-
-[^1]: https://zdleeeeee.github.io 
-
+This is my first blog. Welcome! 
