@@ -1,0 +1,205 @@
+{{< message name="<主持人> 环×3" avatar="zcr.jpg" >}}
+就在你们不知所措时，你们感受到地面在颤动  
+{{< /message >}}
+
+{{< message name="<阿丁诺·科波菲尔> 环×3" align="right" nameColor="#F0561D" background="#F0561D40" >}}
+“怎么回事？”努力稳住身体。  
+{{< /message >}}
+
+{{< message name="<费希特> 环×4" nameColor="#E3A60E" background="#E3A60E40" >}}
+我身体摇晃，探头望了外面一眼，“这说地震了，等一下月球怎么会地震呢……”  
+{{< /message >}}
+
+{{< message name="<主持人> 环×3" avatar="zcr.jpg" >}}
+费希特可以看到从地球方向来了几枚炮弹，落在营地不远处。  
+而那些兔子不知道什么时候又多了十多只，两三只一组，两组盯着你们，其余几组跑向那些炮弹的落点。  
+{{< /message >}}
+
+{{< message name="<马龙·马洛> 环×3" nameColor="#20BA43" background="#20BA4340" >}}
+看看自己的身上，有没有类似狗牌之类的，可以证明自己身份的物品？  
+{{< /message >}}
+
+{{< message name="<主持人> 环×3" avatar="zcr.jpg" >}}
+有的，你们每个人脖子位置都有刻有你们名字的黄铜铭牌。  
+{{< /message >}}
+
+{{< message name="<费希特> 环×4" nameColor="#E3A60E" background="#E3A60E40" >}}
+“啊，是导弹雨来了”我震惊的看着那些兔子，“他们好像要抢我们的物资！”  
+{{< /message >}}
+
+{{< message name="<阿丁诺·科波菲尔> 环×3" align="right" nameColor="#F0561D" background="#F0561D40" >}}
+“看来我们似乎不得不解决这些兔子了……”  
+{{< /message >}}
+
+{{< message name="<马龙·马洛> 环×3" nameColor="#20BA43" background="#20BA4340" >}}
+“没办法的事，那个。我想先去确认一下刚才给我们留下信的那个人到底是谁。我的意思是，这个东西。”  
+{{< /message >}}
+
+{{< message name="<阿丁诺·科波菲尔> 环×3" align="right" nameColor="#F0561D" background="#F0561D40" >}}
+“有道理，或许可以试试看能不能用罐头引开它们。”尝试拿出一个罐头在兔子们面前晃动，顺便观察兔子的反应。  
+{{< /message >}}
+
+{{< message name="<主持人> 环×3" avatar="zcr.jpg" >}}
+兔子呆呆地看着你，这次没像之前那只一样靠近了。  
+{{< /message >}}
+
+{{< message name="<阿丁诺·科波菲尔> 环×3" align="right" nameColor="#F0561D" background="#F0561D40" >}}
+打开一个罐头，朝远处扔去，看看能不能引开兔子。  
+{{< /message >}}
+
+{{< message name="<主持人> 环×3" avatar="zcr.jpg" >}}
+而阿丁诺的罐头确实吸引了一组兔子，它们以一种狗吃食的方式啃食起罐头——你发现它们好像连罐头都啃掉了。  
+{{< /message >}}
+
+{{< message name="<马龙·马洛> 环×3" nameColor="#20BA43" background="#20BA4340" >}}
+在去回收物资的路上，顺便看一下那个攥着纸的人到底是谁  
+{{< /message >}}
+
+{{< message name="<主持人> 环×3" avatar="zcr.jpg" >}}
+马龙，你现在没法去回收物资，除非中断与队友的链接或者拉着两位队友一起。  
+{{< /message >}}
+
+{{< message name="<费希特> 环×4" nameColor="#E3A60E" background="#E3A60E40" >}}
+我站在远处仔细观察那些炮弹的形状形态。  
+{{< /message >}}
+
+{{< message name="<主持人> 环×3" avatar="zcr.jpg" >}}
+这些炮弹毫无疑问就是装着你们未来月面两天，月地之间两天的物资的炮弹。  
+{{< /message >}}
+
+{{< message name="<马龙·马洛> 环×3" nameColor="#20BA43" background="#20BA4340" >}}
+“所以说。没有武器，对面数量也比我们更多。如果我们不去拿东西的话就会饿死。是这样的情况对吗？”  
+{{< /message >}}
+
+{{< message name="<费希特> 环×4" nameColor="#E3A60E" background="#E3A60E40" >}}
+“额，有再多罐头看起来也不够了，我们不可能打赢那些兔子，这些兔子应该暂时打不开那些炮弹，毕竟他们没有手，或许我们可以去营地内部看看有没有趁手的武器？”  
+{{< /message >}}
+
+{{< message name="<马龙·马洛> 环×3" nameColor="#20BA43" background="#20BA4340" >}}
+“我想不用多久，你觉得炮弹外科会比罐头皮坚固多少？”  
+{{< /message >}}
+
+{{< message name="<阿丁诺·科波菲尔> 环×3" align="right" nameColor="#F0561D" background="#F0561D40" >}}
+“我们几个真的能和这些兔子正面战斗吗？”  
+{{< /message >}}
+
+{{< message name="<马龙·马洛> 环×3" nameColor="#20BA43" background="#20BA4340" >}}
+“工程师，弄个类似磁铁一类的东西，把这些炮弹调回来呢？”  
+{{< /message >}}
+
+{{< message name="<费希特> 环×4" nameColor="#E3A60E" background="#E3A60E40" >}}
+“我现在手上的材料只有齿轮和零件，对了还有这把铲子，目前看来只能去营地里看看了，你们觉得呢？”  
+{{< /message >}}
+
+{{< message name="<主持人> 环×3" avatar="zcr.jpg" >}}
+其实炮弹外壳还是比罐头皮结实许多的，都是金属不代表是同一种金属，罐头皮的厚度属于你们大点力气也能勉强撕开的程度。  
+以及那些兔子比起想要物资，更像是在观察，只要你们不刺激它们，它们基本呆坐在那，盯着你们或炮弹。  
+{{< /message >}}
+
+{{< message name="<阿丁诺·科波菲尔> 环×3" align="right" nameColor="#F0561D" background="#F0561D40" >}}
+“看起来，这些兔子还没有要攻击我们的意思。”  
+{{< /message >}}
+
+{{< message name="<马龙·马洛> 环×3" nameColor="#20BA43" background="#20BA4340" >}}
+那我能不能先去看看那个人叫什么名？  
+{{< /message >}}
+
+{{< message name="<主持人> 环×3" avatar="zcr.jpg" >}}
+哪个人？  
+{{< /message >}}
+
+{{< message name="<阿丁诺·科波菲尔> 环×3" align="right" nameColor="#F0561D" background="#F0561D40" >}}
+是那个攥纸的尸体吗？  
+{{< /message >}}
+
+{{< message name="<马龙·马洛> 环×3" nameColor="#20BA43" background="#20BA4340" >}}
+是啊。  
+{{< /message >}}
+
+{{< message name="<主持人> 环×3" avatar="zcr.jpg" >}}
+那具尸体……不是，没有尸体，那套潜水服上没有身份铭牌。你们发现的全部潜水服都没有身份铭牌。  
+一个可能的原因是，当初那批人，是有可替换潜水服的，因此身份铭牌没有放在潜水服上。  
+{{< /message >}}
+
+{{< message name="<马龙·马洛> 环×3" nameColor="#20BA43" background="#20BA4340" >}}
+“嘶，如果没有风的话，应该不会有什么风化？”  
+{{< /message >}}
+
+{{< message name="<阿丁诺·科波菲尔> 环×3" align="right" nameColor="#F0561D" background="#F0561D40" >}}
+“这些兔子会吃金属，会不会是这些兔子把黄铜铭牌吃掉了？”  
+{{< /message >}}
+
+{{< message name="<马龙·马洛> 环×3" nameColor="#20BA43" background="#20BA4340" >}}
+“我觉得更像是把金属咬开，而不是吃金属。”  
+{{< /message >}}
+
+{{< message name="<阿丁诺·科波菲尔> 环×3" align="right" nameColor="#F0561D" background="#F0561D40" >}}
+“月球上都有兔子了，会吃金属也不奇怪”摊手。  
+{{< /message >}}
+
+{{< message name="<主持人> 环×3" avatar="zcr.jpg" >}}
+潜水服上也有许多金属，比如头盔，这些地方都是完好的。  
+{{< /message >}}
+
+{{< message name="<马龙·马洛> 环×3" nameColor="#20BA43" background="#20BA4340" >}}
+“走吧，我们继续。可能我只想希望获得一些，逻辑性的东西。”  
+{{< /message >}}
+
+{{< message name="<费希特> 环×4" nameColor="#E3A60E" background="#E3A60E40" >}}
+“这个地方唯一的逻辑就是没有逻辑，我的上帝啊，我快疯了，一切兜显得那么诡异怪诞，只能走一步看一步了。”  
+{{< /message >}}
+
+{{< message name="<马龙·马洛> 环×3" nameColor="#20BA43" background="#20BA4340" >}}
+“我没想到你比我还不能接受现实。”  
+{{< /message >}}
+
+{{< message name="<阿丁诺·科波菲尔> 环×3" align="right" nameColor="#F0561D" background="#F0561D40" >}}
+找找百年前的足迹，“继续往哪前进呢？”  
+转向众人，“深入营地，还是去找我们的补给？”  
+{{< /message >}}
+
+{{< message name="<费希特> 环×4" nameColor="#E3A60E" background="#E3A60E40" >}}
+“嗯，深入营地吧，我感觉不像是人们在迁徙而像是集体消失了一样，为什么这里会留下纸条，是走的胎匆忙吗？或许营地内部会有更多的资料。”  
+“马洛先生，你们觉得呢？”  
+{{< /message >}}
+
+{{< message name="<马龙·马洛> 环×3" nameColor="#20BA43" background="#20BA4340" >}}
+“现在我们，先拿两个罐头，然后搜索一下吧。”  
+{{< /message >}}
+
+{{< message name="<阿丁诺·科波菲尔> 环×3" align="right" nameColor="#F0561D" background="#F0561D40" >}}
+“避难区……”拿起之前发现的纸，“如果我们要继续找那些前人的结局，可能得跟上这些撤离的足迹。”  
+{{< /message >}}
+
+{{< message name="<主持人> 环×3" avatar="zcr.jpg" >}}
+是回到你们已经搜索得差不多的营地，还是前往纸条提到的避难区，还是去刚刚落下的补给炮弹里去拿补给？  
+{{< /message >}}
+
+{{< message name="<阿丁诺·科波菲尔> 环×3" align="right" nameColor="#F0561D" background="#F0561D40" >}}
+“感觉营地依旧搜得差不多了……或许我们得二选一了，避难区还是补给炮弹？”  
+{{< /message >}}
+
+{{< message name="<马龙·马洛> 环×3" nameColor="#20BA43" background="#20BA4340" >}}
+“然后咱们被兔子打死吗？”  
+{{< /message >}}
+
+{{< message name="<费希特> 环×4" nameColor="#E3A60E" background="#E3A60E40" >}}
+“嗯…看来我们应该去避难区了，事不宜迟我们走吧，带好物资。”  
+{{< /message >}}
+
+{{< message name="<阿丁诺·科波菲尔> 环×3" align="right" nameColor="#F0561D" background="#F0561D40" >}}
+“走吧。”  
+{{< /message >}}
+
+{{< message name="<费希特> 环×4" nameColor="#E3A60E" background="#E3A60E40" >}}
+我也起身拿起几个罐头，按照大家的线索的指引前往目的地。  
+{{< /message >}}
+
+{{< message name="<马龙·马洛> 环×3" nameColor="#20BA43" background="#20BA4340" >}}
+思考着可能性，维持着殿后。  
+{{< /message >}}
+
+{{< message name="<主持人> 环×3" avatar="zcr.jpg" >}}
+没有去拿属于你们的物资？OK……  
+那么，你们抵达了——钻探营地！  
+{{< /message >}}

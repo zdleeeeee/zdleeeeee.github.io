@@ -42,6 +42,7 @@ def convert(source: str) -> str:
                 output.append(block)
         else:
             name, options = active
+            block = "\n".join(f"{line}  " if line.strip() else line for line in block.split("\n"))
             attrs = {"name": name, **{key: value for key, value in options.items() if value}}
             args = " ".join(f"{key}={json.dumps(value, ensure_ascii=False)}" for key, value in attrs.items())
             output.append(f"{{{{< message {args} >}}}}\n{block}\n{{{{< /message >}}}}")

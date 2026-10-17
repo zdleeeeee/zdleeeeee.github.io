@@ -16,6 +16,9 @@ theme = 'ZedPaper'
     block = [['\[', '\]'], ['$$', '$$']]
     inline = [['\(', '\)'], ['$', '$']]
 
+[markup.highlight]
+  lineNos = "inline"
+
 [params]
   mainSections = ["posts"]
   ShowAllPagesInArchive = true
@@ -24,6 +27,7 @@ theme = 'ZedPaper'
   ShowShareButtons = true
   ShowCodeCopyButtons = true
   ShowNavbar = true
+  ShowPageNums = false
   ShowReadTime = true
 
   fuseOpts = {
@@ -41,6 +45,10 @@ theme = 'ZedPaper'
     imageTitle = ""
     imageWidth = 150
     imageHeight = 150
+
+[pagination]
+  pagerSize = 6
+  path = 'page' 
 
 [menu]
   [[menu.main]]

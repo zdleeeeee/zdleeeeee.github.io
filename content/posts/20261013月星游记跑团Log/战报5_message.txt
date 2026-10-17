@@ -1,0 +1,173 @@
+{{< message name="<主持人> 环×3" avatar="zcr.jpg" >}}
+你们在过去一年接受的严苛训练没能让你们立刻适应月球重力，为了交流而连接彼此的橡皮管也影响你们的行动能力。总而言之，在约一小时后，你们抵达了一处月表高地。  
+你们看到了广袤而荒芜的月面，其上坑坑洼洼。  
+而在不远处，是百年前的志愿者们留下的营地。  
+说是营地，但其实相当简陋，它依托月表的特殊地形而建。  
+炮弹发射藏与月岩围绕着营地，构成简易的防御工事，营地内部则是由防水布与熟牛皮构成的帐篷，不过具体细节得亲自过去才能看到了。  
+阿丁诺，你的物理学知识告诉你，营地外围那圈结构能够抵挡强风。  
+马龙，你作为侦探的敏锐让你立刻意识到一个问题——为什么要在月球上搭建防御工事？  
+{{< /message >}}
+
+{{< message name="<费希特> 环×4" nameColor="#E3A60E" background="#E3A60E40" >}}
+望过去，“好庞大的营地啊！”  
+{{< /message >}}
+
+{{< message name="<阿丁诺·科波菲尔> 环×3" align="right" nameColor="#F0561D" background="#F0561D40" >}}
+“营地外围的结构似乎是个防风装置……”有些疑惑，“不过月球上会有大风吗？”  
+{{< /message >}}
+
+{{< message name="<费希特> 环×4" nameColor="#E3A60E" background="#E3A60E40" >}}
+“不清楚，应该不会有吧？”  
+{{< /message >}}
+
+{{< message name="<主持人> 环×3" avatar="zcr.jpg" >}}
+补充一句，你们感受不到任何风。  
+{{< /message >}}
+
+{{< message name="<阿丁诺·科波菲尔> 环×3" align="right" nameColor="#F0561D" background="#F0561D40" >}}
+“我们现在是直接走过去搜物资吗……还是先在外面观察一下？”  
+{{< /message >}}
+
+{{< message name="<费希特> 环×4" nameColor="#E3A60E" background="#E3A60E40" >}}
+“我想我们直接进去看看，你们觉得如何？”  
+{{< /message >}}
+
+{{< message name="<阿丁诺·科波菲尔> 环×3" align="right" nameColor="#F0561D" background="#F0561D40" >}}
+“大侦探，有看出什么吗？”侧身向马龙。  
+{{< /message >}}
+
+{{< message name="<马龙·马洛> 环×2" nameColor="#20BA43" background="#20BA4340" >}}
+尝试检查。  
+{{< /message >}}
+
+{{< message name="<主持人> 环×3" avatar="zcr.jpg" >}}
+费希特，作为团队里的机械师与工程师，我认为你应该比较关注你们设备的情况——这意味着你发现你们的氧气已经相当不足了，而运送物资的炮弹迟迟没有抵达月表。  
+{{< /message >}}
+
+{{< message name="<马龙·马洛> 环×2" nameColor="#20BA43" background="#20BA4340" >}}
+“三位，有没有人曾经说过，在月亮上有什么，活物之类的？”用手指了指类似战壕的设施。  
+{{< /message >}}
+
+{{< message name="<阿丁诺·科波菲尔> 环×3" align="right" nameColor="#F0561D" background="#F0561D40" >}}
+“月球上的怪物？外星人的基地？还是……”回想自己道听途说过的阴谋论。  
+{{< /message >}}
+
+{{< message name="<费希特> 环×4" nameColor="#E3A60E" background="#E3A60E40" >}}
+“看起来是的月球暗面是真的？不过我们的氧气已经即将供应不足，炮弹现在还没有到来，或许我们应该去营地看看。”  
+{{< /message >}}
+
+{{< message name="<阿丁诺·科波菲尔> 环×3" align="right" nameColor="#F0561D" background="#F0561D40" >}}
+向费希特点点头，“确实，也没办法了。”  
+{{< /message >}}
+
+{{< message name="<马龙·马洛> 环×2" nameColor="#20BA43" background="#20BA4340" >}}
+看了看工程师和小说家，无奈的挠了挠头，当然摸不到，“还是我一个人先去探探路吧！”  
+{{< /message >}}
+
+{{< message name="<阿丁诺·科波菲尔> 环×3" align="right" nameColor="#F0561D" background="#F0561D40" >}}
+“我们用传声器连着的，没法单独行动。而且单独行动太过危险，有突发状况我们也难以联络。”  
+{{< /message >}}
+
+{{< message name="<马龙·马洛> 环×2" nameColor="#20BA43" background="#20BA4340" >}}
+“刚才飞船上那两下子……你们俩不添乱就算好的。”  
+{{< /message >}}
+
+{{< message name="<阿丁诺·科波菲尔> 环×3" align="right" nameColor="#F0561D" background="#F0561D40" >}}
+“一键查询是谁补好了裂缝。”  
+{{< /message >}}
+
+{{< message name="<马龙·马洛> 环×2" nameColor="#20BA43" background="#20BA4340" >}}
+“好吧好吧……注意安全。”  
+{{< /message >}}
+
+{{< message name="<费希特> 环×4" nameColor="#E3A60E" background="#E3A60E40" >}}
+“好了再说下去氧气要耗尽了，那我们走吧！”迈步前往。  
+{{< /message >}}
+
+{{< message name="<阿丁诺·科波菲尔> 环×3" align="right" nameColor="#F0561D" background="#F0561D40" >}}
+一同前进。  
+{{< /message >}}
+
+{{< message name="<主持人> 环×3" avatar="zcr.jpg" >}}
+来到营地后，你们注意到了更多细节，比如外面的围挡以及帐篷间的空隙都有人为缩减的痕迹。马龙在处理一起与猎户有关的案子时见过类似的手段，被用于抵挡狼群的袭击。  
+费希特在营地中找到了一些工具，其中比较多的是拼装式工铲，上面有着许多划痕和暗红色泥土，可以看出使用频率不低。  
+阿丁诺则是在一处篷布的下方发现了约半米的坑洞，看起来是人为挖掘的，里面有着一些未启用的氧气罐和罐头。  
+{{< /message >}}
+
+{{< message name="<马龙·马洛> 环×2" nameColor="#20BA43" background="#20BA4340" >}}
+摸摸帐篷，看看有没有问题。  
+{{< /message >}}
+
+{{< message name="<主持人> 环×3" avatar="zcr.jpg" >}}
+篷布厚实，熟牛皮结实，看起来百年前的圣伊丽莎白星空计划的贪腐问题没有这次那么严重——不过它们无一例外地严重褪色。  
+{{< /message >}}
+
+{{< message name="<费希特> 环×4" nameColor="#E3A60E" background="#E3A60E40" >}}
+“这铲子看来没少用，他们挖这些洞和泥土是为了保温吗？”  
+{{< /message >}}
+
+{{< message name="<马龙·马洛> 环×2" nameColor="#20BA43" background="#20BA4340" >}}
+“很有可能，有什么好消息吗？”  
+{{< /message >}}
+
+{{< message name="<阿丁诺·科波菲尔> 环×3" align="right" nameColor="#F0561D" background="#F0561D40" >}}
+“太好了，找到氧气罐了！”朝众人示意，“还有些罐头！”  
+{{< /message >}}
+
+{{< message name="<主持人> 环×3" avatar="zcr.jpg" >}}
+第一件事，好消息，费米大炮协会的赞助者们曾高价购买过圣伊丽莎白星空计划的资料，并以此为参考设计了你们现有的装备——这意味着你们可以直接使用百年前的氧气罐。  
+{{< /message >}}
+
+{{< message name="<费希特> 环×4" nameColor="#E3A60E" background="#E3A60E40" >}}
+“真是个好消息，多亏了上个世纪就已经研究出了很好的保鲜技术。”我拿起一盒罐头查看上面的文字。  
+{{< /message >}}
+
+{{< message name="<主持人> 环×3" avatar="zcr.jpg" >}}
+第二件事，坏消息，你们找不到合适的方式来吃罐头食品，你们的食物都是袋装，通过专门的进食软管食用——至少饿一会儿不会出什么事儿。  
+而费希特……这些罐头的包装极其朴素，既没有生产日期也没有配料表，仅仅有“牛肉罐头”“水果罐头”这样的品类名，以及赞助商的商标。  
+{{< /message >}}
+
+{{< message name="<马龙·马洛> 环×2" nameColor="#20BA43" background="#20BA4340" >}}
+“那么……人呢？”观察营地，想看有没有其他人留下的痕迹……新鲜的。  
+{{< /message >}}
+
+{{< message name="<主持人> 环×3" avatar="zcr.jpg" >}}
+最后，马龙，你不愧是个侦探，你意识到了不存在的事物反而能成为线索——假如这是个营地，那人都去哪了？  
+毕竟过了快一百年，没有活人才是正常情况——但死人去哪了？  
+整个营地里能看到最接近人形的物件，是几个头盔玻璃碎掉的潜水服，而里面空空如也，并没有尸体。  
+嗯……马龙，你可以尝试调查一下，难度为2。  
+{{< /message >}}
+
+{{< message name="<费希特> 环×4" nameColor="#E3A60E" background="#E3A60E40" >}}
+“人会去那呢？这不正常至少不合理，没有理由啊月球空荡荡的不会有资源，除非有什么东西来了。”  
+{{< /message >}}
+
+{{< message name="<马龙·马洛> O" nameColor="#20BA43" background="#20BA4340" >}}
+0+00+4（掉还差）=+5（杰出），大成功  
+{{< /message >}}
+
+{{< message name="<主持人> 环×3" avatar="zcr.jpg" >}}
+大成功！Success with style！  
+首先，月球上大概确实没有风，因为哪怕经过百年，地上的一些痕迹也没有被消磨，你通过那些杂乱的脚印和阿丁诺发现的那些物资的散落状况，推断出营地的人曾经有组织地撤离。  
+其次，在营地的外围，你又发现了一个空空的潜水服，但这个潜水服的手上攥着一张纸。  
+{{< /message >}}
+
+{{< message name="<阿丁诺·科波菲尔> 环×3" align="right" nameColor="#F0561D" background="#F0561D40" >}}
+凑近看看。  
+{{< /message >}}
+
+{{< message name="<主持人> 环×3" avatar="zcr.jpg" >}}
+得益于潜水服的保护，它上面的文字虽然也有褪色情况，但并不严重——这是一张表单。  
+![](img3.jpg)  
+你也注意到那些离开的脚印前往的方向，那里大概通向纸张上记录的地点。  
+然后，算是这次调查的额外收获，你已经对当前营地的地形了如指掌（可免费激活一次）。  
+{{< /message >}}
+
+{{< message name="<马龙·马洛> 环×2" nameColor="#20BA43" background="#20BA4340" >}}
+回忆之前的调查情况，探月计划里出现过这两个名字否。  
+{{< /message >}}
+
+{{< message name="<主持人> 环×3" avatar="zcr.jpg" >}}
+好问题，考虑到你是个侦探，对名字可能比较敏感，你记得这两个名字在圣伊丽莎白星空计划志愿者名单中出现过，是三百个志愿者之一  
+同时圣伊丽莎白计划确实有送到月球相当多的工具与设备，以至于当初的志愿者们可以在月球组装出用于钻探的设备。  
+{{< /message >}}

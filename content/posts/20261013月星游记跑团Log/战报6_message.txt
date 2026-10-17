@@ -1,0 +1,182 @@
+{{< message name="<主持人> 环×3" avatar="zcr.jpg" >}}
+啊，费希特，我记得你眼神还不错？  
+你看到附近有个东西在动，那东西迅速移动到一块月岩的后面。  
+{{< /message >}}
+
+{{< message name="<费希特> 环×4" nameColor="#E3A60E" background="#E3A60E40" >}}
+“那里有东西！”我举起手指向那块月岩。  
+{{< /message >}}
+
+{{< message name="<阿丁诺·科波菲尔> 环×3" align="right" nameColor="#F0561D" background="#F0561D40" >}}
+迅速看过去。  
+{{< /message >}}
+
+{{< message name="<主持人> 环×3" avatar="zcr.jpg" >}}
+月岩后面探出什么东西，那东西在动，但不靠近的话是无法确认那个东西是什么。  
+{{< /message >}}
+
+{{< message name="<马龙·马洛> 环×2" nameColor="#20BA43" background="#20BA4340" >}}
+“嘘。”  
+{{< /message >}}
+
+{{< message name="<主持人> 环×3" avatar="zcr.jpg" >}}
+倒也不用刻意噤声，只要不用力跺脚，你们发出的声音是不会被月表的其他人听到的——哦，前提是月表有其他人。  
+{{< /message >}}
+
+{{< message name="<费希特> 环×4" nameColor="#E3A60E" background="#E3A60E40" >}}
+“我过去看看”我决定往前移动。  
+{{< /message >}}
+
+{{< message name="<阿丁诺·科波菲尔> 环×3" align="right" nameColor="#F0561D" background="#F0561D40" >}}
+跟在后面，慢慢向那个位置移动。  
+{{< /message >}}
+
+{{< message name="<主持人> 环×3" avatar="zcr.jpg" >}}
+其他人怎么想，有人要断开链接吗？  
+{{< /message >}}
+
+{{< message name="<马龙·马洛> 环×2" nameColor="#20BA43" background="#20BA4340" >}}
+小心翼翼把纸收纳起来，继续殿后  
+{{< /message >}}
+
+{{< message name="<费希特> 环×4" nameColor="#E3A60E" background="#E3A60E40" >}}
+那然后我到了岩石面前，头往后面探。  
+{{< /message >}}
+
+{{< message name="<主持人> 环×3" avatar="zcr.jpg" >}}
+你们看到了……一只小白兔，有富人家猎犬那么大的小白兔。毛色偏暗，像是月球岩石的小白兔。  
+{{< /message >}}
+
+{{< message name="<阿丁诺·科波菲尔> 环×3" align="right" nameColor="#F0561D" background="#F0561D40" >}}
+警惕，“月球上会有兔子吗？”  
+{{< /message >}}
+
+{{< message name="<主持人> 环×3" avatar="zcr.jpg" >}}
+它不逃不躲，就那样呆呆地看着你们，还挺可爱的。  
+{{< /message >}}
+
+{{< message name="<阿丁诺·科波菲尔> 环×3" align="right" nameColor="#F0561D" background="#F0561D40" >}}
+心中不禁想起一些恐怖的设定，比如什么外形变形怪伪装成兔子。  
+{{< /message >}}
+
+{{< message name="<费希特> 环×4" nameColor="#E3A60E" background="#E3A60E40" >}}
+“这是兔子吗？”我后退了两步。  
+{{< /message >}}
+
+{{< message name="<阿丁诺·科波菲尔> 环×3" align="right" nameColor="#F0561D" background="#F0561D40" >}}
+后退两步。  
+{{< /message >}}
+
+{{< message name="<马龙·马洛> 环×2" nameColor="#20BA43" background="#20BA4340" >}}
+比较兔子和帐篷战壕的高度，特别是缝隙减少部分的高度。  
+{{< /message >}}
+
+{{< message name="<主持人> 环×3" avatar="zcr.jpg" >}}
+敏锐的侦探！无论这些兔子有没有攻击力，无论营地的调整是否是因为这些兔子，但如果这种兔子对营地发生攻击，人类确实能借助这些调整来抵御它们。  
+{{< /message >}}
+
+{{< message name="<费希特> 环×4" nameColor="#E3A60E" background="#E3A60E40" >}}
+试着冲它招了招手。  
+{{< /message >}}
+
+{{< message name="<主持人> 环×3" avatar="zcr.jpg" >}}
+面对费希特的试探，那兔子竟真的靠近，用额头顶了顶你的手——隔着潜水服，你摸不出毛茸茸的手感，但你能大概感觉到，这玩意儿头盖骨可能挺硬。  
+暂且来看，这玩意还是比较友善的——就在你这么想的时候，它一脚将你踹翻，朝着边上跑了一段。  
+{{< /message >}}
+
+{{< message name="<马龙·马洛> 环×2" nameColor="#20BA43" background="#20BA4340" >}}
+“头盔也许就是这么破的。”  
+{{< /message >}}
+
+{{< message name="<费希特> 环×4" nameColor="#E3A60E" background="#E3A60E40" >}}
+“？？？”看着跑远的兔子，“至少这是个动物。”  
+{{< /message >}}
+
+{{< message name="<费希特> 环×4" nameColor="#E3A60E" background="#E3A60E40" >}}
+“为什么这里的动物会那么大呢？这不和常理啊……”  
+{{< /message >}}
+
+{{< message name="<阿丁诺·科波菲尔> 环×3" align="right" nameColor="#F0561D" background="#F0561D40" >}}
+“显然更不合理的是没有氧气居然有兔子这件事吧……”  
+{{< /message >}}
+
+{{< message name="<马龙·马洛> 环×2" nameColor="#20BA43" background="#20BA4340" >}}
+“首先要确认的是，嗯……你们刚才有没有注意它有没有在呼吸？”  
+{{< /message >}}
+
+{{< message name="<主持人> 环×3" avatar="zcr.jpg" >}}
+兔子没有跑太远，在间隔你们约五十米距离时，它停下来，继续呆坐着看着你们——然后你们注意到，在它身后，不知什么时候又冒出几只兔子，而且一样呆坐着看着你们。  
+{{< /message >}}
+
+{{< message name="<费希特> 环×4" nameColor="#E3A60E" background="#E3A60E40" >}}
+“唔……好多兔子……我一定是在做梦，我在飞船上睡着了还没醒来。”掐自己胳膊。  
+{{< /message >}}
+
+{{< message name="<马龙·马洛> 环×2" nameColor="#20BA43" background="#20BA4340" >}}
+“嗯……我建议咱们慎重一点。我的意思是说，快跑……”  
+{{< /message >}}
+
+{{< message name="<费希特> 环×4" nameColor="#E3A60E" background="#E3A60E40" >}}
+“万一他们有狩猎本能呢，话说兔子应该不会有，但是这个不像是一般兔子，我们先退回帐篷吧。”  
+{{< /message >}}
+
+{{< message name="<马龙·马洛> 环×2" nameColor="#20BA43" background="#20BA4340" >}}
+“笨蛋……快跑也是，有序撤退。”  
+{{< /message >}}
+
+{{< message name="<阿丁诺·科波菲尔> 环×3" align="right" nameColor="#F0561D" background="#F0561D40" >}}
+“跑！”  
+{{< /message >}}
+
+{{< message name="<主持人> 环×3" avatar="zcr.jpg" >}}
+我确认一下你们三人的意见，你们要跑，但是往哪跑？营地内部吗？  
+{{< /message >}}
+
+{{< message name="<费希特> 环×4" nameColor="#E3A60E" background="#E3A60E40" >}}
+我往帐篷跑回去。  
+{{< /message >}}
+
+{{< message name="<阿丁诺·科波菲尔> 环×3" align="right" nameColor="#F0561D" background="#F0561D40" >}}
+朝帐篷跑去。  
+{{< /message >}}
+
+{{< message name="<马龙·马洛> 环×2" nameColor="#20BA43" background="#20BA4340" >}}
+每一个营地的帐篷，都做了小缝吗？  
+{{< /message >}}
+
+{{< message name="<主持人> 环×3" avatar="zcr.jpg" >}}
+小缝？指的什么意思？你是说应对入侵的措施？不是在帐篷上，是帐篷与帐篷之间留下的过道等。  
+营地帐篷有很多，毕竟曾经住过三百号人。你们躲了进去，而有着和猎户合作经验的马龙意识到，这种行为就好像缩壳乌龟，无法实质解决危险  
+{{< /message >}}
+
+{{< message name="<马龙·马洛> 环×2" nameColor="#20BA43" background="#20BA4340" >}}
+“先分析一下情况？当然我感觉这里的事情都超出常理。”  
+{{< /message >}}
+
+{{< message name="<主持人> 环×3" avatar="zcr.jpg" >}}
+是的，所以你很难分析出来什么，因为眼下的情况难以找出逻辑——这是一次驱使，你接受吗？  
+{{< /message >}}
+
+{{< message name="<马龙·马洛> 环×2" nameColor="#20BA43" background="#20BA4340" >}}
+感觉没有不接受的道理，但是有什么代价？  
+{{< /message >}}
+
+{{< message name="<主持人> 环×3" avatar="zcr.jpg" >}}
+代价就是你现在想不出东西。  
+{{< /message >}}
+
+{{< message name="<马龙·马洛> 环×3" nameColor="#20BA43" background="#20BA4340" >}}
+先接受吧。  
+{{< /message >}}
+
+{{< message name="<阿丁诺·科波菲尔> 环×3" align="right" nameColor="#F0561D" background="#F0561D40" >}}
+“我们能在这些帐篷里搜搜有没有资料吗？”  
+{{< /message >}}
+
+{{< message name="<主持人> 环×3" avatar="zcr.jpg" >}}
+没有资料，很干净，按照马龙之前的说法，这些资料大概在撤离时被转移了。  
+{{< /message >}}
+
+{{< message name="<马龙·马洛> 环×3" nameColor="#20BA43" background="#20BA4340" >}}
+“我说，我摆烂了，太诡异了。”  
+{{< /message >}}

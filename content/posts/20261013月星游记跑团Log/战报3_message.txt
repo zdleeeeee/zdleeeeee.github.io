@@ -1,0 +1,252 @@
+{{< message name="<主持人> 环×3" avatar="zcr.jpg" >}}
+当你们从睡眠中苏醒，看着潜水服内嵌表盘上的时间，意识到距离月球还有约半天的时间。  
+而场外的景象大变样。星空还是那片星空，但此时此刻漂浮着许许多多的陨石，你们觉得自己很可能是第一批如此近距离欣赏漂浮在太空中的陨石的人类——你们错了。  
+在漂浮的陨石带之间，混杂着一些老式大号炮弹，它们大多严重变形，有的炮弹舱门被挤开，一些先遣者的一部分挂在炮弹里，另一部分则飘在太空中，像舞者般飘动，又好像在挥手欢迎你们  
+你们对此等情景并没有足够的心理预期，费希特在慌乱之下不小心碰到了操纵杆，太空舱的方向微微偏转，眼看着就要冲入陨石更加密集的区域。  
+这是一次针对费希特困扰的驱使，你可以支付一枚命运点拒绝，或者接受这次驱使，并获得一枚命运点。  
+{{< /message >}}
+
+{{< message name="<费希特> 环×4" nameColor="#E3A60E" background="#E3A60E40" >}}
+我接受这次驱使，面对突发情况我根本无办法推理眼下的情况，变得手忙脚乱。  
+{{< /message >}}
+
+{{< message name="<迈克·利伯蒂> 环×3" >}}
+“我的天呐！我的天呐！我的天呐！”突然发出叫声的迈克吓了你们一跳，他指向另一扇舷窗，一颗炮弹残骸正在靠近你们，“我们要撞上了！”  
+{{< /message >}}
+
+{{< message name="<阿丁诺·科波菲尔> 环×3" align="right" nameColor="#F0561D" background="#F0561D40" >}}
+转头向众人喊道，“谁会驾驶？快去控制方向！”  
+{{< /message >}}
+
+{{< message name="<迈克·利伯蒂> 环×3" >}}
+“我会驾驶！”迈克举起手，而阿丁诺知道，他的架势技术和自己一样，相当一般。  
+{{< /message >}}
+
+{{< message name="<马龙·马洛> 环×3" nameColor="#20BA43" background="#20BA4340" >}}
+什么嘛……原来自己比想象中还冷静啊。毕竟我可不想就这么死掉。  
+{{< /message >}}
+
+{{< message name="<主持人> 环×3" avatar="zcr.jpg" >}}
+马龙，如果你还没点技能，现在正是点一下的好时候，想通过控制杆避开残骸的难度是4。  
+{{< /message >}}
+
+{{< message name="<费希特> 环×4" nameColor="#E3A60E" background="#E3A60E40" >}}
+我看着这种情况，只能暂时放空大脑相信别人。  
+{{< /message >}}
+
+{{< message name="<阿丁诺·科波菲尔> 环×3" align="right" nameColor="#F0561D" background="#F0561D40" >}}
+摊。  
+{{< /message >}}
+
+{{< message name="<马龙·马洛> 环×3" nameColor="#20BA43" background="#20BA4340" >}}
+思考……驾驶这种东西点个+3还是点个+2，还是必须+4才够用？  
+侦探的话肯定调查还是第一位，所以+4应该给调查，感觉驾驶最多吃一个+3。  
+{{< /message >}}
+
+{{< message name="<马龙·马洛> O" nameColor="#20BA43" background="#20BA4340" >}}
+0+--+3（驾驶）=+2（尚可），失败  
+{{< /message >}}
+
+{{< message name="<马龙·马洛> 环×3" nameColor="#20BA43" background="#20BA4340" >}}
+我是哪来的大眉笔！  
+{{< /message >}}
+
+{{< message name="<阿丁诺·科波菲尔> 环×3" align="right" nameColor="#F0561D" background="#F0561D40" >}}
+你可以用命运点。  
+{{< /message >}}
+
+{{< message name="<马龙·马洛> 环×3" nameColor="#20BA43" background="#20BA4340" >}}
+命运点可以干啥呢？  
+{{< /message >}}
+
+{{< message name="<阿丁诺·科波菲尔> 环×3" align="right" nameColor="#F0561D" background="#F0561D40" >}}
+如果存在可以帮到这次检定的特征，就可以激活它，选择重新掷骰或者+2。  
+{{< /message >}}
+
+{{< message name="<费希特> 环×4" nameColor="#E3A60E" background="#E3A60E40" >}}
+或者使用你的特技！  
+{{< /message >}}
+
+{{< message name="<马龙·马洛> 环×3" nameColor="#20BA43" background="#20BA4340" >}}
+我一个侦探怎么可能有开车的特技？除非我口胡一下，说我非常冷静，临危不惧这一块，但是这样的特技不是太宽泛了吗？  
+{{< /message >}}
+
+{{< message name="<费希特> 环×4" nameColor="#E3A60E" background="#E3A60E40" >}}
+那个时代好像侦探都是干黑活的。  
+{{< /message >}}
+
+{{< message name="<马龙·马洛> 环×3" nameColor="#20BA43" background="#20BA4340" >}}
+这个时代都有福尔摩斯了吧，那我觉得也没啥黑活不黑活的。  
+{{< /message >}}
+
+{{< message name="<主持人> 环×3" avatar="zcr.jpg" >}}
+无所谓，只要让你的角色足够积极主动、能力过人且充满戏剧性即可。  
+{{< /message >}}
+
+{{< message name="<马龙·马洛> 环×3" nameColor="#20BA43" background="#20BA4340" >}}
+因为我是侦探，所以经常遇到艰难急险的情况。越是在这种紧迫情况反而越是冷静行动迅速，这是成为侦探的必须条件，然后烧一个命运点，+2。  
+{{< /message >}}
+
+{{< message name="<主持人> 环×3" avatar="zcr.jpg" >}}
+我忘了你的核心概念是什么了，你在此补上吧！  
+{{< /message >}}
+
+{{< message name="<马龙·马洛> 环×2" nameColor="#20BA43" background="#20BA4340" >}}
+我也忘了，加个定语来，解决问题的侦探，困扰是无逻辑的事物几乎无法理解。  
+{{< /message >}}
+
+{{< message name="<主持人> 环×3" avatar="zcr.jpg" >}}
+实在不行咱传统点，身经百战的私家侦探？  
+{{< /message >}}
+
+{{< message name="<马龙·马洛> 环×2" nameColor="#20BA43" background="#20BA4340" >}}
+OK！  
+{{< /message >}}
+
+{{< message name="<主持人> 环×3" avatar="zcr.jpg" >}}
+OK，那么+2之后达到了出色（+4），为平局。  
+在你临危不乱地驾驶之下，太空舱顺利地避开了那些陨石。  
+{{< /message >}}
+
+{{< message name="<迈克·利伯蒂> 环×3" >}}
+“我的天呐！刚刚可真危险！”迈克一阵后怕，“尤其是那些运动状态的陨石，速度真快——马洛先生，你以前一定打过移动靶！”  
+{{< /message >}}
+
+{{< message name="<马龙·马洛> 环×2" nameColor="#20BA43" background="#20BA4340" >}}
+喘了一口气，想去数窗外的炮弹数量。  
+{{< /message >}}
+
+{{< message name="<主持人> 环×3" avatar="zcr.jpg" >}}
+他话音刚落，迈克口中那些“运动状态的陨石”就证明了自己的危险性，你们感到剧烈震动，显然有东西以相当快的速度撞上了太空舱。  
+撞击位置与你们前进方向相反，这让太空舱的速度陡然提升。  
+{{< /message >}}
+
+{{< message name="<马龙·马洛> 环×2" nameColor="#20BA43" background="#20BA4340" >}}
+习惯性的扶额，继续尝试维持驾驶姿态。  
+{{< /message >}}
+
+{{< message name="<主持人> 环×3" avatar="zcr.jpg" >}}
+虽然迟到行为令人恼火，但不是所有事情都适合提前，比如登月  
+现在太空舱以比计划中更快的速度冲向月球，你们得有所行动了！  
+{{< /message >}}
+
+{{< message name="<马龙·马洛> 环×2" nameColor="#20BA43" background="#20BA4340" >}}
+“那个，你们喜欢吃，小肉饼吗？”  
+{{< /message >}}
+
+{{< message name="<主持人> 环×3" avatar="zcr.jpg" >}}
+迈克迅速收集你们之前吃剩的袋子，将它们塞进箱子并将箱子锁好，然后坐回座位，开始往身上缠固定绳，“我的天呐！伙计们，我们即将承受巨大的冲击！”  
+{{< /message >}}
+
+{{< message name="<阿丁诺·科波菲尔> 环×3" align="right" nameColor="#F0561D" background="#F0561D40" >}}
+跟着一起缠固定绳，保命要紧。  
+{{< /message >}}
+
+{{< message name="<马龙·马洛> 环×2" nameColor="#20BA43" background="#20BA4340" >}}
+继续尽可能调整，当然，一个炮弹能有什么姿态呢？感觉无论如何都是难逃坠机的命运。  
+{{< /message >}}
+
+{{< message name="<阿丁诺·科波菲尔> 环×3" align="right" nameColor="#F0561D" background="#F0561D40" >}}
+“有办法减速吗？”  
+{{< /message >}}
+
+{{< message name="<费希特> 环×4" nameColor="#E3A60E" background="#E3A60E40" >}}
+我紧紧抓住一旁的栏杆，抵抗着下坠的速度，我明白在天空中这种下坠速度没有任何仪器能阻挡，“我不想变成小肉饼啊。”  
+{{< /message >}}
+
+{{< message name="<马龙·马洛> 环×2" nameColor="#20BA43" background="#20BA4340" >}}
+“让我看看？”  
+{{< /message >}}
+
+{{< message name="<主持人> 环×3" avatar="zcr.jpg" >}}
+马洛，你对速度和距离敏感吗？  
+如果你有一个代表对速度和距离敏感性的特征，你就可以判断你们还有多长时间可以抵达月球。  
+{{< /message >}}
+
+{{< message name="<费希特> 环×4" nameColor="#E3A60E" background="#E3A60E40" >}}
+观察着参考物加速度和重量，我试图判断还有多少时间够我们行动。  
+{{< /message >}}
+
+{{< message name="<马龙·马洛> 环×2" nameColor="#20BA43" background="#20BA4340" >}}
+我感觉不敏感，因为我毕竟是个侦探，这种东西不应该是我能知道的——我又不是运动员。  
+{{< /message >}}
+
+{{< message name="<主持人> 环×3" avatar="zcr.jpg" >}}
+你可以和犯人有过飙车戏码。  
+{{< /message >}}
+
+{{< message name="<马龙·马洛> 环×2" nameColor="#20BA43" background="#20BA4340" >}}
+这个年代的车需要飙吗？飙也是马车吧？马车的话，我也应该是骑马的吧？  
+{{< /message >}}
+
+{{< message name="<主持人> 环×3" avatar="zcr.jpg" >}}
+蒸汽汽车！你可以骑着马追蒸汽汽车……很有氛围——不过这段剧情过去了。  
+{{< /message >}}
+
+{{< message name="<阿丁诺·科波菲尔> 环×3" align="right" nameColor="#F0561D" background="#F0561D40" >}}
+回想自己学过的物理知识，通过月球大小的变化速度判断一下当前的行进速度。  
+{{< /message >}}
+
+{{< message name="<主持人> 环×3" avatar="zcr.jpg" >}}
+阿丁诺，虽然在炮弹刚刚发射时你难以判断，但现在月球的近景已经映入你们的眼帘，而且还在缓缓变大，你能确认还有不到半小时，你们就将完成登月壮举。  
+而费希特也有自己的发现，迈克提到的“巨大的冲击”不幸言中，因为不仅炮弹被陨石还是什么别的太空物质加了速，而且舱体出现了微小裂痕，用于缓冲的海水正在泄露。  
+{{< /message >}}
+
+{{< message name="<费希特> 环×4" nameColor="#E3A60E" background="#E3A60E40" >}}
+“我们可以把那个操作杆下的挡板拆开，我或许可以看一下，死马当活马医吧！”  
+{{< /message >}}
+
+{{< message name="<主持人> 环×3" avatar="zcr.jpg" >}}
+我觉得这是一次挑战！所谓挑战，就是在一个场景中，为了达成某一目的，你们需要完成多次行动。  
+费希特想办法堵住裂缝，这需要通过难度为3的工艺；以及，如果想让太空舱减速的话，也需要难度为3的驾驶；以及……通过难度为3的学术，可以帮你们找到最合适的应对冲击的方案。  
+{{< /message >}}
+
+{{< message name="<马龙·马洛> 环×2" nameColor="#20BA43" background="#20BA4340" >}}
+“迈克老兄，来搭把手！”  
+{{< /message >}}
+
+{{< message name="<马龙·马洛> O" nameColor="#20BA43" background="#20BA4340" >}}
+-+-0+3（驾驶）+1（迈克·利伯蒂的协助）  
+=+3（良好），平局  
+{{< /message >}}
+
+{{< message name="<阿丁诺·科波菲尔> 环×3" align="right" nameColor="#F0561D" background="#F0561D40" >}}
+开始掏自己随身携带的公文包，看看能不能找到胶带或者别的什么能堵住裂痕的东西。（公文包里的宝贝）  
+找到了一个前几天搜集的市面上新款的特级胶带，并用它堵上了裂缝。  
+{{< /message >}}
+
+{{< message name="<阿丁诺·科波菲尔> O" align="right" nameColor="#F0561D" background="#F0561D40" >}}
++0-++2（工艺）=+3（良好），平局  
+{{< /message >}}
+
+{{< message name="<主持人> 环×3" avatar="zcr.jpg" >}}
+其实这可以让你不检定直接成功。  
+{{< /message >}}
+
+{{< message name="<阿丁诺·科波菲尔> 环×3" align="right" nameColor="#F0561D" background="#F0561D40" >}}
+看到基本裂缝的问题基本解决后，开始思考，“我们得想想接下来的应对策略……”  
+{{< /message >}}
+
+{{< message name="<主持人> 环×3" avatar="zcr.jpg" >}}
+然后，费希特，你要负责寻找应对冲击的方案吗？  
+{{< /message >}}
+
+{{< message name="<费希特> 环×4" nameColor="#E3A60E" background="#E3A60E40" >}}
+我沉下心来思考寻找减速的方式……那我给我的学术点+3吧。我开始观察各个细节，整个飞船的架构并用玩所掌握的学术知识推演。  
+{{< /message >}}
+
+{{< message name="<费希特> O" nameColor="#E3A60E" background="#E3A60E40" >}}
++++++3（学术）=+7（史诗），大成功  
+{{< /message >}}
+
+{{< message name="<主持人> 环×3" avatar="zcr.jpg" >}}
+虽然漏出了部分海水，但太空舱冲向月球的速度得到了遏制，同时费希特计算出应对冲击最合适的位置并非座椅，而是一个箱子附近……剩余的时间足够你们完成固定了！  
+{{< /message >}}
+
+{{< message name="<阿丁诺·科波菲尔> 环×3" align="right" nameColor="#F0561D" background="#F0561D40" >}}
+听到费希特的结论，赶忙带着绳子去到箱子处固定好自己。  
+{{< /message >}}
+
+{{< message name="<费希特> 环×4" nameColor="#E3A60E" background="#E3A60E40" >}}
+“保佑！”我也去箱子处绑好自己。  
+{{< /message >}}
