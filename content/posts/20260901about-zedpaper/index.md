@@ -1,6 +1,6 @@
 +++
 date = '2026-09-01T17:47:00+08:00'
-draft = true
+draft = false
 title = 'About ZedPaper'
 tags = ['Front-End']
 ShowToc = true
@@ -87,7 +87,7 @@ $$
 
 ## Shortcodes
 
-ZedPaper provides the following ten shortcodes. Each example includes its source and rendered output. The image examples use `profile.jpg` from this post's page bundle; the audio and video examples use remote sample files and require an internet connection to play.
+ZedPaper provides the following twelve shortcodes. Each example includes its source and rendered output. The image examples use `profile.jpg` from this post's page bundle; the audio, video, Bilibili, and YouTube examples require an internet connection to play.
 
 Use the exact shortcode names shown below, including the capital letters in `inTextImg`. These templates use named parameters, except that `ltr` and `rtl` also accept a positional Markdown flag.
 
@@ -205,6 +205,54 @@ Use `video` with a `src` URL to embed the browser's video player. Like `audio`, 
 {{< video src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" >}}
 
 For a local file, place a video such as `sample.mp4` beside this post's `index.md` and use `src="sample.mp4"`. This shortcode only reads `src`; options such as `poster`, `loop`, or `autoplay` would require a template change.
+
+### bilibili
+
+Use `bilibili` to embed a Bilibili video by its BV or AV ID. The player fills the content width at a 16:9 aspect ratio and does not autoplay. These examples use the same video IDs as Stack's shortcode demo.
+
+```text
+{{</* bilibili "BV15ddUBvE12" */>}}
+```
+
+{{< bilibili "BV15ddUBvE12" >}}
+
+The optional second positional parameter selects a part (分 P), starting from `1`:
+
+```text
+{{</* bilibili "av170001" 2 */>}}
+```
+
+Named parameters are also supported. `id` is the video ID, `page` defaults to `1`, and `title` provides the iframe's accessible label:
+
+```text
+{{</* bilibili id="BV1634y1t7xR" page=1 title="Bilibili demo" */>}}
+```
+
+Pass the video ID rather than the full watch-page URL. Invalid IDs or non-positive part numbers produce a Hugo build error with the shortcode's location.
+
+### youtube
+
+Use `youtube` to embed a YouTube video by its 11-character ID. It shares the responsive 16:9 layout with `bilibili` and does not autoplay by default.
+
+```text
+{{</* youtube "ZJthWmvUzzc" */>}}
+```
+
+{{< youtube "ZJthWmvUzzc" >}}
+
+For named parameters, use `id` and an optional accessible `title`. Set `autoplay=true` to request automatic playback; whether it starts depends on the browser's autoplay policy.
+
+```text
+{{</* youtube id="ZJthWmvUzzc" title="YouTube demo" autoplay=true */>}}
+```
+
+The shortcode respects Hugo's YouTube privacy settings in `hugo.toml`:
+
+```toml
+[privacy.youtube]
+  privacyEnhanced = true # Use www.youtube-nocookie.com.
+  disable = false       # Set true to omit YouTube players entirely.
+```
 
 ### ltr
 
